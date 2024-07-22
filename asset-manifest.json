@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/senpy/static/css/main.ee75edab.css",
-    "main.js": "/senpy/static/js/main.e5a4fda4.js",
+    "main.js": "/senpy/static/js/main.cc6a08d0.js",
     "static/js/453.ecd59b49.chunk.js": "/senpy/static/js/453.ecd59b49.chunk.js",
     "static/media/post1.jpg": "/senpy/static/media/post1.02c7336ddcea61c773ca.jpg",
     "static/media/post3.jpg": "/senpy/static/media/post3.e3ac4469e09772ac2904.jpg",
@@ -13,11 +13,11 @@
     "static/media/huit_logo.png": "/senpy/static/media/huit_logo.1516c173a378d9bb3755.png",
     "index.html": "/senpy/index.html",
     "main.ee75edab.css.map": "/senpy/static/css/main.ee75edab.css.map",
-    "main.e5a4fda4.js.map": "/senpy/static/js/main.e5a4fda4.js.map",
+    "main.cc6a08d0.js.map": "/senpy/static/js/main.cc6a08d0.js.map",
     "453.ecd59b49.chunk.js.map": "/senpy/static/js/453.ecd59b49.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ee75edab.css",
-    "static/js/main.e5a4fda4.js"
+    "static/js/main.cc6a08d0.js"
   ]
 }
