@@ -6,7 +6,7 @@ import { DefaultLayout } from "./components/Layout";
 
 const App = (params) => {
     return (
-        <Router>
+        <Router basename="/senpy">
             <div className="app">
                 {/* <nav>
                     <ul>
