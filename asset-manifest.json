@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/senpy/static/css/main.ee75edab.css",
+    "main.js": "/senpy/static/js/main.e5a4fda4.js",
+    "static/js/453.ecd59b49.chunk.js": "/senpy/static/js/453.ecd59b49.chunk.js",
+    "static/media/post1.jpg": "/senpy/static/media/post1.02c7336ddcea61c773ca.jpg",
+    "static/media/post3.jpg": "/senpy/static/media/post3.e3ac4469e09772ac2904.jpg",
+    "static/media/partner.jpg": "/senpy/static/media/partner.629dcf1bbf7703c17419.jpg",
+    "static/media/mentoring_roadmap.png": "/senpy/static/media/mentoring_roadmap.2809adc653f973f419fc.png",
+    "static/media/post2.jpg": "/senpy/static/media/post2.c47c5a816b8c3a5d6839.jpg",
+    "static/media/logo.jpg": "/senpy/static/media/logo.5d7324a1a95103c13f59.jpg",
+    "static/media/senpy.jpg": "/senpy/static/media/senpy.c909b0ee3790d12fd4aa.jpg",
+    "static/media/huit_logo.png": "/senpy/static/media/huit_logo.1516c173a378d9bb3755.png",
+    "index.html": "/senpy/index.html",
+    "main.ee75edab.css.map": "/senpy/static/css/main.ee75edab.css.map",
+    "main.e5a4fda4.js.map": "/senpy/static/js/main.e5a4fda4.js.map",
+    "453.ecd59b49.chunk.js.map": "/senpy/static/js/453.ecd59b49.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ee75edab.css",
+    "static/js/main.e5a4fda4.js"
+  ]
+}
