@@ -1,0 +1,45 @@
+@import "normalize.css";
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Encode+Sans+Condensed:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pacifico&display=swap');
+
+:root{
+
+    //Light theme
+    --primary: #3d1ca1;
+    --primary-2: #4a40be;
+    --primary-3: #5765db;
+    --primary-4: #658af8;
+    --white: #fcfcfc;
+
+    //Dark theme
+    --secondary-1: #93b1d1;
+    --secondary-2: #6f8aaa;
+    --secondary-3: #4b6384;
+    --secondary-4: #273c5e;
+    --black: #030303;
+
+    // Default Layout
+    --default-layout-header-height: 60px;
+    --default-layout-width: 1150px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+    text-rendering: optimizeSpeed;
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+
+button, text, [tabindex]{
+    outline: none;
+    border: none;
+}

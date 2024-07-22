@@ -1,0 +1,35 @@
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: var(--white);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    width: 250px;
+
+    &:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transform: scale(1.1);
+    }
+
+    &-image {
+        width: 250px;
+        height: 180px;
+        object-fit: cover;
+    }
+
+    &-content {
+        padding: 16px;
+
+        &-date {
+            color: #999;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        &-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0;
+        }
+    }
+}
