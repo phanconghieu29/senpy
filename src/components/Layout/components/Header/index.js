@@ -52,8 +52,12 @@ function Header() {
                         </>
                     ) : (
                         <>
-                            <Button primary>Đăng nhập</Button>
-                            <Button outline>Đăng ký</Button>
+                            <Link to="/dang-nhap" className={cx("button-link")}>
+                                <Button primary>Đăng nhập</Button>
+                            </Link>
+                            <Link to="/dang-ky" className={cx("button-link")}>
+                                <Button outline>Đăng ký</Button>
+                            </Link>
                         </>
                     )}
                 </div>

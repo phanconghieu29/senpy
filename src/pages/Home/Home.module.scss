@@ -58,12 +58,17 @@
 }
 
 .roadmap-wrapper {
-    height: 640px;
+    height: 740px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #F2F0ED;
-    padding: 0px 276px;
+    // background-color: #FFF;
+    padding: 50px 276px;
+    
+    > img {
+        height: 80%;
+        object-fit: fill;
+    }
 }
 
 .posts-wrapper {

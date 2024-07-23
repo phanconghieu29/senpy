@@ -61,3 +61,9 @@
     border-radius: 90px;
     margin-right: 10px;
 }
+
+.button-link {
+    + .button-link{
+        margin: 0px 8px;
+    }
+}

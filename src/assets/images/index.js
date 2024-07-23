@@ -3,7 +3,7 @@ const images = {
     huit_logo: require('../images/huit_logo.png'),
     logo512: require('../images/senpy.jpg'),
     partner: require('../images/partner.jpg'),
-    roadmap: require('../images/mentoring_roadmap.png'),
+    roadmap: require('../images/roadmap.jpg'),
     banner: require('../images/banner.jpg'),
     post1: require('../images/post1.jpg'),
     post2: require('../images/post2.jpg'),

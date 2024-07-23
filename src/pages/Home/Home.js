@@ -1,5 +1,6 @@
 import classNames from "classnames/bind";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { Link } from "react-router-dom";
 
 import styles from "./Home.module.scss";
 import Card from "../../components/Card";
@@ -11,7 +12,7 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 const cx = classNames.bind(styles);
 
 const newsArticles = [
-    { id: 1, image: "logo", date: "12-07-2024", title: "Bài viết 1" },
+    { id: 1, image: "logo", date: "12-07-2024", title: "Bài viết 1", url: "https://www.giaitrivanhoa.vn/2024/06/youpreneur-launchpad-2024-am-me-khoi.html" },
     { id: 2, image: "logo512", date: "13-07-2024", title: "Bài viết 2" },
     { id: 3, image: "logo", date: "14-07-2024", title: "Bài viết 3" },
     { id: 4, image: "logo512", date: "15-07-2024", title: "Bài viết 4" },
@@ -57,6 +58,7 @@ function Home() {
                                 image={article.image}
                                 date={article.date}
                                 title={article.title}
+                                url={article.url}
                             />
                         ))}
                     </div>
