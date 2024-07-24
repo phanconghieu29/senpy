@@ -6,8 +6,9 @@ import { DefaultLayout } from "./components/Layout";
 
 const App = (params) => {
     return (
-        <Router basename={process.env.PUBLIC_URL}>
+        <Router basename="/senpy">
             <div className="app">
+
                 <Routes>
                     {publicRoutes.map((route, index) => {
                         const Page = route.component;

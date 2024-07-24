@@ -12,10 +12,31 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 const cx = classNames.bind(styles);
 
 const newsArticles = [
-    { id: 1, image: "event1", date: "12-07-2024", title: "Cuộc thi sinh viên công thương với ý tưởng khởi nghiệp lần IV - năm 2023"},
-    { id: 2, image: "event2", date: "13-07-2024", title: "Cuộc thi DigiTrans Smart City - Sáng kiến xây dựng thành phố thông minh năm 2023" },
-    { id: 3, image: "event3", date: "14-07-2024", title: "YOUPRENEUR LAUNCHPAD 2024: Đam mê khởi nghiệp và Sứ mệnh xây dựng Thành phố Thông minh tại Đại học Ngoại Thương FTU", url: "https://www.giaitrivanhoa.vn/2024/06/youpreneur-launchpad-2024-am-me-khoi.html"  },
-    { id: 4, image: "logo512", date: "15-07-2024", title: "SENPY - FIND YOUR MENTOR: Nền tảng giúp mentee tìm thấy mentor định mệnh của mình." },
+    {
+        id: 1,
+        image: "event1",
+        date: "12-07-2024",
+        title: "Cuộc thi sinh viên công thương với ý tưởng khởi nghiệp lần IV - năm 2023",
+    },
+    {
+        id: 2,
+        image: "event2",
+        date: "13-07-2024",
+        title: "Cuộc thi DigiTrans Smart City - Sáng kiến xây dựng thành phố thông minh năm 2023",
+    },
+    {
+        id: 3,
+        image: "event3",
+        date: "14-07-2024",
+        title: "YOUPRENEUR LAUNCHPAD 2024: Đam mê khởi nghiệp và Sứ mệnh xây dựng Thành phố Thông minh tại Đại học Ngoại Thương FTU",
+        url: "https://www.giaitrivanhoa.vn/2024/06/youpreneur-launchpad-2024-am-me-khoi.html",
+    },
+    {
+        id: 4,
+        image: "logo512",
+        date: "15-07-2024",
+        title: "SENPY - FIND YOUR MENTOR: Nền tảng giúp mentee tìm thấy mentor định mệnh của mình.",
+    },
 ];
 
 const posts = [
@@ -71,7 +92,23 @@ function Home() {
                 </div>
                 <div className={cx("cooperation-wrapper")}>
                     <p className={cx("title")}>Đơn vị đồng hành</p>
-                    <img src={images.partner} alt="Partner" />
+                    <img
+                        src={images.huit_banner}
+                        alt="Đại học Công thương Tp.HCM"
+                        style={{ marginTop: "25px" }}
+                    />
+                    <div className={cx("cooperation-logos")}>
+                        <img
+                            src={images.ssc_logo}
+                            alt="Đại học Công thương Tp.HCM"
+                            className={cx("cooperation-logo")}
+                        />
+                        <img
+                            src={images.huit_mentoring_club}
+                            alt="Đại học Công thương Tp.HCM"
+                            className={cx("cooperation-logo")}
+                        />
+                    </div>
                 </div>
                 <div className={cx("roadmap-wrapper")}>
                     <p className={cx("title")}>Lộ trình phát triển</p>

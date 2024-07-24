@@ -1,6 +1,9 @@
 const images = {
     logo: require("../images/senpy_logo.png"),
     huit_logo: require("../images/huit_logo.png"),
+    huit_banner: require("../images/huit.png"),
+    ssc_logo: require("../images/ssc_logo.jpg"),
+    huit_mentoring_club: require("../images/huit_mentoring_club.jpg"),
     logo512: require("../images/senpy.jpg"),
     partner: require("../images/partner.jpg"),
     roadmap: require("../images/roadmap.jpg"),
