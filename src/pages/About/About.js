@@ -11,7 +11,7 @@ function About() {
         <div className={cx("wrapper")}>
             <div className={cx("inner")}>
                 <div className={cx("banner-wrapper")}>
-                    <img src={images.logo512} alt="Banner" />
+                    <img src={images.aboutBanner} alt="Banner" />
                 </div>
                 <div className={cx("about-wrapper")}>
                     <p className={cx("title")}>Về chúng tôi</p>

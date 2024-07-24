@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Ký Đồ Án Tốt Nghiệp</title>
+    <link rel="stylesheet" href="./templates/css/Mentee.css">
+    <link rel="icon" href="./templates/img/LOGO.png" type="image/icon type">
+    <style>
+      #other-strength-textarea,
+      #other-weakness-textarea,
+      #other-goal-textarea {
+          display: none;
+      }
+    </style>
+</head>
+
+<body>
+    <div id="container_1">
+  
+        <h1 id="title">
+            Đăng Ký Đồ Án Tốt Nghiệp
+      </h1><!--title-->
+      <!-- <p id="description">
+        Enter the required data in the boxes.
+      </p>description- -->
+        
+      </div><!---container_1--->
+      <div id="container_2">
+        
+        <form target="hidden_iframe" id="survey-form" method="GET" action="https://script.google.com/macros/s/AKfycbxAPi7mglsJsLnEggSdDvbcgizgg2Jdiv4EmlckL5losD7Bia2rkte_mb_IyDBxV84s0A/exec">
+          <label id="name-label"> Họ tên</label>
+            <input type="text" id="name" name="name" class="form" required placeholder="Ví dụ Nguyễn Văn A"><br><!--name--->
+
+        <label id="name-label"> MSSV</label>
+            <input type="text" id="name" name="name" class="form" required placeholder="Ví dụ 2001210000"><br><!--name--->
+        
+            <label id="name-label"> Lớp</label>
+            <input type="text" id="name" name="name" class="form" required placeholder="Ví dụ DHTH_TD"><br><!--name--->
+            
+            <p>Giới tính</p>
+            <label>
+              <input type="radio" name="genre" value="Male">Nam
+            </label>
+            <label>
+              <input type="radio" name="genre" value="Female">Nữ
+            </label>
+            <label>
+              <input type="radio" name="genre" value="Other">Không muốn trả lời
+            </label>
+            <br>
+            <br>
+          <label>
+            <label id="email-label">Email</label>
+            <input type="email" id="email" name="email" class="form" required placeholder="Email liên lạc"><br><!---email-->
+          
+          <label>
+            <label id="phone-label">Số điện thoại</label>
+            <input type="tel" id="tel" name="tel" class="form" required placeholder="Số điện thoại liên lạc"><br><!---email-->
+          
+            <label id="name-label" >Link facebook</label>
+            <input type="link" id="link" name="link" class="form" required placeholder="link facebook của bạn"><br><!---number-->
+          
+            <p>Bạn là sinh viên năm</p>
+            <label>
+              <input type="radio" name="Year" value="Male">Năm nhất
+            </label>
+            <label>
+              <input type="radio" name="Year" value="Female">Năm hai
+            </label>
+            <label>
+              <input type="radio" name="Year" value="Female">Năm ba
+            </label>
+            <label>
+              <input type="radio" name="Year" value="Female">Năm bốn
+            </label>
+            <label>
+              <input type="radio" name="Year" value="Female">Đã tốt nghiệp
+            </label>
+            <br>
+            <br>
+
+        <label id="carrer">Bạn đã có đồ án tốt nghiệp chưa?</label> 
+        <!-- <p>Nếu có rồi thì chọn "Có" chưa có thì chọn "Chưa"</p> -->
+         <br>
+        <label>
+            <input type="radio" name="Year" value="Male">Có rồi
+          </label>
+          <label>
+            <input type="radio" name="Year" value="Male">chưa có
+          </label>
+          <br>
+          <br>
+          <main id="infor_pr">
+            <label id="carrer">Tên đồ án tốt nghiệp của bạn</label> 
+            <textarea id="name_project" name="name_project" placeholder="VD Ứng dụng học tập"></textarea>
+            <br><br>
+            <label id="carrer">Mô tả đồ án tốt nghiệp của bạn</label> 
+            <textarea id="name_project" name="name_project" placeholder="Viết ngắn gọn mô tả đồ án"></textarea>
+  
+            <br><br>
+            <label id="carrer">Chuyên ngành đồ án</label>
+            <br>
+            <select id="dropdown" name="role" required>
+              <option disabled selected value>
+                Đồ án của bạn theo lĩnh vực
+              </option>
+              <option>
+                Công nghệ phần mềm
+              </option>
+              <option>
+                Khoa học dữ liệu
+              </option>
+              <option>
+                Hệ thống thông tin
+              </option>
+              <option>
+                Mạng máy tính
+              </option>
+              
+            </select><!--dropdown--->
+          </main>
+          
+          <br><br>
+          <input type="submit" id="submit" name="submit" value="Submit">
+            </form>
+      </div>
+      <script>
+        document.querySelectorAll('input[name="strengths"]').forEach((input) => {
+            input.addEventListener('change', function() {
+                document.getElementById('other-strength-textarea').style.display = this.id === 'other-strength-checkbox' ? 'block' : 'none';
+            });
+        });
+
+        document.querySelectorAll('input[name="weaknesses"]').forEach((input) => {
+            input.addEventListener('change', function() {
+                document.getElementById('other-weakness-textarea').style.display = this.id === 'other-weakness-checkbox' ? 'block' : 'none';
+            });
+        });
+
+        document.querySelectorAll('input[name="goals"]').forEach((input) => {
+            input.addEventListener('change', function() {
+                document.getElementById('other-goal-textarea').style.display = this.id === 'other-goal-checkbox' ? 'block' : 'none';
+            });
+        });
+
+        document.getElementById("survey-form").addEventListener("submit", function(event) {
+            const otherStrengthCheckbox = document.getElementById("other-strength-checkbox");
+            const otherStrengthTextarea = document.getElementById("other-strength-textarea");
+            if (otherStrengthCheckbox.checked && otherStrengthTextarea.value.trim() !== "") {
+                otherStrengthCheckbox.value = otherStrengthTextarea.value.trim();
+            }
+
+            const otherWeaknessCheckbox = document.getElementById("other-weakness-checkbox");
+            const otherWeaknessTextarea = document.getElementById("other-weakness-textarea");
+            if (otherWeaknessCheckbox.checked && otherWeaknessTextarea.value.trim() !== "") {
+                otherWeaknessCheckbox.value = otherWeaknessTextarea.value.trim();
+            }
+
+            const otherGoalCheckbox = document.getElementById("other-goal-checkbox");
+            const otherGoalTextarea = document.getElementById("other-goal-textarea");
+            if (otherGoalCheckbox.checked && otherGoalTextarea.value.trim() !== "") {
+                otherGoalCheckbox.value = otherGoalTextarea.value.trim();
+            }
+        });
+    </script>
+      <script src="./templates/js/mentee_information.js"></script>
+</body>
+</html>

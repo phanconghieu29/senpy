@@ -47,7 +47,7 @@ function Home() {
         <div className={cx("wrapper")}>
             <div className={cx("inner")}>
                 <div className={cx("banner-wrapper")}>
-                    <img src={images.logo512} alt="Banner" />
+                    <img src={images.homeBanner} alt="Banner" />
                 </div>
                 <div className={cx("news-wrapper")}>
                     <p className={cx("title")}>Tin tức - Sự kiện</p>

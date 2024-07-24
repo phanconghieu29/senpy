@@ -55,9 +55,15 @@ function Header() {
                             <Link to="/dang-nhap" className={cx("button-link")}>
                                 <Button primary>Đăng nhập</Button>
                             </Link>
-                            <Link to="/dang-ky" className={cx("button-link")}>
+                            <a
+                                href="/Form/mentor.html"
+                                style={{
+                                    textDecoration: "none",
+                                    marginLeft: "10px",
+                                }}
+                            >
                                 <Button outline>Đăng ký</Button>
-                            </Link>
+                            </a>
                         </>
                     )}
                 </div>
