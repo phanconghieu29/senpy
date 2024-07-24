@@ -1,26 +1,28 @@
 {
   "files": {
-    "main.css": "/senpy/static/css/main.6339bbbf.css",
-    "main.js": "/senpy/static/js/main.43030d96.js",
-    "static/js/453.ecd59b49.chunk.js": "/senpy/static/js/453.ecd59b49.chunk.js",
-    "static/media/HUITCO-1244.jpg": "/senpy/static/media/HUITCO-1244.0028975b9e0eb0b7e0f9.jpg",
-    "static/media/event3.jpg": "/senpy/static/media/event3.edb99db424630904e9b9.jpg",
-    "static/media/post1.jpg": "/senpy/static/media/post1.02c7336ddcea61c773ca.jpg",
-    "static/media/post3.jpg": "/senpy/static/media/post3.e3ac4469e09772ac2904.jpg",
-    "static/media/event2.jpg": "/senpy/static/media/event2.c7d5aa5616f9c9ededd4.jpg",
-    "static/media/partner.jpg": "/senpy/static/media/partner.629dcf1bbf7703c17419.jpg",
-    "static/media/roadmap.jpg": "/senpy/static/media/roadmap.c5612ec717915a605e08.jpg",
-    "static/media/post2.jpg": "/senpy/static/media/post2.c47c5a816b8c3a5d6839.jpg",
-    "static/media/senpy_logo.png": "/senpy/static/media/senpy_logo.5d7324a1a95103c13f59.png",
-    "static/media/senpy.jpg": "/senpy/static/media/senpy.c909b0ee3790d12fd4aa.jpg",
-    "static/media/huit_logo.png": "/senpy/static/media/huit_logo.1516c173a378d9bb3755.png",
-    "index.html": "/senpy/index.html",
-    "main.6339bbbf.css.map": "/senpy/static/css/main.6339bbbf.css.map",
-    "main.43030d96.js.map": "/senpy/static/js/main.43030d96.js.map",
-    "453.ecd59b49.chunk.js.map": "/senpy/static/js/453.ecd59b49.chunk.js.map"
+    "main.css": "/static/css/main.5ea19595.css",
+    "main.js": "/static/js/main.8ae5bab6.js",
+    "static/js/453.ecd59b49.chunk.js": "/static/js/453.ecd59b49.chunk.js",
+    "static/media/HUITCO-1244.jpg": "/static/media/HUITCO-1244.0028975b9e0eb0b7e0f9.jpg",
+    "static/media/home_banner.jpg": "/static/media/home_banner.f3fd9091353820b43f9d.jpg",
+    "static/media/event3.jpg": "/static/media/event3.edb99db424630904e9b9.jpg",
+    "static/media/post1.jpg": "/static/media/post1.02c7336ddcea61c773ca.jpg",
+    "static/media/post3.jpg": "/static/media/post3.e3ac4469e09772ac2904.jpg",
+    "static/media/about_banner.jpg": "/static/media/about_banner.e23d61715923640bd1ef.jpg",
+    "static/media/event2.jpg": "/static/media/event2.c7d5aa5616f9c9ededd4.jpg",
+    "static/media/partner.jpg": "/static/media/partner.629dcf1bbf7703c17419.jpg",
+    "static/media/roadmap.jpg": "/static/media/roadmap.c5612ec717915a605e08.jpg",
+    "static/media/post2.jpg": "/static/media/post2.c47c5a816b8c3a5d6839.jpg",
+    "static/media/senpy_logo.png": "/static/media/senpy_logo.5d7324a1a95103c13f59.png",
+    "static/media/senpy.jpg": "/static/media/senpy.c909b0ee3790d12fd4aa.jpg",
+    "static/media/huit_logo.png": "/static/media/huit_logo.1516c173a378d9bb3755.png",
+    "index.html": "/index.html",
+    "main.5ea19595.css.map": "/static/css/main.5ea19595.css.map",
+    "main.8ae5bab6.js.map": "/static/js/main.8ae5bab6.js.map",
+    "453.ecd59b49.chunk.js.map": "/static/js/453.ecd59b49.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6339bbbf.css",
-    "static/js/main.43030d96.js"
+    "static/css/main.5ea19595.css",
+    "static/js/main.8ae5bab6.js"
   ]
 }

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Ký Mentee</title>
+    <link rel="stylesheet" href="./templates/css/Mentee.css">
+    <link rel="icon" href="./templates/img/LOGO.png" type="image/icon type">
+    <style>
+      #other-strength-textarea,
+      #other-weakness-textarea,
+      #other-goal-textarea {
+          display: none;
+      }
+  </style>
+</head>
+<body>
+    <div id="container_1">
+  
+        <h1 id="title">
+            Đăng Ký Mentor
+      </h1><!--title-->
+      <!-- <p id="description">
+        Enter the required data in the boxes.
+      </p>description- -->
+        
+      </div><!---container_1--->
+      <div id="container_2">
+        
+        <form target="hidden_iframe" id="survey-form" method="GET" action="https://script.google.com/macros/s/AKfycbxAIX8iZWj6BnFVC-V5toA2CrN9xok1pEa1yxaS3YK6G4NPknNRsFczsWdVSnXHfpEI/exec">
+          <label id="name-label">Họ tên</label>
+            <input type="text" id="name" name="name" class="form" required placeholder="Ví dụ Nguyễn Văn A"><br><!--name--->
+          
+            <p>Giới tính</p>
+            <label>
+              <input type="radio" name="genre" value="Male">Nam
+            </label>
+            <label>
+              <input type="radio" name="genre" value="Female">Nữ
+            </label>
+            <br>
+            <br>
+          <label>
+            <label id="email-label">Email</label>
+            <input type="email" id="email" name="email" class="form" required placeholder="Email liên lạc"><br><!---email-->
+          
+          <label>
+            <label id="phone-label">Số điện thoại</label>
+            <input type="tel" id="tel" name="tel" class="form" required placeholder="Số điện thoại liên lạc"><br><!---email-->
+          
+            <label id="name-label" >Link facebook</label>
+            <input type="link" id="link" name="link" class="form" required placeholder="link facebook của bạn"><br><!---number-->
+                      
+            <br>
+
+          <label id="carrer">Chuyên Môn</label>
+          <select id="dropdown" name="role" required>
+            <option disabled selected value>
+              Chọn chuyên ngành của bạn
+            </option>
+            <option>
+              Đảm bảo chất lượng và an toàn thực phẩm
+            </option>
+            <option>
+              Công nghệ chế biến thuỷ sản
+            </option>
+            <option>
+              Kế toán
+            </option>
+            <option>
+              Tài chính - Ngân hàng
+            </option>
+            <option>
+              Quản trị kinh doanh
+            </option>
+            <option>
+              Kinh doanh quốc tế
+            </option>
+            <option>
+              Luật kinh tế
+            </option>
+            <option>
+              Khoa học dinh dưỡng và ẩm thực
+            </option>
+            <option>
+              Khoa học chế biến món ăn
+            </option>
+            <option>
+              Quản trị dịch vụ du lịch và lữ hành
+            </option>
+            <option>
+              Quản trị nhà hàng và dịch vụ ăn uống
+            </option>
+            <option>
+              Quản trị khách sạn 
+            </option>
+            <option>
+              Ngôn ngữ Anh
+            </option>
+            <option>
+              Ngôn ngữ Trung Quốc
+            </option>
+            <option>
+              Công nghệ thông tin
+            </option>
+            <option>
+              An toàn thông tin
+            </option>
+            <option>
+              Công nghệ chế tạo máy
+            </option>
+            <option>
+              Công nghệ kỹ thuật điện, điện tử
+            </option>
+            <option>
+              Công nghệ kỹ thuật cơ điện tử
+            </option>
+            <option>
+              Công nghệ kỹ thuật điều khiển và tự động hóa
+            </option>
+            <option>
+              Công nghệ kỹ thuật hoá học
+            </option>
+            <option>
+              Công nghệ vật liệu
+            </option>
+            <option>
+              Công nghệ dệt, may
+            </option>
+            <option>
+              Công nghệ kỹ thuật môi trường
+            </option>
+            <option>
+              Quản lý tài nguyên và môi trường
+            </option>
+            <option>
+              Công nghệ sinh học
+            </option>
+            <option>
+              Kinh doanh thời trang và dệt may
+            </option>
+            <option>
+              Quản trị kinh doanh thực phẩm
+            </option>
+            <option>
+              Marketing
+            </option>
+            <option>
+              Kỹ thuật nhiệt
+            </option>
+            <option>
+              Công nghệ tài chính
+            </option>
+            <option>
+              Khoa học dữ liệu
+            </option>
+            <option>
+              Thương mại điện tử
+            </option>
+            <option>
+              Logistics và quản lý chuỗi cung ứng
+            </option>
+          </select><!--dropdown--->
+          </label><!---radioButtons--->
+          <p>Điểm mạnh của bạn là gì?</p>
+          <label>
+            <input type="radio" name="strengths" value="Có quyết tâm cao">Có quyết tâm cao
+          </label>
+            <label>
+              <input type="radio" name="strengths" value="Biết lắng nghe">Biết lắng nghe
+            </label>
+            <label>
+              <input type="radio" name="strengths" value="Thích tiếp thu những kiến thức mới">Thích tiếp thu những kiến thức mới
+            </label>
+            <label>
+              <input type="radio" name="strengths" id="other-strength-checkbox" value="Khác">Khác
+            </label><br><br>
+            <textarea id="other-strength-textarea" name="other_strengths" placeholder="Viết ngắn gọn về bạn">
+
+            </textarea>
+
+          <p>Điểm yếu của bạn là gì?</p>
+          <label>
+            <input type="radio" name="weaknesses" value="Thường xuyên bị phân tâm">Thường xuyên bị phân tâm
+          </label>
+          <label>
+            <input type="radio" name="weaknesses" value="Hay trì hoãn">Hay trì hoãn
+          </label>
+          <label>
+            <input type="radio" name="weaknesses" value="Hướng nội, không tự tin về bản thân">Hướng nội, không tự tin về bản thân
+          </label>
+          <label>
+            <input type="radio" name="weaknesses" id="other-weakness-checkbox" value="Khác">Khác
+          </label><br><br>
+          <textarea id="other-weakness-textarea" name="other_weaknesses" placeholder="Viết ngắn gọn về bạn"></textarea>
+
+
+          <p>Mục tiêu của bạn là gì?</p>
+          <label>
+            <input type="radio" name="goals" value="Tự tin về kỹ năng giao tiếp">Tự tin về kỹ năng giao tiếp
+          </label>
+            <label>
+              <input type="radio" name="goals" value="Đọc ít nhất một tháng 1 quyển sách">Đọc ít nhất một tháng 1 quyển sách
+            </label>
+            <label>
+              <input type="radio" name="goals" value="Quản lý chi tiêu hợp lý">Quản lý chi tiêu hợp lý
+            </label>
+            <label>
+              <input type="radio" name="goals" id="other-goal-checkbox" value="Khác">Khác
+            </label><br><br>
+            <textarea id="other-goal-textarea" name="other_goals" placeholder="Viết ngắn gọn về bạn">
+
+            </textarea>
+
+            <p>Mong muốn từ hoạt động mentoring của bạn là gì?</p>
+          
+            <textarea
+              id="comments"
+              name="comment"
+              placeholder="Viết ngắn gọn về bạn"
+            ></textarea>
+
+            <br>
+            <p>Vì sao bạn muốn trở thành mentor cho chương trình mentoring?</p>
+          
+            <textarea
+              id="why"
+              name="why"
+              placeholder="Viết ngắn gọn về bạn"
+            ></textarea>
+
+          <input type="submit" id="submit" name="submit" value="Đăng ký">
+        </form>
+      </div>
+      <script>
+        document.querySelectorAll('input[name="strengths"]').forEach((input) => {
+            input.addEventListener('change', function() {
+                document.getElementById('other-strength-textarea').style.display = this.id === 'other-strength-checkbox' ? 'block' : 'none';
+            });
+        });
+
+        document.querySelectorAll('input[name="weaknesses"]').forEach((input) => {
+            input.addEventListener('change', function() {
+                document.getElementById('other-weakness-textarea').style.display = this.id === 'other-weakness-checkbox' ? 'block' : 'none';
+            });
+        });
+
+        document.querySelectorAll('input[name="goals"]').forEach((input) => {
+            input.addEventListener('change', function() {
+                document.getElementById('other-goal-textarea').style.display = this.id === 'other-goal-checkbox' ? 'block' : 'none';
+            });
+        });
+
+        document.getElementById("survey-form").addEventListener("submit", function(event) {
+            const otherStrengthCheckbox = document.getElementById("other-strength-checkbox");
+            const otherStrengthTextarea = document.getElementById("other-strength-textarea");
+            if (otherStrengthCheckbox.checked && otherStrengthTextarea.value.trim() !== "") {
+                otherStrengthCheckbox.value = otherStrengthTextarea.value.trim();
+            }
+
+            const otherWeaknessCheckbox = document.getElementById("other-weakness-checkbox");
+            const otherWeaknessTextarea = document.getElementById("other-weakness-textarea");
+            if (otherWeaknessCheckbox.checked && otherWeaknessTextarea.value.trim() !== "") {
+                otherWeaknessCheckbox.value = otherWeaknessTextarea.value.trim();
+            }
+
+            const otherGoalCheckbox = document.getElementById("other-goal-checkbox");
+            const otherGoalTextarea = document.getElementById("other-goal-textarea");
+            if (otherGoalCheckbox.checked && otherGoalTextarea.value.trim() !== "") {
+                otherGoalCheckbox.value = otherGoalTextarea.value.trim();
+            }
+        });
+    </script>
+      <script src="./templates/js/mentee_information.js"></script>
+</body>
+</html>
