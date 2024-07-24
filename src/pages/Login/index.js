@@ -2,6 +2,7 @@ import React from "react";
 import classNames from "classnames/bind";
 
 import styles from "./Login.module.scss";
+import images from "../../assets/images"
 
 const cx = classNames.bind(styles);
 
@@ -12,15 +13,15 @@ function Login() {
                 {/* <input type="checkbox" id="flip" /> */}
                 <div className={cx("cover")}>
                     <div className={cx("front")}>
-                        <img src="images/frontImg.jpg" alt="" />
-                        <div className={cx("text")}>
+                        <img src={images.logo} alt="" />
+                        {/* <div className={cx("text")}>
                             <span className={cx("text-1")}>
                                 Every new friend is a <br /> new adventure
                             </span>
                             <span className={cx("text-2")}>
                                 Let's get connected
                             </span>
-                        </div>
+                        </div> */}
                     </div>
                     <div className={cx("back")}>
                         {/* <img className={cx('backImg')} src="images/backImg.jpg" alt="" /> */}

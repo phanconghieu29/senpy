@@ -16,7 +16,7 @@ function About() {
                 <div className={cx("about-wrapper")}>
                     <p className={cx("title")}>Về chúng tôi</p>
                     <p>
-                        Sản phẩm của dự án chúng tôi là SENPY - MENTOR HUB, giúp
+                        Sản phẩm của dự án chúng tôi là <b>SENPY - MENTOR HUB</b>, giúp
                         cho các câu lạc bộ mentoring đang vận hành, những trường
                         học đang muốn xây dựng và mở rộng mô hình mentoring bằng
                         cách quản trị thông minh, có ứng dụng các mô hình trí
