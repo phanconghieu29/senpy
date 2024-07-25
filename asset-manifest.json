@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/senpy/static/css/main.7927ecbd.css",
-    "main.js": "/senpy/static/js/main.bebab982.js",
+    "main.css": "/senpy/static/css/main.eba139a6.css",
+    "main.js": "/senpy/static/js/main.6a0a40b7.js",
     "static/js/453.ecd59b49.chunk.js": "/senpy/static/js/453.ecd59b49.chunk.js",
     "static/media/HUITCO-1244.jpg": "/senpy/static/media/HUITCO-1244.0028975b9e0eb0b7e0f9.jpg",
     "static/media/home_banner.jpg": "/senpy/static/media/home_banner.f3fd9091353820b43f9d.jpg",
@@ -20,12 +20,12 @@
     "static/media/huit_logo.png": "/senpy/static/media/huit_logo.1516c173a378d9bb3755.png",
     "static/media/huit.png": "/senpy/static/media/huit.5fcd4468f7534ea9ec07.png",
     "index.html": "/senpy/index.html",
-    "main.7927ecbd.css.map": "/senpy/static/css/main.7927ecbd.css.map",
-    "main.bebab982.js.map": "/senpy/static/js/main.bebab982.js.map",
+    "main.eba139a6.css.map": "/senpy/static/css/main.eba139a6.css.map",
+    "main.6a0a40b7.js.map": "/senpy/static/js/main.6a0a40b7.js.map",
     "453.ecd59b49.chunk.js.map": "/senpy/static/js/453.ecd59b49.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7927ecbd.css",
-    "static/js/main.bebab982.js"
+    "static/css/main.eba139a6.css",
+    "static/js/main.6a0a40b7.js"
   ]
 }
