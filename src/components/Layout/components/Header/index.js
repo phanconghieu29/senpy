@@ -56,7 +56,7 @@ function Header() {
                                 <Button primary>Đăng nhập</Button>
                             </Link>
                             <a
-                                href="/senpy/Form/mentor.html"
+                                href="/senpy/Form/Formregister.html"
                                 style={{
                                     textDecoration: "none",
                                     marginLeft: "10px",

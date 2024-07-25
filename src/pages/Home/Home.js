@@ -92,19 +92,20 @@ function Home() {
                 </div>
                 <div className={cx("cooperation-wrapper")}>
                     <p className={cx("title")}>Đơn vị đồng hành</p>
-                    <img
-                        src={images.huit_banner}
-                        alt="Đại học Công thương Tp.HCM"
-                        style={{ marginTop: "25px" }}
-                    />
                     <div className={cx("cooperation-logos")}>
                         <img
-                            src={images.ssc_logo}
+                            src={images.huit_logo}
                             alt="Đại học Công thương Tp.HCM"
+                            // style={{ marginTop: "25px" }}
                             className={cx("cooperation-logo")}
                         />
                         <img
                             src={images.huit_mentoring_club}
+                            alt="Đại học Công thương Tp.HCM"
+                            className={cx("cooperation-logo")}
+                        />
+                        <img
+                            src={images.ssc_logo}
                             alt="Đại học Công thương Tp.HCM"
                             className={cx("cooperation-logo")}
                         />
