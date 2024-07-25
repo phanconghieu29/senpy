@@ -1,14 +1,62 @@
+// import { Fragment } from "react";
+// // import { Link } from "react-router-dom";
+// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// import { publicRoutes } from "./routes";
+// import { DefaultLayout } from "./components/Layout";
+
+// const App = (params) => {
+
+//     return (
+//         <Router basename="/senpy">
+//             <div className="app">
+
+//                 <Routes>
+//                     {publicRoutes.map((route, index) => {
+//                         const Page = route.component;
+
+//                         let Layout = DefaultLayout;
+
+//                         if (route.layout) {
+//                             Layout = route.layout;
+//                         } else if (route.layout === null) {
+//                             Layout = Fragment;
+//                         }
+
+//                         return (
+//                             <Route
+//                                 key={index}
+//                                 path={route.path}
+//                                 element={
+//                                     <Layout>
+//                                         <Page />
+//                                     </Layout>
+//                                 }
+//                             />
+//                         );
+//                     })}
+//                 </Routes>
+//             </div>
+//         </Router>
+//         // <div className="app">
+//         //     <DefaultLayout />
+//         // </div>
+//     );
+// };
+
+// export default App;
+
 import { Fragment } from "react";
-// import { Link } from "react-router-dom";
+import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { publicRoutes } from "./routes";
 import { DefaultLayout } from "./components/Layout";
 
-const App = (params) => {
+const App = () => {
+    const [isAuthenticated, setAuthenticated] = useState(false);
+
     return (
         <Router basename="/senpy">
             <div className="app">
-
                 <Routes>
                     {publicRoutes.map((route, index) => {
                         const Page = route.component;
@@ -26,8 +74,13 @@ const App = (params) => {
                                 key={index}
                                 path={route.path}
                                 element={
-                                    <Layout>
-                                        <Page />
+                                    <Layout
+                                        isAuthenticated={isAuthenticated}
+                                        setAuthenticated={setAuthenticated}
+                                    >
+                                        <Page
+                                            setAuthenticated={setAuthenticated}
+                                        />
                                     </Layout>
                                 }
                             />
@@ -36,9 +89,6 @@ const App = (params) => {
                 </Routes>
             </div>
         </Router>
-        // <div className="app">
-        //     <DefaultLayout />
-        // </div>
     );
 };
 
