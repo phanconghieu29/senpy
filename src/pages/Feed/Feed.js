@@ -1,54 +1,77 @@
-// import React from 'react';
-// import styled from 'styled-components';
-// import NameCard from '../../components/Card/NameCard/NameCard';
-// import Post from './Post';
+import React, { useEffect, useState } from "react";
+import classNames from "classnames/bind";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import axios from "axios";
 
-// const FeedContainer = styled.div`
-//   width: 100%;
-//   max-width: 1200px;
-//   margin: auto;
-// `;
+import styles from "./Feed.module.scss";
+import NameCard from "../../components/Card/NameCard/NameCard";
 
-// const NameCardRow = styled.div`
-//   display: flex;
-//   overflow-x: scroll;
-//   padding: 10px 0;
-// `;
+const cx = classNames.bind(styles);
 
-// const PostsContainer = styled.div`
-//   margin-top: 20px;
-// `;
+const Feed = () => {
+    const [mentors, setMentors] = useState([]);
 
-// const Feed = () => {
-//   const namecards = [
-//     { id: 1, name: 'Alice', avatar: 'https://via.placeholder.com/80' },
-//     { id: 2, name: 'Bob', avatar: 'https://via.placeholder.com/80' },
-//     { id: 3, name: 'Charlie', avatar: 'https://via.placeholder.com/80' },
-//     // Thêm các namecard khác nếu cần
-//   ];
+    useEffect(() => {
+        const fetchMentors = async () => {
+            try {
+                const response = await axios.get(
+                    "http://127.0.0.1:5000/api/matches"
+                );
+                setMentors(response.data);
+            } catch (error) {
+                console.error("Error fetching mentors:", error);
+            }
+        };
 
-//   const posts = [
-//     { id: 1, title: 'First Post', content: 'This is the content of the first post.' },
-//     { id: 2, title: 'Second Post', content: 'This is the content of the second post.' },
-//     // Thêm các bài post khác nếu cần
-//   ];
+        fetchMentors();
+    }, []);
 
-//   return (
-//     <FeedContainer>
-//       <NameCardRow>
-//         {namecards.map(card => (
-//           <NameCard key={card.id} avatar={card.avatar} name={card.name} />
-//         ))}
-//       </NameCardRow>
-//       <PostsContainer>
-//         {posts.map(post => (
-//           <Post key={post.id} title={post.title} content={post.content} />
-//         ))}
-//       </PostsContainer>
-//     </FeedContainer>
-//   );
-// };
+    const settings = {
+        infinite: true,
+        speed: 500,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: true,
+                },
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    initialSlide: 1,
+                },
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                },
+            },
+        ],
+    };
 
-// export default Feed;
+    return (
+        <div className={cx("container")}>
+            <Slider {...settings}>
+                {mentors.map((mentor, index) => (
+                    <div key={index} className={cx("card-wrapper")}>
+                        <NameCard {...mentor} />
+                    </div>
+                ))}
+            </Slider>
+        </div>
+    );
+};
 
-
+export default Feed;

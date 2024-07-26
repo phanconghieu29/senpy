@@ -1,32 +1,226 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import classNames from "classnames/bind";
 
-const NameCardContainer = styled.div`
-  width: 150px;
-  margin: 10px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
+import styles from "./NameCard.module.scss";
 
-const Avatar = styled.img`
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-`;
+const cx = classNames.bind(styles);
 
-const Name = styled.h3`
-  margin-top: 10px;
-`;
+const img = "https://picsum.photos/130/130?image=839";
 
-const NameCard = ({ avatar, name }) => (
-  <NameCardContainer>
-    <Avatar src={avatar} alt={`${name}'s avatar`} />
-    <Name>{name}</Name>
-  </NameCardContainer>
-);
+// const NameCard = ({ name, title, img, social }) => {
+const NameCard = ({ mentor, mentor_specialty }) => {
+    return (
+        <div className={cx("our-team")}>
+            <div className={cx("picture")}>
+                <img className={cx("img-fluid")} src={img} alt={mentor} />
+            </div>
+            <div className={cx("team-content")}>
+                <h3 className={cx("name")}>{mentor}</h3>
+                <h4 className={cx("title")}>{mentor_specialty}</h4>
+            </div>
+            {/* <ul className={cx("social")}>
+                {social.map((link) => (
+                    <li key={link.url}>
+                        <a href={link.url}>
+                            <img
+                                className={`fa fa-${link.icon}`}
+                                alt=""
+                                aria-hidden="true"
+                            />
+                        </a>
+                    </li>
+                ))}
+            </ul> */}
+        </div>
+    );
+};
 
 export default NameCard;
+
+
+// [
+//   {
+//       name: "Michele Miller",
+//       title: "Web Developer",
+//       img: "https://picsum.photos/130/130?image=1027",
+//       social: [
+//           {
+//               href: "https://codepen.io/collection/XdWJOQ/",
+//               icon: "fa-facebook",
+//           },
+//           {
+//               href: "https://codepen.io/collection/XdWJOQ/",
+//               icon: "fa-twitter",
+//           },
+//           {
+//               href: "https://codepen.io/collection/XdWJOQ/",
+//               icon: "fa-google-plus",
+//           },
+//           {
+//               href: "https://codepen.io/collection/XdWJOQ/",
+//               icon: "fa-linkedin",
+//           },
+//       ],
+//   },
+//   {
+//       name: "Patricia Knott",
+//       title: "Web Developer",
+//       img: "https://picsum.photos/130/130?image=839",
+//       social: [
+//           {
+//               href: "https://codepen.io/collection/XdWJOQ/",
+//               icon: "fa-facebook",
+//           },
+//           {
+//               href: "https://codepen.io/collection/XdWJOQ/",
+//               icon: "fa-twitter",
+//           },
+//           {
+//               href: "https://codepen.io/collection/XdWJOQ/",
+//               icon: "fa-google-plus",
+//           },
+//           {
+//               href: "https://codepen.io/collection/XdWJOQ/",
+//               icon: "fa-linkedin",
+//           },
+//       ],
+//   },
+//   {
+//       name: "Justin Ramos",
+//       title: "Web Developer",
+//       img: "https://picsum.photos/130/130?image=856",
+//       social: [
+//           {
+//               href: "https://codepen.io/collection/XdWJOQ/",
+//               icon: "fa-facebook",
+//           },
+//           {
+//               href: "https://codepen.io/collection/XdWJOQ/",
+//               icon: "fa-twitter",
+//           },
+//           {
+//               href: "https://codepen.io/collection/XdWJOQ/",
+//               icon: "fa-google-plus",
+//           },
+//           {
+//               href: "https://codepen.io/collection/XdWJOQ/",
+//               icon: "fa-linkedin",
+//           },
+//       ],
+//   },
+//   {
+//       name: "Mary Huntley",
+//       title: "Web Developer",
+//       img: "https://picsum.photos/130/130?image=836",
+//       social: [
+//           {
+//               href: "https://codepen.io/collection/XdWJOQ/",
+//               icon: "fa-facebook",
+//           },
+//           {
+//               href: "https://codepen.io/collection/XdWJOQ/",
+//               icon: "fa-twitter",
+//           },
+//           {
+//               href: "https://codepen.io/collection/XdWJOQ/",
+//               icon: "fa-google-plus",
+//           },
+//           {
+//               href: "https://codepen.io/collection/XdWJOQ/",
+//               icon: "fa-linkedin",
+//           },
+//       ],
+//   },
+//   {
+//       name: "Michele Miller",
+//       title: "Web Developer",
+//       img: "https://picsum.photos/130/130?image=1027",
+//       social: [
+//           {
+//               href: "https://codepen.io/collection/XdWJOQ/",
+//               icon: "fa-facebook",
+//           },
+//           {
+//               href: "https://codepen.io/collection/XdWJOQ/",
+//               icon: "fa-twitter",
+//           },
+//           {
+//               href: "https://codepen.io/collection/XdWJOQ/",
+//               icon: "fa-google-plus",
+//           },
+//           {
+//               href: "https://codepen.io/collection/XdWJOQ/",
+//               icon: "fa-linkedin",
+//           },
+//       ],
+//   },
+//   {
+//       name: "Patricia Knott",
+//       title: "Web Developer",
+//       img: "https://picsum.photos/130/130?image=839",
+//       social: [
+//           {
+//               href: "https://codepen.io/collection/XdWJOQ/",
+//               icon: "fa-facebook",
+//           },
+//           {
+//               href: "https://codepen.io/collection/XdWJOQ/",
+//               icon: "fa-twitter",
+//           },
+//           {
+//               href: "https://codepen.io/collection/XdWJOQ/",
+//               icon: "fa-google-plus",
+//           },
+//           {
+//               href: "https://codepen.io/collection/XdWJOQ/",
+//               icon: "fa-linkedin",
+//           },
+//       ],
+//   },
+//   {
+//       name: "Justin Ramos",
+//       title: "Web Developer",
+//       img: "https://picsum.photos/130/130?image=856",
+//       social: [
+//           {
+//               href: "https://codepen.io/collection/XdWJOQ/",
+//               icon: "fa-facebook",
+//           },
+//           {
+//               href: "https://codepen.io/collection/XdWJOQ/",
+//               icon: "fa-twitter",
+//           },
+//           {
+//               href: "https://codepen.io/collection/XdWJOQ/",
+//               icon: "fa-google-plus",
+//           },
+//           {
+//               href: "https://codepen.io/collection/XdWJOQ/",
+//               icon: "fa-linkedin",
+//           },
+//       ],
+//   },
+//   {
+//       name: "Mary Huntley",
+//       title: "Web Developer",
+//       img: "https://picsum.photos/130/130?image=836",
+//       social: [
+//           {
+//               href: "https://codepen.io/collection/XdWJOQ/",
+//               icon: "fa-facebook",
+//           },
+//           {
+//               href: "https://codepen.io/collection/XdWJOQ/",
+//               icon: "fa-twitter",
+//           },
+//           {
+//               href: "https://codepen.io/collection/XdWJOQ/",
+//               icon: "fa-google-plus",
+//           },
+//           {
+//               href: "https://codepen.io/collection/XdWJOQ/",
+//               icon: "fa-linkedin",
+//           },
+//       ],
+//   },
+// ];
