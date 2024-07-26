@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/senpy/static/css/main.eba139a6.css",
-    "main.js": "/senpy/static/js/main.6a0a40b7.js",
+    "main.css": "/senpy/static/css/main.dea205f4.css",
+    "main.js": "/senpy/static/js/main.b761bc4a.js",
     "static/js/453.ecd59b49.chunk.js": "/senpy/static/js/453.ecd59b49.chunk.js",
     "static/media/HUITCO-1244.jpg": "/senpy/static/media/HUITCO-1244.0028975b9e0eb0b7e0f9.jpg",
     "static/media/home_banner.jpg": "/senpy/static/media/home_banner.f3fd9091353820b43f9d.jpg",
@@ -19,13 +19,17 @@
     "static/media/senpy.jpg": "/senpy/static/media/senpy.c909b0ee3790d12fd4aa.jpg",
     "static/media/huit_logo.png": "/senpy/static/media/huit_logo.1516c173a378d9bb3755.png",
     "static/media/huit.png": "/senpy/static/media/huit.5fcd4468f7534ea9ec07.png",
+    "static/media/slick.svg": "/senpy/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/senpy/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/senpy/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/senpy/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/senpy/index.html",
-    "main.eba139a6.css.map": "/senpy/static/css/main.eba139a6.css.map",
-    "main.6a0a40b7.js.map": "/senpy/static/js/main.6a0a40b7.js.map",
+    "main.dea205f4.css.map": "/senpy/static/css/main.dea205f4.css.map",
+    "main.b761bc4a.js.map": "/senpy/static/js/main.b761bc4a.js.map",
     "453.ecd59b49.chunk.js.map": "/senpy/static/js/453.ecd59b49.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.eba139a6.css",
-    "static/js/main.6a0a40b7.js"
+    "static/css/main.dea205f4.css",
+    "static/js/main.b761bc4a.js"
   ]
 }
