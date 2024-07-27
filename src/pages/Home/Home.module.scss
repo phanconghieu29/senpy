@@ -1,6 +1,6 @@
 .wrapper {
     width: 100%;
-    margin: 0 auto;
+    // margin: 0 auto;
 }
 
 .inner {
@@ -18,9 +18,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0px 756px;
+    padding: 0;
 
     > img {
+        width: 100%;
         height: 100%;
         object-fit: cover;
     }

@@ -1,0 +1,28 @@
+/* calendar.scss */
+
+.fc {
+  /* Đặt màu nền xanh đậm cho các nút */
+  .fc-button {
+    background-color: #004085;
+    color: white;
+    border: none;
+    border-radius: 4px;
+
+    &:hover { 
+      background-color: #002752;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  /* Tùy chỉnh các nút trên thanh công cụ */
+  .fc-header-toolbar {
+    .fc-button-group {
+      .fc-button {
+        margin: 0;
+      }
+    }
+  }
+}

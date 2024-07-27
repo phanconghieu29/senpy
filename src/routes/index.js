@@ -4,7 +4,8 @@ import Contact from "../pages/Contact/Contact";
 import Login from "../pages/Login";
 import Feed from "../pages/Feed/Feed";
 import Message from "../pages/Message/Message";
-import NameCard from "../components/Card/NameCard/NameCard";
+import Schedule from "../pages/Schedule/Schedule";
+
 import ProfileLayout from "../components/Layout/ProfileLayout";
 
 const publicRoutes = [
@@ -13,8 +14,8 @@ const publicRoutes = [
     { path: "/contact", component: Contact },
     { path: "/dang-nhap", component: Login },
     { path: "/feed", component: Feed },
-    { path: "/namecard", component: NameCard },
     { path: "/messages", component: Message, layout: ProfileLayout },
+    { path: "/schedule", component: Schedule },
 ];
 
 const privateRoutes = [];
