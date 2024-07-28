@@ -4,7 +4,7 @@ import "./PostShare.css";
 import { UilScenery } from "@iconscout/react-unicons";
 import { UilPlayCircle } from "@iconscout/react-unicons";
 import { UilLocationPoint } from "@iconscout/react-unicons";
-import { UilSchedule } from "@iconscout/react-unicons";
+// import { UilSchedule } from "@iconscout/react-unicons";
 import { UilTimes } from "@iconscout/react-unicons";
 
 
@@ -30,7 +30,7 @@ const PostShare = () => {
           onClick={()=>imageRef.current.click()}
           >
             <UilScenery />
-            Photo
+            Ảnh
           </div>
           <div className="option" style={{ color: "var(--video)" }}>
             <UilPlayCircle />
@@ -38,13 +38,13 @@ const PostShare = () => {
           </div>{" "}
           <div className="option" style={{ color: "var(--location)" }}>
             <UilLocationPoint />
-            Location
+            Vị trí
           </div>{" "}
-          <div className="option" style={{ color: "var(--shedule)" }}>
+          {/* <div className="option" style={{ color: "var(--shedule)" }}>
             <UilSchedule />
-            Shedule
-          </div>
-          <button className="button ps-button">Share</button>
+            Lịch trình
+          </div> */}
+          {/* <button className="button ps-button">Đăng</button> */}
           <div style={{ display: "none" }}>
             <input
               type="file"
