@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import styles from "./Home.module.scss";
 import Card from "../../components/Card";
-import Post from "../../components/Post";
+// import Post from "../../components/Post";
 import images from "../../assets/images";
 import Button from "../../components/Button";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
@@ -39,29 +39,29 @@ const newsArticles = [
     },
 ];
 
-const posts = [
-    {
-        avatar: "huit_logo",
-        username: "Xuân Lộc",
-        timePosted: "2 hours ago",
-        content: "This is a sample post content.",
-        image: "post1",
-    },
-    {
-        avatar: "huit_logo",
-        username: "Xuân Lộc",
-        timePosted: "2 hours ago",
-        content: "This is a sample post content.",
-        image: "post2",
-    },
-    {
-        avatar: "huit_logo",
-        username: "Trần Thị Thúy Hằng",
-        timePosted: "2 hours ago",
-        content: "This is a sample post content.",
-        image: "post3",
-    },
-];
+// const posts = [
+//     {
+//         avatar: "huit_logo",
+//         username: "Xuân Lộc",
+//         timePosted: "2 hours ago",
+//         content: "This is a sample post content.",
+//         image: "post1",
+//     },
+//     {
+//         avatar: "huit_logo",
+//         username: "Xuân Lộc",
+//         timePosted: "2 hours ago",
+//         content: "This is a sample post content.",
+//         image: "post2",
+//     },
+//     {
+//         avatar: "huit_logo",
+//         username: "Trần Thị Thúy Hằng",
+//         timePosted: "2 hours ago",
+//         content: "This is a sample post content.",
+//         image: "post3",
+//     },
+// ];
 
 function Home() {
     return (
@@ -118,7 +118,7 @@ function Home() {
                 <div className={cx("posts-wrapper")}>
                     <p className={cx("title")}>Bài viết nổi bật</p>
                     <div className={cx("posts")}>
-                        {posts.map((post) => (
+                        {/* {posts.map((post) => (
                             <div key={post.id} className={cx("post-item")}>
                                 <Post
                                     avatar={post.avatar}
@@ -128,7 +128,7 @@ function Home() {
                                     image={post.image}
                                 />
                             </div>
-                        ))}
+                        ))} */}
                     </div>
                 </div>
             </div>

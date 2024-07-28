@@ -73,7 +73,6 @@
 
 // export default Login;
 
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames/bind";
@@ -91,7 +90,7 @@ function Login({ setAuthenticated }) {
         e.preventDefault();
         if (username === "phanconghieu" && password === "123") {
             setAuthenticated(true);
-            navigate("/");
+            navigate("/feed");
         } else {
             alert("Tên đăng nhập hoặc mật khẩu không đúng!");
         }
@@ -122,13 +121,17 @@ function Login({ setAuthenticated }) {
                             <form onSubmit={handleLogin}>
                                 <div className={cx("input-boxes")}>
                                     <div className={cx("input-box")}>
-                                        <i className={cx("fas fa-envelope")}></i>
+                                        <i
+                                            className={cx("fas fa-envelope")}
+                                        ></i>
                                         <input
                                             type="text"
                                             placeholder="Enter your email"
                                             required
                                             value={username}
-                                            onChange={(e) => setUsername(e.target.value)}
+                                            onChange={(e) =>
+                                                setUsername(e.target.value)
+                                            }
                                         />
                                     </div>
                                     <div className={cx("input-box")}>
@@ -138,7 +141,9 @@ function Login({ setAuthenticated }) {
                                             placeholder="Enter your password"
                                             required
                                             value={password}
-                                            onChange={(e) => setPassword(e.target.value)}
+                                            onChange={(e) =>
+                                                setPassword(e.target.value)
+                                            }
                                         />
                                     </div>
                                     <div className={cx("text")}>
@@ -149,7 +154,9 @@ function Login({ setAuthenticated }) {
                                     </div>
                                     <div className={cx("text", "sign-up-text")}>
                                         Don't have an account?{" "}
-                                        <label htmlFor="flip">Sign up now</label>
+                                        <label htmlFor="flip">
+                                            Sign up now
+                                        </label>
                                     </div>
                                 </div>
                             </form>

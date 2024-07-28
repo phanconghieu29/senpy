@@ -29,7 +29,7 @@ function Header({ isAuthenticated, setAuthenticated }) {
                         <img src={images.logo} alt="Senpy" />
                     </Link>
                 </div>
-                <nav className={cx("nav")}>
+                {/* <nav className={cx("nav")}>
                     <Link to="/" className={cx("nav-item")}>
                         Trang chủ
                     </Link>
@@ -39,6 +39,33 @@ function Header({ isAuthenticated, setAuthenticated }) {
                     <Link to="/contact" className={cx("nav-item")}>
                         Liên hệ
                     </Link>
+                </nav> */}
+                <nav className={cx("nav")}>
+                    {isAuthenticated ? (
+                        <>
+                            <Link to="/feed" className={cx("nav-item")}>
+                                Trang chủ
+                            </Link>
+                            <Link to="/groups" className={cx("nav-item")}>
+                                Nhóm
+                            </Link>
+                            <Link to="/mentors" className={cx("nav-item")}>
+                                Cố vấn
+                            </Link>
+                        </>
+                    ) : (
+                        <>
+                            <Link to="/" className={cx("nav-item")}>
+                                Trang chủ
+                            </Link>
+                            <Link to="/about" className={cx("nav-item")}>
+                                Giới thiệu
+                            </Link>
+                            <Link to="/contact" className={cx("nav-item")}>
+                                Liên hệ
+                            </Link>
+                        </>
+                    )}
                 </nav>
                 <div className={cx("actions")}>
                     {isAuthenticated ? (

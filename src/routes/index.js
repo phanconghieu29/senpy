@@ -13,7 +13,7 @@ const publicRoutes = [
     { path: "/about", component: About },
     { path: "/contact", component: Contact },
     { path: "/dang-nhap", component: Login },
-    { path: "/feed", component: Feed },
+    { path: "/feed", component: Feed, layout: ProfileLayout  },
     { path: "/messages", component: Message, layout: ProfileLayout },
     { path: "/schedule", component: Schedule },
 ];
