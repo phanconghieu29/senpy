@@ -94,10 +94,22 @@
     background-color: #EEE;
     padding: 0px 286px;
     align-items: center;
+    overflow: hidden;
 }
 
 .posts {
     display: flex;
     align-items: center;
     gap: 20px;
+}
+
+.home-post-item {
+    max-height: 250px;
+    overflow: hidden;
+}
+
+.home-post-item img {
+    max-height: 150px;
+    object-fit: cover;
+    object-position: center;
 }

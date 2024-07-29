@@ -5,17 +5,42 @@
     background-color: var(--cardColor);
     border-radius: 1rem;
     gap: 1rem;
+    /* height: 60rem; */
 }
 
 .Post > img {
     width: 100%;
-    max-height: 40rem;
+    /* max-height: 45rem; */
+    height: 45rem;
     object-fit: cover;
+    object-position: center;
     border-radius: 0.5rem;
+}
+
+.smallPost > img {
+    height: 20rem;
 }
 
 .postReact {
     display: flex;
     align-items: flex-start;
     gap: 1.5rem;
+}
+
+.see-more-btn, .see-more-link {
+    background: none;
+    border: none;
+    color: blue;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 15px;
+    margin-left: 5px;
+}
+
+.see-more-link {
+    text-decoration: underline;
+}
+
+.see-more-btn:hover {
+    color: darkblue;
 }

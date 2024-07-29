@@ -4,10 +4,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import styles from "./Home.module.scss";
 import Card from "../../components/Card";
-// import Post from "../../components/Post";
+import Post from "../../components/Post/Post";
 import images from "../../assets/images";
 import Button from "../../components/Button";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { PostsData } from '../../Data/PostsData'
 
 const cx = classNames.bind(styles);
 
@@ -118,17 +119,9 @@ function Home() {
                 <div className={cx("posts-wrapper")}>
                     <p className={cx("title")}>Bài viết nổi bật</p>
                     <div className={cx("posts")}>
-                        {/* {posts.map((post) => (
-                            <div key={post.id} className={cx("post-item")}>
-                                <Post
-                                    avatar={post.avatar}
-                                    username={post.username}
-                                    timePosted={post.timePosted}
-                                    content={post.content}
-                                    image={post.image}
-                                />
-                            </div>
-                        ))} */}
+                        {PostsData.map((post, id) => {
+                            return <Post data={post} id={id} className={cx('post-item')} small isDetailPage={true}/>;
+                        })}
                     </div>
                 </div>
             </div>

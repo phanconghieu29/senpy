@@ -91,7 +91,11 @@ function Login({ setAuthenticated }) {
         if (username === "phanconghieu" && password === "123") {
             setAuthenticated(true);
             navigate("/feed");
-        } else {
+        } else if (username === "admin" && password === "1234") {
+            setAuthenticated(true);
+            navigate("/dashboard");
+        }
+        else {
             alert("Tên đăng nhập hoặc mật khẩu không đúng!");
         }
     };
