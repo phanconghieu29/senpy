@@ -16,6 +16,7 @@ import Form from "../pages/Admin/scenes/form";
 import Bar from "../pages/Admin/scenes/bar";
 import Pie from "../pages/Admin/scenes/pie";
 import Line from "../pages/Admin/scenes/line";
+import ManageForms from "../pages/Admin/scenes/manage_form";
 import FAQ from "../pages/Admin/scenes/faq";
 import Calendar from "../pages/Admin/scenes/calendar/calendar";
 import Geography from "../pages/Admin/scenes/geography";
@@ -42,6 +43,7 @@ const publicRoutes = [
     { path: "/bar", component: Bar, layout: AdminLayout },
     { path: "/line", component: Line, layout: AdminLayout },
     { path: "/pie", component: Pie, layout: AdminLayout },
+    { path: "/manage-form", component: ManageForms, layout: AdminLayout },
     { path: "/faq", component: FAQ, layout: AdminLayout },
     { path: "/calendar", component: Calendar, layout: AdminLayout },
     { path: "/geography", component: Geography, layout: AdminLayout },

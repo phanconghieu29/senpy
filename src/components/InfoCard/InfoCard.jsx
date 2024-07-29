@@ -7,6 +7,7 @@ import "./InfoCard.css";
 import event1 from "../../img/event1.png";
 import event2 from "../../img/huit-startup.jpg";
 import event3 from "../../img/event3.jpg";
+import event4 from "../../img/event4.jpg";
 
 const NextArrow = (props) => {
   const { className, style, onClick } = props;
@@ -49,10 +50,13 @@ const InfoCard = () => {
           <img src={event1} alt="Cover" className="eventImage" />
         </div>
         <div>
-        <img src={event2} alt="Cover" className="eventImage" />
+          <img src={event2} alt="Cover" className="eventImage" />
         </div>
         <div>
-        <img src={event3} alt="Cover" className="eventImage" />
+          <img src={event3} alt="Cover" className="eventImage" />
+        </div>
+        <div>
+          <img src={event4} alt="Cover" className="eventImage" />
         </div>
       </Slider>
     </div>

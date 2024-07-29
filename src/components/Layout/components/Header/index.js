@@ -47,7 +47,7 @@ function Header({ isAuthenticated, setAuthenticated }) {
                                 Trang chủ
                             </Link>
                             <Link to="/groups" className={cx("nav-item")}>
-                                Nhóm
+                                Sự kiện
                             </Link>
                             <Link to="/mentors" className={cx("nav-item")}>
                                 Cố vấn
