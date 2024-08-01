@@ -18,7 +18,7 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
 import "./Admin.css";
 
-function Admin({children}) {
+function Admin({ children, isAuthenticated, setAuthenticated }) {
     const [theme, colorMode] = useMode();
     const [isSidebar, setIsSidebar] = useState(true);
 
@@ -29,7 +29,11 @@ function Admin({children}) {
                 <div className="app">
                     <Sidebar isSidebar={isSidebar} />
                     <main className="content">
-                        <Topbar setIsSidebar={setIsSidebar} />
+                        <Topbar
+                            isAuthenticated={isAuthenticated}
+                            setAuthenticated={setAuthenticated}
+                            setIsSidebar={setIsSidebar}
+                        />
                         {children}
                     </main>
                 </div>

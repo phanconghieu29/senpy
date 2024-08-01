@@ -154,7 +154,7 @@ const Mentor = () => {
 
 
   const columns = [
-    { field: "id", headerName: "ID", flex: 0.5 },
+    { field: "id", headerName: "STT", flex: 0.5 },
     { field: "mentorID", headerName: "Mentor ID" },
     {
       field: "name",
