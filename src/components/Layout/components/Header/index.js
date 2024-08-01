@@ -1,5 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import classNames from "classnames/bind";
+import Tippy from "@tippyjs/react";
+// import 'tippy.js/dist/tippy.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./Header.module.scss";
 import images from "../../../../assets/images";
@@ -10,6 +12,7 @@ import {
     faRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
 import { faCalendarDays } from "@fortawesome/free-regular-svg-icons";
+import { Wrapper as PopperWrapper } from "../../../Popper";
 
 const cx = classNames.bind(styles);
 
@@ -79,13 +82,22 @@ function Header({ isAuthenticated, setAuthenticated }) {
                             <Link to="/notifications" className={cx("icon")}>
                                 <FontAwesomeIcon icon={faBell} />
                             </Link>
-                            <div className={cx("user")}>
-                                <img
-                                    src={images.logo}
-                                    alt="avatar"
-                                    className={cx("avatar")}
-                                />
-                            </div>
+                            <Tippy
+                                interactive
+                                render={(attrs) => (
+                                    <div className={cx("user-wrapper")}>
+                                        <PopperWrapper>Hello</PopperWrapper>
+                                    </div>
+                                )}
+                            >
+                                <div className={cx("user")}>
+                                    <img
+                                        src={images.logo}
+                                        alt="avatar"
+                                        className={cx("avatar")}
+                                    />
+                                </div>
+                            </Tippy>
                             <Button
                                 small
                                 leftIcon={
