@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import classNames from "classnames/bind";
-import Tippy from "@tippyjs/react";
+// import Tippy from "@tippyjs/react";
 // import 'tippy.js/dist/tippy.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./Header.module.scss";
@@ -12,7 +12,7 @@ import {
     faRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
 import { faCalendarDays } from "@fortawesome/free-regular-svg-icons";
-import { Wrapper as PopperWrapper } from "../../../Popper";
+// import { Wrapper as PopperWrapper } from "../../../Popper";
 
 const cx = classNames.bind(styles);
 
@@ -49,10 +49,10 @@ function Header({ isAuthenticated, setAuthenticated }) {
                             <Link to="/feed" className={cx("nav-item")}>
                                 Trang chủ
                             </Link>
-                            <Link to="/groups" className={cx("nav-item")}>
-                                Sự kiện
+                            <Link to="/blog" className={cx("nav-item")}>
+                                Blog
                             </Link>
-                            <Link to="/mentors" className={cx("nav-item")}>
+                            <Link to="/mentor" className={cx("nav-item")}>
                                 Cố vấn
                             </Link>
                         </>
@@ -82,22 +82,22 @@ function Header({ isAuthenticated, setAuthenticated }) {
                             <Link to="/notifications" className={cx("icon")}>
                                 <FontAwesomeIcon icon={faBell} />
                             </Link>
-                            <Tippy
+                            {/* <Tippy
                                 interactive
                                 render={(attrs) => (
                                     <div className={cx("user-wrapper")}>
                                         <PopperWrapper>Hello</PopperWrapper>
                                     </div>
                                 )}
-                            >
-                                <div className={cx("user")}>
-                                    <img
-                                        src={images.logo}
-                                        alt="avatar"
-                                        className={cx("avatar")}
-                                    />
-                                </div>
-                            </Tippy>
+                            > */}
+                            <div className={cx("user")}>
+                                <img
+                                    src={images.logo}
+                                    alt="avatar"
+                                    className={cx("avatar")}
+                                />
+                            </div>
+                            {/* </Tippy> */}
                             <Button
                                 small
                                 leftIcon={

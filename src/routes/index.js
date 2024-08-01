@@ -5,6 +5,7 @@ import Login from "../pages/Login";
 import Feed from "../pages/Feed/Feed";
 import Message from "../pages/Message/Message";
 import Schedule from "../pages/Schedule/Schedule";
+import Blog from "../pages/Blog/Blog";
 // import Admin from "../pages/Admin/Admin";
 
 import Dashboard from "../pages/Admin/scenes/dashboard";
@@ -32,6 +33,7 @@ const publicRoutes = [
     { path: "/feed", component: Feed, layout: ProfileLayout },
     { path: "/messages", component: Message, layout: ProfileLayout },
     { path: "/schedule", component: Schedule },
+    { path: "/blog", component: Blog },
 
     // { path: "/admin", component: Admin, layout: AdminLayout },
     { path: "/dashboard", component: Dashboard, layout: AdminLayout },
@@ -49,7 +51,6 @@ const publicRoutes = [
     { path: "/geography", component: Geography, layout: AdminLayout },
 ];
 
-const privateRoutes = [
-];
+const privateRoutes = [];
 
 export { publicRoutes, privateRoutes };

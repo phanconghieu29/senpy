@@ -1,0 +1,79 @@
+ul,
+li,
+a,
+button,
+input,
+textarea {
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+.blog {
+  margin: 50px 0;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Chia thành 3 cột */
+  gap: 20px; /* Khoảng cách giữa các ô */
+}
+
+.grid3 {
+  grid-template-columns: repeat(3, 1fr); /* Đảm bảo rằng .grid3 được cấu hình đúng */
+}
+.blog .boxItems {
+  transition: 0.5s;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 8%);
+}
+.blog .boxItems:hover {
+  box-shadow: 0 2px 4px rgb(0 0 0 / 8%);
+  cursor: pointer;
+  transform: translateY(-5px);
+}
+.blog img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.blog .icon {
+  margin-right: 10px;
+  font-size: 20px;
+}
+.blog .tag a {
+  color: blue;
+  opacity: 0.7;
+  text-decoration: none;
+  font-size: 20px;
+}
+.blog .tag {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+.blog h3 {
+  font-weight: 500;
+  color: black;
+}
+.blog p {
+  color: #999;
+  font-weight: 400;
+  margin: 20px 0;
+  font-size: 17px;
+  line-height: 25px;
+}
+.blog .date {
+  display: flex;
+  align-items: center;
+}
+.blog .date label {
+  display: block;
+  margin-right: 20px;
+}

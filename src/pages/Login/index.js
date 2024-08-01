@@ -94,8 +94,7 @@ function Login({ setAuthenticated }) {
         } else if (username === "admin" && password === "1234") {
             setAuthenticated(true);
             navigate("/dashboard");
-        }
-        else {
+        } else {
             alert("Tên đăng nhập hoặc mật khẩu không đúng!");
         }
     };
@@ -121,7 +120,7 @@ function Login({ setAuthenticated }) {
                 <div className={cx("forms")}>
                     <div className={cx("form-content")}>
                         <div className={cx("login-form")}>
-                            <div className={cx("title")}>Login</div>
+                            <div className={cx("title")}>Đăng nhập</div>
                             <form onSubmit={handleLogin}>
                                 <div className={cx("input-boxes")}>
                                     <div className={cx("input-box")}>
@@ -151,15 +150,15 @@ function Login({ setAuthenticated }) {
                                         />
                                     </div>
                                     <div className={cx("text")}>
-                                        <a href="/">Forgot password?</a>
+                                        <a href="/">Quên mật khẩu?</a>
                                     </div>
                                     <div className={cx("button", "input-box")}>
                                         <input type="submit" value="Submit" />
                                     </div>
                                     <div className={cx("text", "sign-up-text")}>
-                                        Don't have an account?{" "}
+                                        Không có tài khoản?{" "}
                                         <label htmlFor="flip">
-                                            Sign up now
+                                            <a href="/senpy/Form/Formregister.html">Quên mật khẩu?</a>
                                         </label>
                                     </div>
                                 </div>
