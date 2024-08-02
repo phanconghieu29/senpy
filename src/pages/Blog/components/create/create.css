@@ -40,3 +40,79 @@
   z-index: 1;
   border-radius: 5px;
 }
+/* 
+
+.newPost {
+  padding: 20px;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.boxItems {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.img {
+  width: 100%;
+}
+
+.img img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-bottom: 2px solid #ddd;
+}
+
+form {
+  width: 100%;
+  padding: 20px;
+}
+
+.inputfile {
+  margin: 20px 0;
+}
+
+.inputfile input[type='file'] {
+  display: block;
+  width: 100%;
+}
+
+input[type='text'] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #0056b3;
+} */

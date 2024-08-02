@@ -6,6 +6,7 @@ import Feed from "../pages/Feed/Feed";
 import Message from "../pages/Message/Message";
 import Schedule from "../pages/Schedule/Schedule";
 import Blog from "../pages/Blog/Blog";
+import CreateBlog from "../pages/Blog/components/create/Create";
 // import Admin from "../pages/Admin/Admin";
 
 import Dashboard from "../pages/Admin/scenes/dashboard";
@@ -34,6 +35,7 @@ const publicRoutes = [
     { path: "/messages", component: Message, layout: ProfileLayout },
     { path: "/schedule", component: Schedule },
     { path: "/blog", component: Blog },
+    { path: "/create-blog", component: CreateBlog },
 
     // { path: "/admin", component: Admin, layout: AdminLayout },
     { path: "/dashboard", component: Dashboard, layout: AdminLayout },

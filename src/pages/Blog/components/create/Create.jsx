@@ -1,14 +1,14 @@
 import React from "react"
 import "./create.css"
-import { IoIosAddCircleOutline } from "react-icons/io"
+// import { IoIosAddCircleOutline } from "react-icons/io"
 
-export const Create = () => {
+const Create = () => {
   return (
     <>
       <section className='newPost'>
         <div className='container boxItems'>
-          <div className='img '>
-            <img src='https://images.pexels.com/photos/6424244/pexels-photo-6424244.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt='image' class='image-preview' />
+          <div className='img'>
+            <img src='https://images.pexels.com/photos/6424244/pexels-photo-6424244.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt='' class='image-preview' />
           </div>
           <form>
             <div className='inputfile flexCenter'>
@@ -25,3 +25,5 @@ export const Create = () => {
     </>
   )
 }
+
+export default Create;
