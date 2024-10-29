@@ -1,0 +1,85 @@
+.wrapper {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search-container{
+    width: 70vw;
+    margin-bottom: 50px;
+    background-color: #16206983;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px;
+}
+
+.title {
+    font-size: 3.5rem;
+    font-weight: bold;
+}
+
+.find-your {
+    color: #ffffff;
+    margin-right: 5px;
+}
+
+.mentor {
+    color:#162069;
+}
+
+.mentors-container {
+    width: 70vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.mentor-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    width: 100%;
+}
+
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    gap: 8px;
+}
+
+.pagination button {
+    padding: 8px 12px;
+    border: none;
+    background-color: #ddd;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.pagination button.active {
+    background-color: #162069;
+    color: #fff;
+}
+
+@media (max-width: 1024px) {
+    .mentor-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .mentor-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .mentor-list {
+        grid-template-columns: 1fr;
+    }
+}

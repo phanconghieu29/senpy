@@ -7,6 +7,8 @@ import Message from "../pages/Message/Message";
 import Schedule from "../pages/Schedule/Schedule";
 import Blog from "../pages/Blog/Blog";
 import CreateBlog from "../pages/Blog/components/create/Create";
+import Mentors from "../pages/Mentors/Mentors";
+import ConnectMentor from "../pages/ConnectMentor/ConnectMentor";
 // import Admin from "../pages/Admin/Admin";
 
 import Dashboard from "../pages/Admin/scenes/dashboard";
@@ -36,6 +38,8 @@ const publicRoutes = [
     { path: "/schedule", component: Schedule },
     { path: "/blog", component: Blog },
     { path: "/create-blog", component: CreateBlog },
+    { path: "/mentor", component: Mentors },
+    { path: "/connect-mentor", component: ConnectMentor },
 
     // { path: "/admin", component: Admin, layout: AdminLayout },
     { path: "/dashboard", component: Dashboard, layout: AdminLayout },

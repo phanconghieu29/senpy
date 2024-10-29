@@ -49,8 +49,11 @@ function Header({ isAuthenticated, setAuthenticated }) {
                             <Link to="/feed" className={cx("nav-item")}>
                                 Trang chủ
                             </Link>
+                            <Link to="/about" className={cx("nav-item")}>
+                                Giới thiệu
+                            </Link>
                             <Link to="/blog" className={cx("nav-item")}>
-                                Blog
+                                Tin tức
                             </Link>
                             <Link to="/mentor" className={cx("nav-item")}>
                                 Cố vấn
@@ -66,6 +69,9 @@ function Header({ isAuthenticated, setAuthenticated }) {
                             </Link>
                             <Link to="/contact" className={cx("nav-item")}>
                                 Liên hệ
+                            </Link>
+                            <Link to="/mentor" className={cx("nav-item")}>
+                                Cố vấn
                             </Link>
                         </>
                     )}
