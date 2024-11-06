@@ -1,0 +1,185 @@
+/* General styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .profile-container {
+    width: 900px; /* Increase width for a larger layout */
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+  }
+  
+  .cover-photo {
+    height: 200px;
+    overflow: hidden;
+  }
+  
+  .cover-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .profile-header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+  }
+  
+  .avatar {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 20px;
+  }
+  
+  .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .mentor-info h2 {
+    margin: 0;
+    font-size: 35px;
+    color: #333;
+  }
+  
+  .mentor-info p {
+    color: #666;
+    margin: 4px 0;
+  }
+  
+  .connect-button {
+    position: absolute;
+    right: 30px;
+    padding: 20px 40px;
+    background-color: navy;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+  .connect-button:hover {
+    background-color: navy;
+  }
+  
+  .nav-tabs {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .tab {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    color: navy;
+    background-color: #f9f9f9;
+    border: none;
+    outline: none;
+    font-size: 20px;
+  }
+  
+  .tab.active {
+    font-weight: bold;
+    background-color: #fff;
+    border-bottom: 5px solid navy;
+    font-size: 20px;
+  }
+  
+  .profile-section {
+    padding: 40px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .profile-section h3 {
+    font-size: 30px;
+    color: navy;
+    margin-bottom: 10px;
+    position: relative;
+    padding-bottom: 8px; /* Adds spacing between text and underline */
+  }
+  
+  .profile-section h3::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 3px; /* Thickness of the underline */
+    background-color: navy;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  
+  .profile-section p {
+    font-size: 20px;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  .experience, .education, .award {
+    margin-bottom: 30px;
+  }
+  
+  .experience p, .education p, .award p {
+    margin: 15px 0;
+  }
+  /* Star Rating Section */
+  .rating-section {
+    padding: 20px;
+  }
+  
+  .review-list {
+    margin-top: 20px;
+  }
+  
+  .review-item {
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+  }
+  
+  .review-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .review-name {
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .star-rating {
+    display: flex;
+    font-size: 18px;
+  }
+  
+  .star {
+    cursor: default;
+    color: #ddd;
+  }
+  
+  .star.filled {
+    color: #ffd700; /* Gold color for filled stars */
+  }
+  
+  .review-comment {
+    font-size: 14px;
+    color: #555;
+    margin-top: 5px;
+    line-height: 1.4;
+  }
+  

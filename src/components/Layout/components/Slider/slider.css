@@ -1,0 +1,69 @@
+/* Style for the banner wrapper */
+.banner-wrapper {
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+.slick-slider {
+  width: 100%;
+  height: 100%; /* Ensure the slider takes up full height */
+}
+
+/* Style for each individual slide */
+.slick-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slick-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures images fill the container while maintaining aspect ratio */
+  display: block; /* Ensures image is displayed as a block element */
+  object-position: center; /* Centers the image if aspect ratio doesn't match container */
+}
+
+/* Custom arrows */
+.slick-prev, .slick-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  color: white; /* White arrow color */
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.slick-prev {
+  left: 10px;
+}
+
+.slick-next {
+  right: 10px;
+}
+
+/* Dots (navigation) styles */
+.slick-dots {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  z-index: 1;
+}
+
+.slick-dots li button {
+  width: 12px;
+  height: 12px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+}
+
+.slick-dots li.slick-active button {
+  background-color: #ffffff;
+}

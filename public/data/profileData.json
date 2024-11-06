@@ -1,0 +1,64 @@
+{
+  "profile": {
+    "name": "Nguyễn Văn An",
+    "specialty": "Chuyên ngành Marketing",
+    "about": [
+      "Having a strong desire of “sharing is caring”, I am pleased to be here, to share my own experiences and to hear your stories too.",
+      "I hope that the connection between us can help you, not only in..."
+    ],
+    "experience": [
+      {
+        "position": "PRODUCT MANAGER",
+        "date": "04/2023 - 09/2023",
+        "company": "LIMAGRAIN GROUP"
+      },
+      {
+        "position": "Brand Management",
+        "date": "06/2022 - 07/2022",
+        "company": "Masan Group"
+      },
+      {
+        "position": "Assistant Brand Manager (Category Management)",
+        "date": "08/2020 - 12/2021",
+        "company": "VPMilk"
+      }
+    ],
+    "education": [
+      {
+        "school": "Foreign Trade University",
+        "degree": "Bachelor Degree Economic",
+        "date": "01/2014 - 01/2018"
+      }
+    ],
+    "awards": [
+      {
+        "title": "Eiffel Excellence Scholarship France",
+        "field": "Master in Marketing",
+        "date": "02/2022"
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "name": "Nguyễn Văn A",
+      "rating": 5,
+      "comment": "Cô rất tận tình và giúp tôi hiểu sâu về ngành marketing."
+    },
+    {
+      "name": "Trần Thị B",
+      "rating": 5,
+      "comment": "Rất hài lòng với những kiến thức mà thầy chia sẻ."
+    },
+    {
+      "name": "Lê Hoàng C",
+      "rating": 5,
+      "comment": "Giảng viên tuyệt vời, kiến thức phong phú và dễ hiểu."
+    },
+    {
+      "name": "Phạm Minh D",
+      "rating": 5,
+      "comment": "Rất hữu ích, tôi học được rất nhiều từ cô."
+    }
+  ]
+}
+

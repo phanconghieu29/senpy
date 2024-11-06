@@ -9,8 +9,9 @@ import Blog from "../pages/Blog/Blog";
 import CreateBlog from "../pages/Blog/components/create/Create";
 import Mentors from "../pages/Mentors/Mentors";
 import ConnectMentor from "../pages/ConnectMentor/ConnectMentor";
-// import Admin from "../pages/Admin/Admin";
-
+import ForgotPassword from "../pages/Forgotpass/ForgotPassword";
+import InputOTP from "../pages/Forgotpass/InputOTP";
+import ProfileMentors  from '../components/ProfileMentors/ProfileMentors';
 import Dashboard from "../pages/Admin/scenes/dashboard";
 import Team from "../pages/Admin/scenes/team";
 import Mentor from "../pages/Admin/scenes/mentors";
@@ -27,6 +28,7 @@ import Geography from "../pages/Admin/scenes/geography";
 
 import ProfileLayout from "../components/Layout/ProfileLayout";
 import AdminLayout from "../pages/Admin/Admin";
+// import { Component } from "react";
 
 const publicRoutes = [
     { path: "/", component: Home },
@@ -40,6 +42,10 @@ const publicRoutes = [
     { path: "/create-blog", component: CreateBlog },
     { path: "/mentor", component: Mentors },
     { path: "/connect-mentor", component: ConnectMentor },
+    { path: "/profile-mentor/:id", component: ProfileMentors },
+    { path: "/otp", component: InputOTP},
+    { path: "/forgot-pass", component: ForgotPassword},
+
 
     // { path: "/admin", component: Admin, layout: AdminLayout },
     { path: "/dashboard", component: Dashboard, layout: AdminLayout },

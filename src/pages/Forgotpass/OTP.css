@@ -1,0 +1,114 @@
+/* Style for OTP container */
+.otp-container {
+  background: linear-gradient(to right, #f5f7fa, #c3cfe2); /* Gradient background */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 80%; /* Set width to 80% of the screen */
+  margin: 0 auto; /* Center the container horizontally */
+}
+
+h2 {
+  font-family: 'Roboto', sans-serif;
+}
+
+input:focus,
+button:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(255, 165, 0, 0.5);
+}
+
+/* Countdown styling */
+.countdown p {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #4CAF50; /* Green color */
+}
+
+button:disabled {
+  background-color: #b0b0b0;
+  cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+  background-color: #4CAF50; /* Green on hover */
+}
+
+.otp-input {
+  font-size: 1rem; /* Adjust font size */
+  padding: 10px;
+  border-radius: 8px;
+  border: 2px solid #4CAF50; /* Green border */
+  width: 40px; /* Set width of each OTP input */
+  height: 40px; /* Set height of each OTP input */
+  text-align: center; /* Center the text inside the OTP input */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.otp-input:focus {
+  border-color: #2196F3; /* Blue border on focus */
+  box-shadow: 0 0 5px rgba(33, 150, 243, 0.5); /* Blue glow on focus */
+}
+
+.otp-input[disabled] {
+  background-color: #f0f0f0;
+  border-color: #b0b0b0;
+}
+
+/* Style for OTP input container */
+.otp-input-group {
+  display: flex;
+  justify-content: center; /* Center the OTP inputs */
+  gap: 10px; /* 10px gap between OTP fields */
+  margin-bottom: 20px; /* Space between OTP inputs and buttons */
+}
+
+.p-inputtext {
+  font-size: 1.2rem; /* Increase font size for better readability */
+  padding: 10px;
+  border-radius: 8px;
+  width: 30px;
+  height: 40px;
+  text-align: center;
+  border: 2px solid #4CAF50; /* Green border */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.p-inputtext:focus {
+  border-color: #2196F3; /* Blue border on focus */
+  box-shadow: 0 0 5px rgba(33, 150, 243, 0.5); /* Blue glow on focus */
+}
+
+.p-inputtext[disabled] {
+  background-color: #f0f0f0;
+  border-color: #b0b0b0;
+}
+
+/* Style for OTP input container */
+.otp-container .p-inputgroup {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* 5px gap between OTP fields */
+  margin-bottom: 20px; /* Space between OTP inputs and buttons */
+}
+
+/* Style for buttons */
+button {
+  font-size: 1rem;
+  padding: 10px;
+  border-radius: 8px;
+  width: 100%; /* Make buttons span full width */
+  margin-bottom: 10px; /* Space between buttons */
+  transition: background-color 0.3s ease;
+}
+
+button:first-of-type {
+  margin-bottom: 15px; /* Extra space between resend and submit buttons */
+}
+
+/* Optional: Use display flex and justify content space between for buttons */
+.otp-container .button-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px; /* Adjust gap between buttons */
+}

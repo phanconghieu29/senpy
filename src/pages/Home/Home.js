@@ -9,7 +9,7 @@ import images from "../../assets/images";
 import Button from "../../components/Button";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { PostsData } from '../../Data/PostsData'
-
+import Slider from "../../components/Layout/components/Slider/Slider";
 const cx = classNames.bind(styles);
 
 const newsArticles = [
@@ -40,36 +40,12 @@ const newsArticles = [
     },
 ];
 
-// const posts = [
-//     {
-//         avatar: "huit_logo",
-//         username: "Xuân Lộc",
-//         timePosted: "2 hours ago",
-//         content: "This is a sample post content.",
-//         image: "post1",
-//     },
-//     {
-//         avatar: "huit_logo",
-//         username: "Xuân Lộc",
-//         timePosted: "2 hours ago",
-//         content: "This is a sample post content.",
-//         image: "post2",
-//     },
-//     {
-//         avatar: "huit_logo",
-//         username: "Trần Thị Thúy Hằng",
-//         timePosted: "2 hours ago",
-//         content: "This is a sample post content.",
-//         image: "post3",
-//     },
-// ];
-
 function Home() {
     return (
         <div className={cx("wrapper")}>
             <div className={cx("inner")}>
                 <div className={cx("banner-wrapper")}>
-                    <img src={images.homeBanner} alt="Banner" />
+                    <Slider />
                 </div>
                 <div className={cx("news-wrapper")}>
                     <p className={cx("title")}>Tin tức - Sự kiện</p>
