@@ -31,8 +31,6 @@ const MentorCard = ({ id, name, expertise, onConnect }) => {
             <div className={cx("mentor-overlay")}>
                 <p className={cx("mentor-summary")}>{summary}</p>
                 <div className={cx("mentor-actions")}>
-                    {/* <button className={cx("mentor-btn")}>Xem Hồ Sơ</button> */}
-                    {/* <button className={cx("mentor-btn")}>Kết Nối</button> */}
                     <button className={cx("mentor-btn")} onClick={handleViewProfile}>
                         Xem Hồ Sơ
                     </button>

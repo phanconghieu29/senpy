@@ -4,7 +4,8 @@ import classNames from "classnames/bind";
 import styles from "./Mentors.module.scss";
 import MentorCard from "../../components/Card/MentorCard/MentorCard";
 import SearchBar from "../../components/SearchBar/SearchBar";
-import { mockDataMentor } from "../../Data/mockData";
+import NotificationModal from "../../components/NotificationModal/NotificationModal";
+import axios from "axios";
 
 const cx = classNames.bind(styles);
 
@@ -14,12 +15,12 @@ function Mentors() {
     const [currentPage, setCurrentPage] = useState(1);
     const [searchQuery, setSearchQuery] = useState("");
     const [filteredMentors, setFilteredMentors] = useState([]);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const fetchMentors = async (query = "") => {
         try {
-            // Nếu dùng API, thay thế mockDataMentor bằng hàm fetch từ server
-            const data = mockDataMentor; // Tạm thời sử dụng mockDataMentor
-            const result = data.filter((mentor) =>
+            const response = await axios.get("http://localhost:2903/api/mentors/get-mentors");
+            const result = response.data.filter((mentor) =>
                 mentor.name.toLowerCase().includes(query.toLowerCase())
             );
             setFilteredMentors(result);
@@ -28,20 +29,14 @@ function Mentors() {
         }
     };
 
-    // Thực hiện tìm kiếm khi nhấn nút
     const handleSearch = () => {
         fetchMentors(searchQuery);
     };
 
-    // Phân trang
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-    const currentMentors = filteredMentors.slice(
-        startIndex,
-        startIndex + ITEMS_PER_PAGE
-    );
+    const currentMentors = filteredMentors.slice(startIndex, startIndex + ITEMS_PER_PAGE);
 
     useEffect(() => {
-        // Gọi fetchMentors() khi lần đầu load component
         fetchMentors();
     }, []);
 
@@ -52,7 +47,17 @@ function Mentors() {
     const navigate = useNavigate();
 
     const handleOpenConnectPage = (mentor) => {
-        navigate("/connect-mentor", { state: { mentor } });
+        const userRole = localStorage.getItem("role");
+
+        if (userRole === "mentee") {
+            navigate("/connect-mentor", { state: { mentor } });
+        } else {
+            setIsModalOpen(true);
+        }
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
     };
 
     return (
@@ -62,10 +67,7 @@ function Mentors() {
                     <span className={cx("find-your")}>FIND YOUR</span>
                     <span className={cx("mentor")}>MENTOR</span>
                 </div>
-                <SearchBar
-                    onSearch={setSearchQuery}
-                    handleSearch={handleSearch}
-                />
+                <SearchBar onSearch={setSearchQuery} handleSearch={handleSearch} />
             </div>
 
             <div className={cx("mentors-container")}>
@@ -76,30 +78,22 @@ function Mentors() {
                                 key={mentor.id}
                                 id={mentor.id}
                                 name={mentor.name}
-                                expertise={mentor.major}
+                                expertise={mentor.expertise}
                                 onConnect={() => handleOpenConnectPage(mentor)}
                             />
                         ))
                     ) : (
-                        <p className={cx("no-results")}>
-                            Không tìm thấy mentor nào.
-                        </p>
+                        <p className={cx("no-results")}>Không tìm thấy mentor nào.</p>
                     )}
                 </div>
                 <div className={cx("pagination")}>
                     {Array.from(
-                        {
-                            length: Math.ceil(
-                                filteredMentors.length / ITEMS_PER_PAGE
-                            ),
-                        },
+                        { length: Math.ceil(filteredMentors.length / ITEMS_PER_PAGE) },
                         (_, i) => (
                             <button
                                 key={i}
                                 onClick={() => handlePageChange(i + 1)}
-                                className={cx({
-                                    active: i + 1 === currentPage,
-                                })}
+                                className={cx({ active: i + 1 === currentPage })}
                             >
                                 {i + 1}
                             </button>
@@ -107,6 +101,12 @@ function Mentors() {
                     )}
                 </div>
             </div>
+
+            <NotificationModal
+                message="Đăng ký trở thành Mentee ngay để được kết nối với Mentor."
+                isOpen={isModalOpen}
+                onClose={handleCloseModal}
+            />
         </div>
     );
 }

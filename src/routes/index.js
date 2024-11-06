@@ -2,6 +2,9 @@ import Home from "../pages/Home/Home";
 import About from "../pages/About/About";
 import Contact from "../pages/Contact/Contact";
 import Login from "../pages/Login";
+import RoleSelection from "../pages/SignUp/RoleSelection/RoleSelection";
+import MentorRegister from "../pages/SignUp/MentorRegistration/MentorRegistration";
+import MenteeRegister from "../pages/SignUp/MenteeRegistration/MenteeRegistration";
 import Feed from "../pages/Feed/Feed";
 import Message from "../pages/Message/Message";
 import Schedule from "../pages/Schedule/Schedule";
@@ -9,6 +12,7 @@ import Blog from "../pages/Blog/Blog";
 import CreateBlog from "../pages/Blog/components/create/Create";
 import Mentors from "../pages/Mentors/Mentors";
 import ConnectMentor from "../pages/ConnectMentor/ConnectMentor";
+import ConnectionRequests from "../pages/ConnectionRequests/ConnectionRequests";
 // import Admin from "../pages/Admin/Admin";
 
 import Dashboard from "../pages/Admin/scenes/dashboard";
@@ -40,6 +44,10 @@ const publicRoutes = [
     { path: "/create-blog", component: CreateBlog },
     { path: "/mentor", component: Mentors },
     { path: "/connect-mentor", component: ConnectMentor },
+    { path: "/dang-ky", component: RoleSelection },
+    { path: "/dang-ky/mentor", component: MentorRegister },
+    { path: "/dang-ky/mentee", component: MenteeRegister },
+    { path: "/yeu-cau-ket-noi", component: ConnectionRequests },
 
     // { path: "/admin", component: Admin, layout: AdminLayout },
     { path: "/dashboard", component: Dashboard, layout: AdminLayout },
