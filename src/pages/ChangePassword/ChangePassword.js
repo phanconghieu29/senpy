@@ -1,46 +1,47 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import './ChangePassword.css';
 
-class ChangePassword extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentPassword: '',
-      newPassword: '',
-      confirmPassword: '',
-      message: ''
-    };
-  }
+const ChangePassword = () => {
+  const [currentPassword, setCurrentPassword] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [message, setMessage] = useState('');
 
-  handleChange = (event) => {
+  // Hàm xử lý thay đổi input
+  const handleChange = (event) => {
     const { name, value } = event.target;
-    this.setState({ [name]: value });
+    if (name === 'currentPassword') {
+      setCurrentPassword(value);
+    } else if (name === 'newPassword') {
+      setNewPassword(value);
+    } else if (name === 'confirmPassword') {
+      setConfirmPassword(value);
+    }
   };
 
-  validatePasswords = () => {
-    const { newPassword, confirmPassword } = this.state;
+  // Hàm kiểm tra sự khớp giữa mật khẩu mới và xác nhận mật khẩu
+  const validatePasswords = () => {
     if (newPassword !== confirmPassword) {
-      this.setState({ message: 'Mật khẩu mới và xác nhận mật khẩu không khớp.' });
+      setMessage('Mật khẩu mới và xác nhận mật khẩu không khớp.');
       return false;
     }
     return true;
   };
 
-  handleSubmit = (event) => {
+  // Hàm xử lý khi submit form
+  const handleSubmit = (event) => {
     event.preventDefault();
+    if (!validatePasswords()) return;
 
-    if (!this.validatePasswords()) return;
-
-    // Simulate password change
-    this.setState({
-      message: 'Đổi mật khẩu thành công!',
-      currentPassword: '',
-      newPassword: '',
-      confirmPassword: ''
-    });
+    // Giả lập việc đổi mật khẩu thành công
+    setMessage('Đổi mật khẩu thành công!');
+    setCurrentPassword('');
+    setNewPassword('');
+    setConfirmPassword('');
   };
 
-  renderInputField = (label, type, name, value) => (
+  // Hàm render trường input
+  const renderInputField = (label, type, name, value) => (
     <label className="input-label">
       <span className="input-label-text">{label}:</span>
       <input
@@ -48,29 +49,25 @@ class ChangePassword extends Component {
         type={type}
         name={name}
         value={value}
-        onChange={this.handleChange}
+        onChange={handleChange}
         required
       />
     </label>
   );
 
-  render() {
-    const { currentPassword, newPassword, confirmPassword, message } = this.state;
-
-    return (
-      <div className="change-password">
-        <h2 className="change-password-header">Đổi Mật Khẩu</h2>
-        <form onSubmit={this.handleSubmit} className="form-container">
-          {this.renderInputField('Mật khẩu hiện tại', 'password', 'currentPassword', currentPassword)}
-          {this.renderInputField('Mật khẩu mới', 'password', 'newPassword', newPassword)}
-          {this.renderInputField('Xác nhận mật khẩu mới', 'password', 'confirmPassword', confirmPassword)}
-          
-          <button className="submit-button" type="submit">Đổi Mật Khẩu</button>
-        </form>
-        {message && <p className="message">{message}</p>}
-      </div>
-    );
-  }
-}
+  return (
+    <div className="change-password">
+      <h2 className="change-password-header">Đổi Mật Khẩu</h2>
+      <form onSubmit={handleSubmit} className="form-container">
+        {renderInputField('Mật khẩu hiện tại', 'password', 'currentPassword', currentPassword)}
+        {renderInputField('Mật khẩu mới', 'password', 'newPassword', newPassword)}
+        {renderInputField('Xác nhận mật khẩu mới', 'password', 'confirmPassword', confirmPassword)}
+        
+        <button className="submit-button" type="submit">Đổi Mật Khẩu</button>
+      </form>
+      {message && <p className="message">{message}</p>}
+    </div>
+  );
+};
 
 export default ChangePassword;

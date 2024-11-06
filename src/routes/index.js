@@ -13,6 +13,10 @@ import CreateBlog from "../pages/Blog/components/create/Create";
 import Mentors from "../pages/Mentors/Mentors";
 import ConnectMentor from "../pages/ConnectMentor/ConnectMentor";
 import ConnectionRequests from "../pages/ConnectionRequests/ConnectionRequests";
+import ReportSession from "../pages/ReportSession/ReportSession";
+import ChangePassword from "../pages/ChangePassword/ChangePassword";
+import AdminSurveyList from "../pages/AdminSurveyList/AdminSurveyList";
+import SurveyForm from "../pages/SurveyForm/SurveyForm";
 // import Admin from "../pages/Admin/Admin";
 
 import Dashboard from "../pages/Admin/scenes/dashboard";
@@ -33,36 +37,40 @@ import ProfileLayout from "../components/Layout/ProfileLayout";
 import AdminLayout from "../pages/Admin/Admin";
 
 const publicRoutes = [
-    { path: "/", component: Home },
-    { path: "/about", component: About },
-    { path: "/contact", component: Contact },
-    { path: "/dang-nhap", component: Login },
-    { path: "/feed", component: Feed, layout: ProfileLayout },
-    { path: "/messages", component: Message, layout: ProfileLayout },
-    { path: "/schedule", component: Schedule },
-    { path: "/blog", component: Blog },
-    { path: "/create-blog", component: CreateBlog },
-    { path: "/mentor", component: Mentors },
-    { path: "/connect-mentor", component: ConnectMentor },
-    { path: "/dang-ky", component: RoleSelection },
-    { path: "/dang-ky/mentor", component: MentorRegister },
-    { path: "/dang-ky/mentee", component: MenteeRegister },
-    { path: "/yeu-cau-ket-noi", component: ConnectionRequests },
+  { path: "/", component: Home },
+  { path: "/about", component: About },
+  { path: "/contact", component: Contact },
+  { path: "/dang-nhap", component: Login },
+  { path: "/feed", component: Feed, layout: ProfileLayout },
+  { path: "/messages", component: Message, layout: ProfileLayout },
+  { path: "/schedule", component: Schedule },
+  { path: "/blog", component: Blog },
+  { path: "/create-blog", component: CreateBlog },
+  { path: "/mentor", component: Mentors },
+  { path: "/connect-mentor", component: ConnectMentor },
+  { path: "/dang-ky", component: RoleSelection },
+  { path: "/dang-ky/mentor", component: MentorRegister },
+  { path: "/dang-ky/mentee", component: MenteeRegister },
+  { path: "/yeu-cau-ket-noi", component: ConnectionRequests },
+  { path: "/report-session", component: ReportSession },
+  { path: "/survey-form", component: SurveyForm },
+  { path: "/change-password", component: ChangePassword },
+  { path: "/admin-survey-list", component: AdminSurveyList },
 
-    // { path: "/admin", component: Admin, layout: AdminLayout },
-    { path: "/dashboard", component: Dashboard, layout: AdminLayout },
-    { path: "/team", component: Team, layout: AdminLayout },
-    { path: "/mentors", component: Mentor, layout: AdminLayout },
-    { path: "/mentees", component: Mentee, layout: AdminLayout },
-    { path: "/invoices", component: Invoices, layout: AdminLayout },
-    { path: "/form", component: Form, layout: AdminLayout },
-    { path: "/bar", component: Bar, layout: AdminLayout },
-    { path: "/line", component: Line, layout: AdminLayout },
-    { path: "/pie", component: Pie, layout: AdminLayout },
-    { path: "/manage-form", component: ManageForms, layout: AdminLayout },
-    { path: "/faq", component: FAQ, layout: AdminLayout },
-    { path: "/calendar", component: Calendar, layout: AdminLayout },
-    { path: "/geography", component: Geography, layout: AdminLayout },
+  // { path: "/admin", component: Admin, layout: AdminLayout },
+  { path: "/dashboard", component: Dashboard, layout: AdminLayout },
+  { path: "/team", component: Team, layout: AdminLayout },
+  { path: "/mentors", component: Mentor, layout: AdminLayout },
+  { path: "/mentees", component: Mentee, layout: AdminLayout },
+  { path: "/invoices", component: Invoices, layout: AdminLayout },
+  { path: "/form", component: Form, layout: AdminLayout },
+  { path: "/bar", component: Bar, layout: AdminLayout },
+  { path: "/line", component: Line, layout: AdminLayout },
+  { path: "/pie", component: Pie, layout: AdminLayout },
+  { path: "/manage-form", component: ManageForms, layout: AdminLayout },
+  { path: "/faq", component: FAQ, layout: AdminLayout },
+  { path: "/calendar", component: Calendar, layout: AdminLayout },
+  { path: "/geography", component: Geography, layout: AdminLayout },
 ];
 
 const privateRoutes = [];
