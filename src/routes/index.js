@@ -9,6 +9,10 @@ import Blog from "../pages/Blog/Blog";
 import CreateBlog from "../pages/Blog/components/create/Create";
 import Mentors from "../pages/Mentors/Mentors";
 import ConnectMentor from "../pages/ConnectMentor/ConnectMentor";
+import ReportSession from "../pages/ReportSession/ReportSession";
+import ChangePassword from "../pages/ChangePassword/ChangePassword";
+import AdminSurveyList from "../pages/AdminSurveyList/AdminSurveyList";
+import SurveyForm from "../pages/SurveyForm/SurveyForm";
 // import Admin from "../pages/Admin/Admin";
 
 import Dashboard from "../pages/Admin/scenes/dashboard";
@@ -28,6 +32,7 @@ import Geography from "../pages/Admin/scenes/geography";
 import ProfileLayout from "../components/Layout/ProfileLayout";
 import AdminLayout from "../pages/Admin/Admin";
 
+
 const publicRoutes = [
     { path: "/", component: Home },
     { path: "/about", component: About },
@@ -40,6 +45,12 @@ const publicRoutes = [
     { path: "/create-blog", component: CreateBlog },
     { path: "/mentor", component: Mentors },
     { path: "/connect-mentor", component: ConnectMentor },
+    { path: "/report-session", component: ReportSession },
+    { path: "/survey-form", component: SurveyForm },
+    { path: "/change-pass-word", component: ChangePassword },
+    { path: "/admin-survey-list", component: AdminSurveyList },
+
+
 
     // { path: "/admin", component: Admin, layout: AdminLayout },
     { path: "/dashboard", component: Dashboard, layout: AdminLayout },

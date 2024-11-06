@@ -1,18 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
 import classNames from "classnames/bind";
-// import Tippy from "@tippyjs/react";
-// import 'tippy.js/dist/tippy.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBell, faEnvelope, faRightFromBracket, faHome } from "@fortawesome/free-solid-svg-icons"; // Import the home icon
 import styles from "./Header.module.scss";
 import images from "../../../../assets/images";
 import Button from "../../../Button";
-import {
-    faBell,
-    faEnvelope,
-    faRightFromBracket,
-} from "@fortawesome/free-solid-svg-icons";
 import { faCalendarDays } from "@fortawesome/free-regular-svg-icons";
-// import { Wrapper as PopperWrapper } from "../../../Popper";
 
 const cx = classNames.bind(styles);
 
@@ -26,76 +19,30 @@ function Header({ isAuthenticated, setAuthenticated }) {
 
     return (
         <header className={cx("wrapper")}>
+        <div className={cx("top-section")}>
             <div className={cx("inner")}>
                 <div className={cx("logo")}>
                     <Link to="/">
                         <img src={images.logo} alt="Senpy" />
                     </Link>
                 </div>
-                {/* <nav className={cx("nav")}>
+                <nav className={cx("nav")}>
                     <Link to="/" className={cx("nav-item")}>
-                        Trang chủ
+                        <FontAwesomeIcon icon={faHome} style={{ fontSize: '20px' }} />
                     </Link>
                     <Link to="/about" className={cx("nav-item")}>
-                        Giới thiệu
+                        GIỚI THIỆU
                     </Link>
-                    <Link to="/contact" className={cx("nav-item")}>
-                        Liên hệ
+                    <Link to="/blog" className={cx("nav-item")}>
+                        TIN TỨC
                     </Link>
-                </nav> */}
-                <nav className={cx("nav")}>
-                    {isAuthenticated ? (
-                        <>
-                            <Link to="/feed" className={cx("nav-item")}>
-                                Trang chủ
-                            </Link>
-                            <Link to="/about" className={cx("nav-item")}>
-                                Giới thiệu
-                            </Link>
-                            <Link to="/blog" className={cx("nav-item")}>
-                                Tin tức
-                            </Link>
-                            <Link to="/mentor" className={cx("nav-item")}>
-                                Cố vấn
-                            </Link>
-                        </>
-                    ) : (
-                        <>
-                            <Link to="/" className={cx("nav-item")}>
-                                Trang chủ
-                            </Link>
-                            <Link to="/about" className={cx("nav-item")}>
-                                Giới thiệu
-                            </Link>
-                            <Link to="/contact" className={cx("nav-item")}>
-                                Liên hệ
-                            </Link>
-                            <Link to="/mentor" className={cx("nav-item")}>
-                                Cố vấn
-                            </Link>
-                        </>
-                    )}
+                    <Link to="/mentor" className={cx("nav-item")}>
+                        CỐ VẤN
+                    </Link>
                 </nav>
                 <div className={cx("actions")}>
                     {isAuthenticated ? (
                         <>
-                            <Link to="/schedule" className={cx("icon")}>
-                                <FontAwesomeIcon icon={faCalendarDays} />
-                            </Link>
-                            <Link to="/messages" className={cx("icon")}>
-                                <FontAwesomeIcon icon={faEnvelope} />
-                            </Link>
-                            <Link to="/notifications" className={cx("icon")}>
-                                <FontAwesomeIcon icon={faBell} />
-                            </Link>
-                            {/* <Tippy
-                                interactive
-                                render={(attrs) => (
-                                    <div className={cx("user-wrapper")}>
-                                        <PopperWrapper>Hello</PopperWrapper>
-                                    </div>
-                                )}
-                            > */}
                             <div className={cx("user")}>
                                 <img
                                     src={images.logo}
@@ -103,37 +50,28 @@ function Header({ isAuthenticated, setAuthenticated }) {
                                     className={cx("avatar")}
                                 />
                             </div>
-                            {/* </Tippy> */}
                             <Button
                                 small
-                                leftIcon={
-                                    <FontAwesomeIcon
-                                        icon={faRightFromBracket}
-                                    />
-                                }
+                                leftIcon={<FontAwesomeIcon icon={faRightFromBracket} />}
                                 style={{ color: "white", minWidth: "1px" }}
                                 onClick={handleLogout}
-                            ></Button>
+                            />
                         </>
                     ) : (
                         <>
                             <Link to="/dang-nhap" className={cx("button-link")}>
-                                <Button primary>Đăng nhập</Button>
+                                <Button primary>ĐĂNG NHẬP</Button>
                             </Link>
-                            <a
-                                href="/senpy/Form/Formregister.html"
-                                style={{
-                                    textDecoration: "none",
-                                    marginLeft: "10px",
-                                }}
-                            >
-                                <Button outline>Đăng ký</Button>
-                            </a>
+                            <Link to="/dang-ky" className={cx("button-link")}>
+                                <Button outline style={{ color: "white" }}>ĐĂNG KÝ</Button>
+                            </Link>
                         </>
                     )}
                 </div>
             </div>
-        </header>
+        </div>
+    </header>
+    
     );
 }
 

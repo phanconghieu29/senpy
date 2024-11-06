@@ -45,11 +45,12 @@
 }
 
 .outline {
-    color: var(--primary);
-    border-color: currentColor;
+    color:#040e58;
+    border-color: hsl(0, 0%, 100%);
 
     &:hover{
-        background-color: #eaecfb;
+        color: #001eff;
+        background-color: #ffffff;
     }
 }
 
