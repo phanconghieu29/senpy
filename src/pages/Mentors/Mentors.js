@@ -21,7 +21,7 @@ function Mentors() {
         try {
             const response = await axios.get("http://localhost:2903/api/mentors/get-mentors");
             const result = response.data.filter((mentor) =>
-                mentor.name.toLowerCase().includes(query.toLowerCase())
+                mentor.name.toLowerCase().includes(query.toLowerCase()) && mentor.status === "active"
             );
             setFilteredMentors(result);
         } catch (error) {
