@@ -429,6 +429,13 @@ const Sidebar = () => {
               setSelected={setSelected}
             />
             <Item
+              title="Danh sách kết nối"
+              to="/tor-tees"
+              icon={<ContactsOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
               title="Lỗi vi phạm"
               to="/invoices"
               icon={<ReceiptOutlinedIcon />}

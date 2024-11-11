@@ -6,11 +6,11 @@ import { tokens } from "../../theme";
 // import { mockDataMentee } from "../../../../Data/mockData";
 import Header from "../../components/Header";
 import { useTheme } from "@mui/material";
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
-import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
-import StarIcon from '@mui/icons-material/Star';
+import MoreVertIcon from "@mui/icons-material/MoreVert";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
+import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
+import StarIcon from "@mui/icons-material/Star";
 
 const Mentee = () => {
   const theme = useTheme();
@@ -23,7 +23,9 @@ const Mentee = () => {
   useEffect(() => {
     const fetchMentees = async () => {
       try {
-        const response = await axios.get("http://localhost:2903/api/mentees/get-mentees");
+        const response = await axios.get(
+          "http://localhost:2903/api/mentees/get-mentees"
+        );
         const data = await response.data;
         setRows(data); // Hiển thị tất cả mentor ngay từ đầu
         setAllMentees(data); // Lưu dữ liệu gốc vào allMentors
@@ -35,7 +37,7 @@ const Mentee = () => {
   }, []);
 
   const columns = [
-    { field: "menteeID", headerName: "ID", flex: 0.5 },
+    { field: "menteeID", headerName: "Mentee ID", flex: 0.5 },
     // { field: "MenteeID", headerName: "Mentee ID" },
     {
       field: "name",
@@ -88,7 +90,7 @@ const Mentee = () => {
     {
       field: "status",
       headerName: "Status",
-      flex: 1,
+      flex: 0.5,
     },
     {
       field: "actions",
@@ -112,12 +114,16 @@ const Mentee = () => {
   };
 
   const showPendingMentee = () => {
-    const pendingMentee = allMentees.filter(mentee => mentee.status === "pending");
+    const pendingMentee = allMentees.filter(
+      (mentee) => mentee.status === "pending"
+    );
     setRows(pendingMentee);
   };
 
   const showApprovedMentee = () => {
-    const approvedMentee = allMentees.filter(mentee => mentee.status === "active");
+    const approvedMentee = allMentees.filter(
+      (mentee) => mentee.status === "active"
+    );
     setRows(approvedMentee);
   };
 
@@ -138,24 +144,26 @@ const Mentee = () => {
   const approveMentee = async (menteeId) => {
     try {
       // Gửi yêu cầu cập nhật trạng thái lên server
-      await axios.put(`http://localhost:2903/api/mentees/approve-mentee/${menteeId}`);
-  
+      await axios.put(
+        `http://localhost:2903/api/mentees/approve-mentee/${menteeId}`
+      );
+
       // Cập nhật trạng thái mentor trực tiếp trong `rows`
       const updatedRows = rows.map((row) =>
-        row.id === menteeId ? { ...row, status: 'active' } : row
+        row.id === menteeId ? { ...row, status: "active" } : row
       );
       setRows(updatedRows);
-  
+
       // Cập nhật lại toàn bộ mentors để đảm bảo đồng bộ
       const updatedAllMentees = allMentees.map((mentee) =>
-        mentee.id === menteeId ? { ...mentee, status: 'active' } : mentee
+        mentee.id === menteeId ? { ...mentee, status: "active" } : mentee
       );
       setAllMentees(updatedAllMentees);
     } catch (error) {
       console.error("Error approving mentee:", error);
     }
   };
-  
+
   // Cập nhật hàm `handleApproval` để gọi `approveMentor`
   const handleApproval = () => {
     if (currentRow) {
@@ -164,20 +172,46 @@ const Mentee = () => {
     handleCloseMenu();
   };
 
+  const handleReject = async () => {
+    if (currentRow) {
+      try {
+        await axios.delete(`http://localhost:2903/api/mentees/reject-mentee/${currentRow.id}`);
+        
+        // Remove the rejected mentee from both rows and allMentees
+        const updatedRows = rows.filter((row) => row.id !== currentRow.id);
+        setRows(updatedRows);
+        
+        const updatedAllMentees = allMentees.filter((mentee) => mentee.id !== currentRow.id);
+        setAllMentees(updatedAllMentees);
+  
+        alert("Mentee has been rejected and removed from the database.");
+      } catch (error) {
+        console.error("Error rejecting mentee:", error);
+        alert("Error rejecting mentee");
+      }
+    }
+    handleCloseMenu();
+  };
+
   return (
     <Box m="20px">
-      <Header
-        title="DANH SÁCH MENTEE"
-        subtitle="DANH SÁCH CÁC MENTEE"
-      />
+      <Header title="DANH SÁCH MENTEE" subtitle="DANH SÁCH CÁC MENTEE" />
       <Box display="flex" justifyContent="space-between" mb="20px">
         <Button variant="contained" color="primary" onClick={showAllMentee}>
           Toàn bộ danh sách
         </Button>
-        <Button variant="contained" color="secondary" onClick={showPendingMentee}>
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={showPendingMentee}
+        >
           Mentee đang chờ duyệt
         </Button>
-        <Button variant="contained" color="success" onClick={showApprovedMentee}>
+        <Button
+          variant="contained"
+          color="success"
+          onClick={showApprovedMentee}
+        >
           Mentee đã duyệt
         </Button>
       </Box>
@@ -227,7 +261,7 @@ const Mentee = () => {
         open={Boolean(anchorEl)}
         onClose={handleCloseMenu}
       >
-        <MenuItem onClick={handleCloseMenu} sx={{ display: 'flex', alignItems: 'center' }}>
+        {/* <MenuItem onClick={handleCloseMenu} sx={{ display: 'flex', alignItems: 'center' }}>
           <EditIcon sx={{ mr: 1 }} /> Edit
         </MenuItem>
         <MenuItem onClick={handleCloseMenu} sx={{ display: 'flex', alignItems: 'center' }}>
@@ -235,9 +269,18 @@ const Mentee = () => {
         </MenuItem>
         <MenuItem onClick={handleCloseMenu} sx={{ display: 'flex', alignItems: 'center' }}>
           <StarIcon sx={{ mr: 1 }} /> Certifications
-        </MenuItem>
-        <MenuItem onClick={handleApproval} sx={{ display: 'flex', alignItems: 'center' }}>
+        </MenuItem> */}
+        <MenuItem
+          onClick={handleApproval}
+          sx={{ display: "flex", alignItems: "center" }}
+        >
           <VerifiedUserIcon sx={{ mr: 1 }} /> Approval
+        </MenuItem>
+        <MenuItem
+          onClick={handleReject}
+          sx={{ display: "flex", alignItems: "center" }}
+        >
+          <DeleteIcon sx={{ mr: 1 }} /> Reject
         </MenuItem>
       </Menu>
     </Box>

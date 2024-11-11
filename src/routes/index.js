@@ -12,17 +12,19 @@ import Blog from "../pages/Blog/Blog";
 import CreateBlog from "../pages/Blog/components/create/Create";
 import Mentors from "../pages/Mentors/Mentors";
 import ConnectMentor from "../pages/ConnectMentor/ConnectMentor";
-import ConnectionRequests from "../pages/ConnectionRequests/ConnectionRequests";
 import ReportSession from "../pages/ReportSession/ReportSession";
 import ChangePassword from "../pages/ChangePassword/ChangePassword";
 import AdminSurveyList from "../pages/AdminSurveyList/AdminSurveyList";
 import SurveyForm from "../pages/SurveyForm/SurveyForm";
+import MenteeRequests from "../pages/ConnectionRequests/MenteeRequests/MenteeRequests";
+import MentorRequests from "../pages/ConnectionRequests/MentorRequests/MentorRequests";
 // import Admin from "../pages/Admin/Admin";
 
 import Dashboard from "../pages/Admin/scenes/dashboard";
 import Team from "../pages/Admin/scenes/team";
 import Mentor from "../pages/Admin/scenes/mentors";
 import Mentee from "../pages/Admin/scenes/mentees";
+import TorTees from "../pages/Admin/scenes/tor_tees";
 import Invoices from "../pages/Admin/scenes/invoices";
 import Form from "../pages/Admin/scenes/form";
 import Bar from "../pages/Admin/scenes/bar";
@@ -51,17 +53,19 @@ const publicRoutes = [
   { path: "/dang-ky", component: RoleSelection },
   { path: "/dang-ky/mentor", component: MentorRegister },
   { path: "/dang-ky/mentee", component: MenteeRegister },
-  { path: "/yeu-cau-ket-noi", component: ConnectionRequests },
   { path: "/report-session", component: ReportSession },
   { path: "/survey-form", component: SurveyForm },
   { path: "/change-password", component: ChangePassword },
   { path: "/admin-survey-list", component: AdminSurveyList },
+  { path: "/mentee-requests", component: MenteeRequests },
+  { path: "/mentor-requests", component: MentorRequests },
 
   // { path: "/admin", component: Admin, layout: AdminLayout },
   { path: "/dashboard", component: Dashboard, layout: AdminLayout },
   { path: "/team", component: Team, layout: AdminLayout },
   { path: "/mentors", component: Mentor, layout: AdminLayout },
   { path: "/mentees", component: Mentee, layout: AdminLayout },
+  { path: "/tor-tees", component: TorTees, layout: AdminLayout },
   { path: "/invoices", component: Invoices, layout: AdminLayout },
   { path: "/form", component: Form, layout: AdminLayout },
   { path: "/bar", component: Bar, layout: AdminLayout },

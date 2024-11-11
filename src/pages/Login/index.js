@@ -37,8 +37,6 @@ function Login({ setAuthenticated }) {
         localStorage.setItem("userName", user.name);
         localStorage.setItem("role", user.role);
 
-        console.log(data, user);
-
         if (user.role === "admin") {
           navigate("/dashboard");
         } else {

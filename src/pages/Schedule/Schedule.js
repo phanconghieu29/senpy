@@ -1,12 +1,12 @@
-import React from 'react'
-import Calendar from './calendar/calendar'
+import React from "react";
+import Calendar from "./calendar/calendar";
 
 function Schedule() {
   return (
     <div>
-        <Calendar />
+      <Calendar />
     </div>
-  )
+  );
 }
 
-export default Schedule
+export default Schedule;
