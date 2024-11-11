@@ -6,10 +6,10 @@ import { tokens } from "../../theme";
 import Header from "../../components/Header";
 import { useTheme } from "@mui/material";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import EditIcon from "@mui/icons-material/Edit";
+// import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
-import StarIcon from "@mui/icons-material/Star";
+// import StarIcon from "@mui/icons-material/Star";
 
 const Connection = () => {
   const theme = useTheme();
@@ -116,7 +116,8 @@ const Connection = () => {
       console.log("Approving connection with:", { mentorId, menteeId });
 
       // Gửi yêu cầu cập nhật trạng thái lên server
-      const response = await axios.post(
+      // const response = await axios.post(
+      await axios.post(
         "http://localhost:2903/api/connections/admin/approve-connection",
         {
           mentorId,
@@ -263,7 +264,7 @@ const Connection = () => {
           open={Boolean(anchorEl)}
           onClose={handleCloseMenu}
         >
-          <MenuItem
+          {/* <MenuItem
             onClick={handleCloseMenu}
             sx={{ display: "flex", alignItems: "center" }}
           >
@@ -280,7 +281,7 @@ const Connection = () => {
             sx={{ display: "flex", alignItems: "center" }}
           >
             <StarIcon sx={{ mr: 1 }} /> Certifications
-          </MenuItem>
+          </MenuItem> */}
           <MenuItem
             onClick={handleApproval}
             sx={{ display: "flex", alignItems: "center" }}
