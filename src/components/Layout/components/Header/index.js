@@ -44,7 +44,7 @@ function Header({ isAuthenticated, setAuthenticated }) {
               <Link to="/about" className={cx("nav-item")}>
                 Giới thiệu
               </Link>
-              <Link to="/blog" className={cx("nav-item")}>
+              <Link to="/news" className={cx("nav-item")}>
                 Tin tức
               </Link>
               <Link to="/mentor" className={cx("nav-item")}>
@@ -85,7 +85,7 @@ function Header({ isAuthenticated, setAuthenticated }) {
               <Link to="/schedule" className={cx("icon")}>
                 <FontAwesomeIcon icon={faCalendarDays} />
               </Link>
-              <Link to="/messages" className={cx("icon")}>
+              <Link to="/change-password" className={cx("icon")}>
                 <FontAwesomeIcon icon={faEnvelope} />
               </Link>
               <Link to="/notifications" className={cx("icon")}>

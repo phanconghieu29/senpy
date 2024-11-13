@@ -261,8 +261,8 @@ import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutl
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
-import AssignmentIcon from '@mui/icons-material/Assignment';
-import images from "../../../../assets/images"
+import AssignmentIcon from "@mui/icons-material/Assignment";
+import images from "../../../../assets/images";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -287,6 +287,7 @@ const Sidebar = () => {
   const colors = tokens(theme.palette.mode);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [selected, setSelected] = useState("Dashboard");
+  const userName = localStorage.getItem("userName");
   // const [profileImage, setProfileImage] = useState('../../assets/user.png');
 
   // const handleImageChange = (event) => {
@@ -377,12 +378,13 @@ const Sidebar = () => {
               </Box>
               <Box textAlign="center">
                 <Typography
-                  variant="h2"
+                  variant="h4"
                   color={colors.grey[100]}
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0" }}
                 >
-                  BÙI XUÂN LỘC
+                  {/* BÙI XUÂN LỘC */}
+                  {userName}
                 </Typography>
                 <Typography variant="h5" color={colors.greenAccent[500]}>
                   ADMIN MANAGER
@@ -408,7 +410,7 @@ const Sidebar = () => {
               Data
             </Typography>
             <Item
-              title="Manage Team"
+              title="Ban điều hành"
               to="/team"
               icon={<PeopleOutlinedIcon />}
               selected={selected}
@@ -431,6 +433,13 @@ const Sidebar = () => {
             <Item
               title="Danh sách kết nối"
               to="/tor-tees"
+              icon={<ContactsOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Quản lý tin tức"
+              to="/admin-news"
               icon={<ContactsOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}

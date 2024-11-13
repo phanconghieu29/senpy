@@ -176,15 +176,19 @@ const Mentor = () => {
   const handleReject = async () => {
     if (currentRow) {
       try {
-        await axios.delete(`http://localhost:2903/api/mentors/reject-mentor/${currentRow.id}`);
-        
+        await axios.delete(
+          `http://localhost:2903/api/mentors/reject-mentor/${currentRow.id}`
+        );
+
         // Remove the rejected mentor from both rows and allMentors
         const updatedRows = rows.filter((row) => row.id !== currentRow.id);
         setRows(updatedRows);
-        
-        const updatedAllMentors = allMentors.filter((mentor) => mentor.id !== currentRow.id);
+
+        const updatedAllMentors = allMentors.filter(
+          (mentor) => mentor.id !== currentRow.id
+        );
         setAllMentors(updatedAllMentors);
-  
+
         alert("Mentor has been rejected and removed from the database.");
       } catch (error) {
         console.error("Error rejecting mentor:", error);

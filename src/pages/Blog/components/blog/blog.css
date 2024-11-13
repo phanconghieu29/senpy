@@ -1,9 +1,9 @@
-ul,
-li,
-a,
-button,
-input,
-textarea {
+.blog-section ul,
+.blog-section li,
+.blog-section a,
+.blog-section button,
+.blog-section input,
+.blog-section textarea {
   border: none;
   background: none;
   outline: none;
@@ -12,68 +12,90 @@ textarea {
   list-style-type: none;
 }
 
-.blog {
+.blog-section .blog {
   margin: 50px 0;
 }
 
-.container {
+/* Main container grid setup */
+.blog-section .container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Chia thành 3 cột */
-  gap: 20px; /* Khoảng cách giữa các ô */
+  grid-template-columns: repeat(3, 1fr); /* Default: three columns */
+  gap: 20px; /* Space between items */
 }
 
-.grid3 {
-  grid-template-columns: repeat(3, 1fr); /* Đảm bảo rằng .grid3 được cấu hình đúng */
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .blog-section .container {
+    grid-template-columns: repeat(2, 1fr); /* Two columns for medium screens */
+  }
 }
-.blog .boxItems {
+
+@media (max-width: 768px) {
+  .blog-section .container {
+    grid-template-columns: 1fr; /* Single column for small screens */
+  }
+}
+
+.blog-section .blog .boxItems {
   transition: 0.5s;
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 2px 4px rgb(0 0 0 / 8%);
 }
-.blog .boxItems:hover {
+
+.blog-section .blog .boxItems:hover {
   box-shadow: 0 2px 4px rgb(0 0 0 / 8%);
   cursor: pointer;
   transform: translateY(-5px);
 }
-.blog img {
-  width: 100%;
-  height: 250px;
+
+/* Responsive image setup */
+.blog-section .blog img {
+  width: 100%; /* Make the image adjust to container */
+  height: auto; /* Maintain aspect ratio */
+  max-height: 250px; /* Set a maximum height */
   object-fit: cover;
   border-radius: 10px;
   margin-bottom: 20px;
 }
-.blog .icon {
+
+.blog-section .blog .icon {
   margin-right: 10px;
   font-size: 20px;
 }
-.blog .tag a {
+
+.blog-section .blog .tag a {
   color: blue;
   opacity: 0.7;
   text-decoration: none;
   font-size: 20px;
 }
-.blog .tag {
+
+.blog-section .blog .tag {
   margin-bottom: 20px;
   display: flex;
   align-items: center;
 }
-.blog h3 {
+
+.blog-section .blog h3 {
   font-weight: 500;
   color: black;
 }
-.blog p {
+
+.blog-section .blog p {
   color: #999;
   font-weight: 400;
   margin: 20px 0;
   font-size: 17px;
   line-height: 25px;
 }
-.blog .date {
+
+.blog-section .blog .date {
   display: flex;
   align-items: center;
 }
-.blog .date label {
+
+.blog-section .blog .date label {
   display: block;
   margin-right: 20px;
 }

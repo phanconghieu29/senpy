@@ -8,8 +8,8 @@ import MenteeRegister from "../pages/SignUp/MenteeRegistration/MenteeRegistratio
 import Feed from "../pages/Feed/Feed";
 import Message from "../pages/Message/Message";
 import Schedule from "../pages/Schedule/Schedule";
-import Blog from "../pages/Blog/Blog";
-import CreateBlog from "../pages/Blog/components/create/Create";
+import News from "../pages/Blog/News";
+import { DetailsPages } from "../pages/Blog/details/DetailsPages";
 import Mentors from "../pages/Mentors/Mentors";
 import ConnectMentor from "../pages/ConnectMentor/ConnectMentor";
 import ReportSession from "../pages/ReportSession/ReportSession";
@@ -25,6 +25,7 @@ import Team from "../pages/Admin/scenes/team";
 import Mentor from "../pages/Admin/scenes/mentors";
 import Mentee from "../pages/Admin/scenes/mentees";
 import TorTees from "../pages/Admin/scenes/tor_tees";
+import AdminNews from "../pages/Admin/scenes/news";
 import Invoices from "../pages/Admin/scenes/invoices";
 import Form from "../pages/Admin/scenes/form";
 import Bar from "../pages/Admin/scenes/bar";
@@ -46,8 +47,8 @@ const publicRoutes = [
   { path: "/feed", component: Feed, layout: ProfileLayout },
   { path: "/messages", component: Message, layout: ProfileLayout },
   { path: "/schedule", component: Schedule },
-  { path: "/blog", component: Blog },
-  { path: "/create-blog", component: CreateBlog },
+  { path: "/news", component: News },
+  { path: "/news/:id", component: DetailsPages },
   { path: "/mentor", component: Mentors },
   { path: "/connect-mentor", component: ConnectMentor },
   { path: "/dang-ky", component: RoleSelection },
@@ -60,12 +61,13 @@ const publicRoutes = [
   { path: "/mentee-requests", component: MenteeRequests },
   { path: "/mentor-requests", component: MentorRequests },
 
-  // { path: "/admin", component: Admin, layout: AdminLayout },
+  //Các đường dẫn cho admin
   { path: "/dashboard", component: Dashboard, layout: AdminLayout },
   { path: "/team", component: Team, layout: AdminLayout },
   { path: "/mentors", component: Mentor, layout: AdminLayout },
   { path: "/mentees", component: Mentee, layout: AdminLayout },
   { path: "/tor-tees", component: TorTees, layout: AdminLayout },
+  { path: "/admin-news", component: AdminNews, layout: AdminLayout },
   { path: "/invoices", component: Invoices, layout: AdminLayout },
   { path: "/form", component: Form, layout: AdminLayout },
   { path: "/bar", component: Bar, layout: AdminLayout },
