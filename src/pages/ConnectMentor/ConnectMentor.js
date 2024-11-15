@@ -10,7 +10,7 @@ const cx = classNames.bind(styles);
 function ConnectMentor() {
   const location = useLocation();
   const navigate = useNavigate();
-  const userId = localStorage.getItem("userId");
+  const menteeId = localStorage.getItem("menteeId");
   const { mentor } = location.state || {};
   const [reason, setReason] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -25,7 +25,7 @@ function ConnectMentor() {
       const response = await axios.post(
         "http://localhost:2903/api/mentors/connect",
         {
-          mentee_id: userId,
+          mentee_id: menteeId,
           mentor_id: mentor.id,
           introduction: reason,
         }

@@ -12,6 +12,50 @@ function Login({ setAuthenticated }) {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+  // const handleLogin = async (e) => {
+  //   e.preventDefault();
+
+  //   try {
+  //     const response = await axios.post(
+  //       "http://localhost:2903/api/auth/login",
+  //       {
+  //         email,
+  //         password,
+  //       }
+  //     );
+
+  //     const data = response.data;
+
+  //     const user = data.user;
+
+  //     if (response.status === 200) {
+  //       setAuthenticated(true);
+  //       // Store user ID and name in localStorage
+  //       // const userId = user.additionalInfo ? user.additionalInfo.id : user.id;
+  //       localStorage.setItem("token", data.token);
+  //       localStorage.setItem("userId", user.additionalInfo ? user.additionalInfo.id : user.id);
+  //       localStorage.setItem("userName", user.name);
+  //       localStorage.setItem("role", user.role);
+
+  //       if (user.role === "admin") {
+  //         navigate("/dashboard");
+  //       } else {
+  //         navigate("/feed");
+  //       }
+  //     }
+  //   } catch (error) {
+  //     if (error.response) {
+  //       // Nếu có phản hồi từ máy chủ
+  //       alert(
+  //         error.response.data.message || "Đã xảy ra lỗi. Vui lòng thử lại."
+  //       );
+  //     } else {
+  //       // Nếu không có phản hồi từ máy chủ
+  //       alert("Đã xảy ra lỗi. Vui lòng thử lại.");
+  //     }
+  //   }
+  // };
+
   const handleLogin = async (e) => {
     e.preventDefault();
 
@@ -25,32 +69,39 @@ function Login({ setAuthenticated }) {
       );
 
       const data = response.data;
-
       const user = data.user;
 
       if (response.status === 200) {
         setAuthenticated(true);
-        // Store user ID and name in localStorage
-        // const userId = user.additionalInfo ? user.additionalInfo.id : user.id;
+
+        // Store common information in localStorage
         localStorage.setItem("token", data.token);
-        localStorage.setItem("userId", user.additionalInfo ? user.additionalInfo.id : user.id);
+        localStorage.setItem("userId", user.id);
         localStorage.setItem("userName", user.name);
         localStorage.setItem("role", user.role);
 
-        if (user.role === "admin") {
-          navigate("/dashboard");
-        } else {
+        // Store specific ID based on user role
+        if (user.role === "mentee") {
+          localStorage.setItem("menteeId", user.additionalInfo.id);
           navigate("/feed");
+          console.log("User id:" + localStorage.getItem("userId"));
+          console.log("Mentee id:" + localStorage.getItem("menteeId"));
+        } else if (user.role === "mentor") {
+          localStorage.setItem("mentorId", user.additionalInfo.id);
+          navigate("/feed");
+          console.log("User id:" + localStorage.getItem("userId"));
+          console.log("Mentor id:" + localStorage.getItem("mentorId"));
+        } else if (user.role === "admin") {
+          navigate("/dashboard");
+          console.log("User id:" + localStorage.getItem("userId"));
         }
       }
     } catch (error) {
       if (error.response) {
-        // Nếu có phản hồi từ máy chủ
         alert(
           error.response.data.message || "Đã xảy ra lỗi. Vui lòng thử lại."
         );
       } else {
-        // Nếu không có phản hồi từ máy chủ
         alert("Đã xảy ra lỗi. Vui lòng thử lại.");
       }
     }

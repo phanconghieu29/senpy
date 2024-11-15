@@ -1,59 +1,223 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import FullCalendar from "@fullcalendar/react";
 import { formatDate } from "@fullcalendar/core";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import listPlugin from "@fullcalendar/list";
-import {
-  Box,
-  List,
-  ListItem,
-  ListItemText,
-  Typography,
-  // useTheme,
-} from "@mui/material";
-// import Header from "../../components/Header";
-// import { tokens } from "../../theme";
-import './calendar.scss'
+import { Box, List, ListItem, ListItemText, Typography } from "@mui/material";
+import "./calendar.scss";
+import axios from "axios";
 
 const Calendar = () => {
-  // const theme = useTheme();
-  // const colors = tokens(theme.palette.mode);
   const [currentEvents, setCurrentEvents] = useState([]);
+  const menteeId = localStorage.getItem("menteeId");
+  const userRole = localStorage.getItem("role");
 
-  const handleDateClick = (selected) => {
-    const title = prompt("Please enter a new title for your event");
+  const fetchEvents = useCallback(async () => {
+    try {
+      const response = await axios.get(
+        "http://localhost:2903/api/schedules/get-schedules",
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+
+      const events = response.data;
+
+      const calendarEvents = events.map((event) => ({
+        id: event.schedule_id,
+        title: event.title,
+        start: event.scheduled_time,
+        status: event.status,
+        allDay: false,
+      }));
+
+      setCurrentEvents(calendarEvents);
+    } catch (error) {
+      console.error("Error loading schedules:", error);
+      alert(`Lỗi tải lịch hẹn: ${error.message}`);
+    }
+  }, []);
+
+  // Fetch events once on mount
+  useEffect(() => {
+    fetchEvents();
+  }, [fetchEvents]); // Dependency array ensures fetchEvents is only called once on mount
+
+  // Handle date click and add event using axios
+  // const handleDateClick = async (selected) => {
+  //   const title = prompt("Vui lòng nhập chủ đề cho cuộc gặp mặt của bạn:");
+  //   const calendarApi = selected.view.calendar;
+  //   calendarApi.unselect();
+
+  //   if (title) {
+  //     const newEvent = {
+  //       mentee_id: menteeId,
+  //       scheduled_time: selected.startStr,
+  //       status: "scheduled",
+  //       title,
+  //       reason_for_cancel: "",
+  //     };
+
+  //     try {
+  //       const response = await axios.post(
+  //         "http://localhost:2903/api/schedules/add-schedule",
+  //         newEvent,
+  //         {
+  //           headers: {
+  //             "Content-Type": "application/json",
+  //             Authorization: `Bearer ${localStorage.getItem("token")}`,
+  //           },
+  //         }
+  //       );
+
+  //       const savedEvent = response.data;
+
+  //       console.log("Saved event from API: ", savedEvent);
+
+  //       // Update current events state by adding the new event
+  //       setCurrentEvents((prevEvents) => [
+  //         ...prevEvents,
+  //         {
+  //           id: savedEvent.schedule_id,
+  //           title: savedEvent.title,
+  //           start: savedEvent.scheduled_time,
+  //           allDay: selected.allDay,
+  //         },
+  //       ]);
+
+  //       alert("Đặt lịch hẹn thành công");
+
+  //       // Reload events from the API after adding a new event
+  //       fetchEvents();
+  //     } catch (error) {
+  //       console.error("Lỗi lưu lịch hẹn:", error);
+  //       alert(`Lỗi lưu lịch hẹn: ${error.message}`);
+  //     }
+  //   }
+  // };
+
+  const handleDateClick = async (selected) => {
+    const title = prompt("Vui lòng nhập chủ đề cho cuộc gặp mặt của bạn:");
     const calendarApi = selected.view.calendar;
     calendarApi.unselect();
 
     if (title) {
-      calendarApi.addEvent({
-        id: `${selected.dateStr}-${title}`,
+      const newEvent = {
+        mentee_id: menteeId,
+        scheduled_time: selected.startStr,
+        status: "pending", // Set to pending by default
         title,
-        start: selected.startStr,
-        end: selected.endStr,
-        allDay: selected.allDay,
-      });
+        reason_for_cancel: "",
+      };
+
+      try {
+        await axios.post(
+          "http://localhost:2903/api/schedules/add-schedule",
+          newEvent,
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+        );
+        alert("Đặt lịch hẹn thành công, chờ mentor chấp nhận");
+        fetchEvents(); // Reload events to reflect the new schedule
+      } catch (error) {
+        console.error("Error adding schedule:", error);
+        alert("Lỗi khi đặt lịch hẹn");
+      }
     }
   };
 
-  const handleEventClick = (selected) => {
-    if (
-      window.confirm(
-        `Are you sure you want to delete the event '${selected.event.title}'`
-      )
-    ) {
-      selected.event.remove();
+  // Handle event click to delete
+  // const handleEventClick = (selected) => {
+  //   if (
+  //     window.confirm(
+  //       `Bạn có chắc chắn muốn xóa cuộc hẹn không '${selected.event.title}'`
+  //     )
+  //   ) {
+  //     selected.event.remove();
+  //   }
+  // };
+
+  const handleEventClick = async (selected) => {
+    console.log("User role:", userRole);
+
+    if (userRole === "mentee") {
+      if (
+        window.confirm(
+          `Bạn có chắc chắn muốn hủy cuộc hẹn '${selected.event.title}'?`
+        )
+      ) {
+        try {
+          await axios.delete(
+            "http://localhost:2903/api/schedules/delete-schedule",
+            {
+              data: { scheduleId: selected.event.id },
+              headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`,
+              },
+            }
+          );
+          selected.event.remove();
+          alert("Lịch hẹn đã được hủy");
+        } catch (error) {
+          console.error("Error deleting schedule:", error);
+          alert("Lỗi khi hủy lịch hẹn");
+        }
+      }
+    } else if (userRole === "mentor") {
+      const action = window.prompt(
+        `Nhập "1" để chấp nhận lịch hẹn hoặc "2" để hủy: ${selected.event.title}`
+      );
+      if (action === "1") {
+        try {
+          await axios.post(
+            "http://localhost:2903/api/schedules/approve-schedule",
+            {
+              scheduleId: selected.event.id,
+            },
+            {
+              headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`,
+              },
+            }
+          );
+          alert("Lịch hẹn đã được chấp nhận");
+          fetchEvents(); // Reload events to reflect the status update
+        } catch (error) {
+          console.error("Error approving schedule:", error);
+          alert("Lỗi khi chấp nhận lịch hẹn");
+        }
+      } else if (action === "2") {
+        try {
+          await axios.delete(
+            "http://localhost:2903/api/schedules/delete-schedule",
+            {
+              data: { scheduleId: selected.event.id },
+              headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`,
+              },
+            }
+          );
+          selected.event.remove();
+          alert("Lịch hẹn đã được hủy");
+        } catch (error) {
+          console.error("Error deleting schedule:", error);
+          alert("Lỗi khi hủy lịch hẹn");
+        }
+      }
     }
   };
 
   return (
     <Box m="20px">
-      {/* <Header title="Calendar" subtitle="Full Calendar Interactive Page" /> */}
-
       <Box display="flex" justifyContent="space-between">
-        {/* CALENDAR SIDEBAR */}
         <Box
           flex="1 1 20%"
           backgroundColor="gray"
@@ -74,10 +238,12 @@ const Calendar = () => {
               >
                 <ListItemText
                   primary={
-                    <Typography sx={{ fontSize: '1.4rem' }}>{event.title}</Typography>
+                    <Typography sx={{ fontSize: "1.4rem" }}>
+                      {event.title}
+                    </Typography>
                   }
                   secondary={
-                    <Typography sx={{ fontSize: '1.2rem' }}>
+                    <Typography sx={{ fontSize: "1.2rem" }}>
                       {formatDate(event.start, {
                         year: "numeric",
                         month: "short",
@@ -91,7 +257,6 @@ const Calendar = () => {
           </List>
         </Box>
 
-        {/* CALENDAR */}
         <Box flex="1 1 100%" ml="15px">
           <FullCalendar
             height="75vh"
@@ -107,11 +272,11 @@ const Calendar = () => {
               right: "dayGridMonth,timeGridWeek,timeGridDay,listMonth",
             }}
             buttonText={{
-              today: 'Hôm nay',
-              month: 'Tháng',
-              week: 'Tuần',
-              day: 'Ngày',
-              list: 'Danh sách lịch hẹn',
+              today: "Hôm nay",
+              month: "Tháng",
+              week: "Tuần",
+              day: "Ngày",
+              list: "Danh sách lịch hẹn",
             }}
             initialView="dayGridMonth"
             editable={true}
@@ -120,19 +285,7 @@ const Calendar = () => {
             dayMaxEvents={true}
             select={handleDateClick}
             eventClick={handleEventClick}
-            eventsSet={(events) => setCurrentEvents(events)}
-            initialEvents={[
-              {
-                id: "12315",
-                title: "All-day event",
-                date: "2024-07-14",
-              },
-              {
-                id: "5123",
-                title: "Timed event",
-                date: "2024-07-28",
-              },
-            ]}
+            events={currentEvents}
           />
         </Box>
       </Box>
