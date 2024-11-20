@@ -1,3 +1,48 @@
+/* .Post {
+    display: flex;
+    flex-direction: column;
+    padding: 3rem;
+    background-color: var(--cardColor);
+    border-radius: 1rem;
+    gap: 1rem;
+}
+
+.Post > img {
+    width: 100%;
+    height: 45rem;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 0.5rem;
+}
+
+.smallPost > img {
+    height: 20rem;
+}
+
+.postReact {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.see-more-btn, .see-more-link {
+    background: none;
+    border: none;
+    color: blue;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 15px;
+    margin-left: 5px;
+}
+
+.see-more-link {
+    text-decoration: underline;
+}
+
+.see-more-btn:hover {
+    color: darkblue;
+} */
+
 .Post {
     display: flex;
     flex-direction: column;
@@ -43,4 +88,117 @@
 
 .see-more-btn:hover {
     color: darkblue;
+}
+
+/* Phần css cho nút like */
+.postReact span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.postReact span:hover {
+  background-color: #ffe6e6; /* Màu nền khi hover */
+  transform: scale(1.1); /* Tăng kích thước khi hover */
+}
+
+.postReact span:active {
+  transform: scale(1); /* Tạo hiệu ứng nén khi nhấn */
+}
+
+/* Cải thiện màu sắc cho tim khi liked và chưa liked */
+.postReact .liked {
+  color: red;
+}
+
+.postReact .unliked {
+  color: gray;
+}
+
+/* Chỉnh sửa kích thước của biểu tượng tim */
+.postReact svg {
+  font-size: 24px;
+  transition: color 0.3s ease;
+}
+
+/* Thêm hiệu ứng cho biểu tượng tim khi liked */
+.postReact .liked svg {
+  color: red; /* Màu đỏ khi liked */
+}
+
+/* Thêm hiệu ứng khi chưa liked */
+.postReact .unliked svg {
+  color: gray; /* Màu xám khi chưa liked */
+}
+
+.comment-section {
+    margin-top: 10px;
+  }
+  
+  .comment-section input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .comments-list {
+    margin-top: 15px;
+  }
+  
+  .comment {
+    padding: 5px 0;
+    border-bottom: 1px solid #f1f1f1;
+  }
+  
+  .comment-date {
+    font-size: 12px;
+    color: gray;
+  }
+.replies {
+  margin-top: 5px;
+}
+
+.reply {
+  margin-bottom: 5px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #555;
+}
+
+.reply-label {
+  font-weight: bold;
+  color: #007bff;
+  margin-right: 5px;
+}
+
+.reply-text {
+  font-style: italic;
+  color: #333;
+}
+
+.reply-date {
+  font-size: 12px;
+  color: #888;
+  margin-left: 10px;
+}
+
+.reply-section input {
+  width: 100%;
+  padding: 5px;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+button {
+  margin-left: 5px;
+  font-size: 12px;
+  cursor: pointer;
 }
