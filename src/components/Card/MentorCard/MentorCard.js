@@ -14,7 +14,7 @@ const MentorCard = ({ id, name, expertise, onConnect }) => {
     const navigate = useNavigate();
 
     const handleViewProfile = () => {
-        navigate(`/mentor/${id}`);
+        navigate(`/user/${id}`);
     };
 
     return (

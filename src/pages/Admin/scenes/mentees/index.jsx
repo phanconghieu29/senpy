@@ -37,11 +37,11 @@ const Mentee = () => {
   }, []);
 
   const columns = [
-    { field: "menteeID", headerName: "Mentee ID", flex: 0.5 },
+    { field: "menteeID", headerName: "Mã mentee", flex: 0.5 },
     // { field: "MenteeID", headerName: "Mentee ID" },
     {
       field: "name",
-      headerName: "Name",
+      headerName: "Họ và tên",
       flex: 1,
       cellClassName: "name-column--cell",
     },
@@ -54,12 +54,12 @@ const Mentee = () => {
     // },
     {
       field: "gender",
-      headerName: "Gender",
+      headerName: "Giới tính",
       flex: 1,
     },
     {
       field: "phone",
-      headerName: "Phone Number",
+      headerName: "Số điện thoại",
       flex: 1,
     },
     {
@@ -69,7 +69,7 @@ const Mentee = () => {
     },
     {
       field: "major",
-      headerName: "Major",
+      headerName: "Ngành",
       flex: 1,
     },
     // {
@@ -89,8 +89,8 @@ const Mentee = () => {
     },
     {
       field: "status",
-      headerName: "Status",
-      flex: 0.5,
+      headerName: "Trạng thái",
+      flex: 1,
     },
     {
       field: "actions",
@@ -115,14 +115,14 @@ const Mentee = () => {
 
   const showPendingMentee = () => {
     const pendingMentee = allMentees.filter(
-      (mentee) => mentee.status === "pending"
+      (mentee) => mentee.status === "Chờ duyệt"
     );
     setRows(pendingMentee);
   };
 
   const showApprovedMentee = () => {
     const approvedMentee = allMentees.filter(
-      (mentee) => mentee.status === "active"
+      (mentee) => mentee.status === "Đã kích hoạt"
     );
     setRows(approvedMentee);
   };
@@ -150,13 +150,13 @@ const Mentee = () => {
 
       // Cập nhật trạng thái mentor trực tiếp trong `rows`
       const updatedRows = rows.map((row) =>
-        row.id === menteeId ? { ...row, status: "active" } : row
+        row.id === menteeId ? { ...row, status: "Đã kích hoạt" } : row
       );
       setRows(updatedRows);
 
       // Cập nhật lại toàn bộ mentors để đảm bảo đồng bộ
       const updatedAllMentees = allMentees.map((mentee) =>
-        mentee.id === menteeId ? { ...mentee, status: "active" } : mentee
+        mentee.id === menteeId ? { ...mentee, status: "Đã kích hoạt" } : mentee
       );
       setAllMentees(updatedAllMentees);
     } catch (error) {
@@ -274,13 +274,13 @@ const Mentee = () => {
           onClick={handleApproval}
           sx={{ display: "flex", alignItems: "center" }}
         >
-          <VerifiedUserIcon sx={{ mr: 1 }} /> Approval
+          <VerifiedUserIcon sx={{ mr: 1 }} /> Phê duyệt
         </MenuItem>
         <MenuItem
           onClick={handleReject}
           sx={{ display: "flex", alignItems: "center" }}
         >
-          <DeleteIcon sx={{ mr: 1 }} /> Reject
+          <DeleteIcon sx={{ mr: 1 }} /> Từ chối
         </MenuItem>
       </Menu>
     </Box>

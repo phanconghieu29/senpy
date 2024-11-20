@@ -40,20 +40,42 @@ function MenteeRequests() {
     fetchMenteeStatus();
   }, []);
 
-  const cancelRequest = async (id) => {
+  // const cancelRequest = async (id) => {
+  //   try {
+  //     const token = localStorage.getItem("token");
+  //     await axios.delete(
+  //       `http://localhost:2903/api/connections/mentees/requests/${id}`,
+  //       {
+  //         headers: {
+  //           Authorization: `Bearer ${token}`,
+  //         },
+  //       }
+  //     );
+  //     setRequests(requests.filter((req) => req.connection_id !== id));
+  //   } catch (error) {
+  //     console.error("Error canceling request:", error);
+  //   }
+  // };
+
+  const cancelRequest = async (connectionId) => {
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(
-        `http://localhost:2903/api/connections/mentees/requests/${id}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
+      await axios.patch(
+        `http://localhost:2903/api/connections/mentors/requests/${connectionId}`,
+        { action: "cancel" },
+        { headers: { Authorization: `Bearer ${token}` } }
       );
-      setRequests(requests.filter((req) => req.connection_id !== id));
+
+      // Cập nhật trạng thái của yêu cầu trong danh sách
+      setRequests((prevRequests) =>
+        prevRequests.map((req) =>
+          req.connection_id === connectionId
+            ? { ...req, status: "Mentee hủy yêu cầu" }
+            : req
+        )
+      );
     } catch (error) {
-      console.error("Error canceling request:", error);
+      console.error("Lỗi khi từ chối yêu cầu:", error);
     }
   };
 
@@ -70,8 +92,11 @@ function MenteeRequests() {
           <strong>Ngày gửi:</strong>{" "}
           {new Date(request.request_date).toLocaleDateString()}
         </p>
-        {request.status === "pending" && (
-          <button onClick={() => cancelRequest(request.connection_id)} className={cx("button")}>
+        {(request.status === "Chờ mentor" || request.status === "Chờ BĐH") && (
+          <button
+            onClick={() => cancelRequest(request.connection_id)}
+            className={cx("button")}
+          >
             Hủy Yêu Cầu
           </button>
         )}
@@ -111,7 +136,9 @@ function MenteeRequests() {
 
       {status === "not_connected" && (
         <div>
-          <h3 className={cx("title")}>Các Yêu Cầu Kết Nối Chưa Được Phê Duyệt</h3>
+          <h3 className={cx("title")}>
+            Các Yêu Cầu Kết Nối Chưa Được Phê Duyệt
+          </h3>
           <ul className={cx("requestsList")}>{renderRequests()}</ul>
         </div>
       )}

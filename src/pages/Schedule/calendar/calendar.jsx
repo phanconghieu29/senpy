@@ -49,58 +49,6 @@ const Calendar = () => {
   }, [fetchEvents]); // Dependency array ensures fetchEvents is only called once on mount
 
   // Handle date click and add event using axios
-  // const handleDateClick = async (selected) => {
-  //   const title = prompt("Vui lòng nhập chủ đề cho cuộc gặp mặt của bạn:");
-  //   const calendarApi = selected.view.calendar;
-  //   calendarApi.unselect();
-
-  //   if (title) {
-  //     const newEvent = {
-  //       mentee_id: menteeId,
-  //       scheduled_time: selected.startStr,
-  //       status: "scheduled",
-  //       title,
-  //       reason_for_cancel: "",
-  //     };
-
-  //     try {
-  //       const response = await axios.post(
-  //         "http://localhost:2903/api/schedules/add-schedule",
-  //         newEvent,
-  //         {
-  //           headers: {
-  //             "Content-Type": "application/json",
-  //             Authorization: `Bearer ${localStorage.getItem("token")}`,
-  //           },
-  //         }
-  //       );
-
-  //       const savedEvent = response.data;
-
-  //       console.log("Saved event from API: ", savedEvent);
-
-  //       // Update current events state by adding the new event
-  //       setCurrentEvents((prevEvents) => [
-  //         ...prevEvents,
-  //         {
-  //           id: savedEvent.schedule_id,
-  //           title: savedEvent.title,
-  //           start: savedEvent.scheduled_time,
-  //           allDay: selected.allDay,
-  //         },
-  //       ]);
-
-  //       alert("Đặt lịch hẹn thành công");
-
-  //       // Reload events from the API after adding a new event
-  //       fetchEvents();
-  //     } catch (error) {
-  //       console.error("Lỗi lưu lịch hẹn:", error);
-  //       alert(`Lỗi lưu lịch hẹn: ${error.message}`);
-  //     }
-  //   }
-  // };
-
   const handleDateClick = async (selected) => {
     const title = prompt("Vui lòng nhập chủ đề cho cuộc gặp mặt của bạn:");
     const calendarApi = selected.view.calendar;
@@ -266,11 +214,11 @@ const Calendar = () => {
               interactionPlugin,
               listPlugin,
             ]}
-            headerToolbar={{
-              left: "prev,next today",
-              center: "title",
-              right: "dayGridMonth,timeGridWeek,timeGridDay,listMonth",
-            }}
+            // headerToolbar={{
+            //   left: "prev,next today",
+            //   center: "title",
+            //   right: "dayGridMonth,timeGridWeek,timeGridDay,listMonth",
+            // }}
             buttonText={{
               today: "Hôm nay",
               month: "Tháng",

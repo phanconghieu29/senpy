@@ -37,11 +37,11 @@ const Mentor = () => {
   }, []);
 
   const columns = [
-    { field: "mentorID", headerName: "Mentor ID", flex: 0.5 },
+    { field: "mentorID", headerName: "Mã mentor", flex: 0.5 },
     // { field: "mentorID", headerName: "Mentor ID" },
     {
       field: "name",
-      headerName: "Name",
+      headerName: "Họ và tên",
       flex: 1,
       cellClassName: "name-column--cell",
     },
@@ -54,12 +54,12 @@ const Mentor = () => {
     // },
     {
       field: "gender",
-      headerName: "Gender",
+      headerName: "Giới tính",
       flex: 1,
     },
     {
       field: "phone",
-      headerName: "Phone Number",
+      headerName: "SĐT",
       flex: 1,
     },
     {
@@ -69,7 +69,7 @@ const Mentor = () => {
     },
     {
       field: "expertise",
-      headerName: "Expertise",
+      headerName: "Chuyên môn",
       flex: 1,
     },
     // {
@@ -89,8 +89,8 @@ const Mentor = () => {
     },
     {
       field: "status",
-      headerName: "Status",
-      flex: 0.5,
+      headerName: "Trạng thái",
+      flex: 1,
     },
     {
       field: "actions",
@@ -117,7 +117,7 @@ const Mentor = () => {
   const showPendingMentors = () => {
     // const pendingMentors = allMentors.filter(mentor => !mentor.check);
     const pendingMentors = allMentors.filter(
-      (mentor) => mentor.status === "pending"
+      (mentor) => mentor.status === "Chờ duyệt"
     );
     setRows(pendingMentors);
   };
@@ -125,7 +125,7 @@ const Mentor = () => {
   const showApprovedMentors = () => {
     // const approvedMentors = allMentors.filter(mentor => mentor.check);
     const approvedMentors = allMentors.filter(
-      (mentor) => mentor.status === "active"
+      (mentor) => mentor.status === "Đã kích hoạt"
     );
     setRows(approvedMentors);
   };
@@ -151,13 +151,13 @@ const Mentor = () => {
 
       // Cập nhật trạng thái mentor trực tiếp trong `rows`
       const updatedRows = rows.map((row) =>
-        row.id === mentorId ? { ...row, status: "active" } : row
+        row.id === mentorId ? { ...row, status: "Đã kích hoạt" } : row
       );
       setRows(updatedRows);
 
       // Cập nhật lại toàn bộ mentors để đảm bảo đồng bộ
       const updatedAllMentors = allMentors.map((mentor) =>
-        mentor.id === mentorId ? { ...mentor, status: "active" } : mentor
+        mentor.id === mentorId ? { ...mentor, status: "Đã kích hoạt" } : mentor
       );
       setAllMentors(updatedAllMentors);
     } catch (error) {
@@ -288,13 +288,13 @@ const Mentor = () => {
             onClick={handleApproval}
             sx={{ display: "flex", alignItems: "center" }}
           >
-            <VerifiedUserIcon sx={{ mr: 1 }} /> Approval
+            <VerifiedUserIcon sx={{ mr: 1 }} /> Phê duyệt
           </MenuItem>
           <MenuItem
             onClick={handleReject}
             sx={{ display: "flex", alignItems: "center" }}
           >
-            <DeleteIcon sx={{ mr: 1 }} /> Reject
+            <DeleteIcon sx={{ mr: 1 }} /> Từ chối
           </MenuItem>
         </Menu>
       </Box>

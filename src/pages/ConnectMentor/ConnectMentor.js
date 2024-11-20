@@ -26,10 +26,12 @@ function ConnectMentor() {
         "http://localhost:2903/api/mentors/connect",
         {
           mentee_id: menteeId,
-          mentor_id: mentor.id,
+          mentor_id: mentor.mentorID,
           introduction: reason,
         }
       );
+
+      console.log(mentor);
 
       if (response.status === 201) {
         navigate("/mentor");

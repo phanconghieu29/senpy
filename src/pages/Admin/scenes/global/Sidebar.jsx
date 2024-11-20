@@ -193,6 +193,13 @@ const Sidebar = () => {
               setSelected={setSelected}
             />
             <Item
+              title="Quản lý bài báo cáo"
+              to="/admin-reports"
+              icon={<ContactsOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
               title="Quản lý tin tức"
               to="/admin-news"
               icon={<ContactsOutlinedIcon />}

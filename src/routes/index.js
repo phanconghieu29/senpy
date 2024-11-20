@@ -18,6 +18,7 @@ import AdminSurveyList from "../pages/AdminSurveyList/AdminSurveyList";
 import SurveyForm from "../pages/SurveyForm/SurveyForm";
 import MenteeRequests from "../pages/ConnectionRequests/MenteeRequests/MenteeRequests";
 import MentorRequests from "../pages/ConnectionRequests/MentorRequests/MentorRequests";
+import Profile from "../pages/Profile/Profile";
 // import Admin from "../pages/Admin/Admin";
 
 import Dashboard from "../pages/Admin/scenes/dashboard";
@@ -35,6 +36,7 @@ import ManageForms from "../pages/Admin/scenes/manage_form";
 import FAQ from "../pages/Admin/scenes/faq";
 import Calendar from "../pages/Admin/scenes/calendar/calendar";
 import Geography from "../pages/Admin/scenes/geography";
+import Report from "../pages/Admin/scenes/reports/ReportAdmin";
 
 import ProfileLayout from "../components/Layout/ProfileLayout";
 import AdminLayout from "../pages/Admin/Admin";
@@ -60,6 +62,7 @@ const publicRoutes = [
   { path: "/admin-survey-list", component: AdminSurveyList },
   { path: "/mentee-requests", component: MenteeRequests },
   { path: "/mentor-requests", component: MentorRequests },
+  { path: "/user/:id", component: Profile },
 
   //Các đường dẫn cho admin
   { path: "/dashboard", component: Dashboard, layout: AdminLayout },
@@ -70,6 +73,7 @@ const publicRoutes = [
   { path: "/admin-news", component: AdminNews, layout: AdminLayout },
   { path: "/invoices", component: Invoices, layout: AdminLayout },
   { path: "/form", component: Form, layout: AdminLayout },
+  { path: "/admin-reports", component: Report, layout: AdminLayout },
   { path: "/bar", component: Bar, layout: AdminLayout },
   { path: "/line", component: Line, layout: AdminLayout },
   { path: "/pie", component: Pie, layout: AdminLayout },
