@@ -11,16 +11,18 @@ import {
   ListItem,
   ListItemText,
   Typography,
-  useTheme,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  Button,
 } from "@mui/material";
-import Header from "../../components/Header";
-import { tokens } from "../../theme";
 import axios from "axios";
 
 const Calendar = () => {
-  const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
   const [currentEvents, setCurrentEvents] = useState([]);
+  const [selectedEvent, setSelectedEvent] = useState(null);
+  const [openEventDetailsDialog, setOpenEventDetailsDialog] = useState(false);
 
   const fetchEvents = useCallback(async () => {
     try {
@@ -34,7 +36,6 @@ const Calendar = () => {
         }
       );
 
-      // Filter events by "scheduled" status
       const events = response.data.filter(
         (event) => event.status === "scheduled"
       );
@@ -43,7 +44,11 @@ const Calendar = () => {
         id: event.schedule_id,
         title: event.title,
         start: event.scheduled_time,
+        status: event.status,
+        location: event.location,
         allDay: false,
+        mentor_name: event.mentor_name, // Include mentor name
+        mentee_name: event.mentee_name, // Include mentee name
       }));
 
       setCurrentEvents(calendarEvents);
@@ -57,6 +62,11 @@ const Calendar = () => {
     fetchEvents();
   }, [fetchEvents]);
 
+  const handleEventClick = (selected) => {
+    setSelectedEvent(selected.event);
+    setOpenEventDetailsDialog(true);
+  };
+
   return (
     <Box m="20px">
       <Box display="flex" justifyContent="space-between">
@@ -67,7 +77,7 @@ const Calendar = () => {
           p="15px"
           borderRadius="4px"
         >
-          <Typography variant="h4">Scheduled Events</Typography>
+          <Typography variant="h4">Lịch hẹn</Typography>
           <List>
             {currentEvents.map((event) => (
               <ListItem
@@ -80,18 +90,31 @@ const Calendar = () => {
               >
                 <ListItemText
                   primary={
-                    <Typography sx={{ fontSize: "1.4rem" }}>
+                    <Typography sx={{ fontSize: "1.4rem", fontWeight: "bold" }}>
                       {event.title}
                     </Typography>
                   }
                   secondary={
-                    <Typography sx={{ fontSize: "1.2rem" }}>
-                      {formatDate(event.start, {
-                        year: "numeric",
-                        month: "short",
-                        day: "numeric",
-                      })}
-                    </Typography>
+                    <>
+                      <Typography variant="body2" sx={{ color: "white" }}>
+                        Mentor:{" "}
+                        {event.mentor_name ||
+                          "Không có thông tin"}
+                      </Typography>
+                      <Typography variant="body2" sx={{ color: "white" }}>
+                        Mentee:{" "}
+                        {event.mentee_name ||
+                          "Không có thông tin"}
+                      </Typography>
+                      <Typography variant="body2" sx={{ color: "white" }}>
+                        Thời gian:{" "}
+                        {formatDate(event.start, {
+                          year: "numeric",
+                          month: "short",
+                          day: "numeric",
+                        })}
+                      </Typography>
+                    </>
                   }
                 />
               </ListItem>
@@ -116,12 +139,53 @@ const Calendar = () => {
             initialView="dayGridMonth"
             editable={true}
             selectable={true}
-            selectMirror={true}
-            dayMaxEvents={true}
-            events={currentEvents} // Display only "scheduled" events
+            // dayMaxEvents={true}
+            events={currentEvents}
+            eventClick={handleEventClick}
           />
         </Box>
       </Box>
+
+      <Dialog
+        open={openEventDetailsDialog}
+        onClose={() => setOpenEventDetailsDialog(false)}
+      >
+        {selectedEvent && (
+          <>
+            <DialogTitle>Thông tin lịch hẹn</DialogTitle>
+            <DialogContent>
+              <Typography variant="body1">
+                Mentor: {selectedEvent.extendedProps.mentor_name}
+              </Typography>
+              <Typography variant="body1">
+                Mentee: {selectedEvent.extendedProps.mentee_name}
+              </Typography>
+              <Typography variant="body1">
+                Địa điểm:{" "}
+                {selectedEvent.extendedProps.location || "Không có thông tin"}
+              </Typography>
+              <Typography variant="body1">
+                Thời gian:{" "}
+                {formatDate(selectedEvent.start, {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                  hour: "2-digit",
+                  minute: "2-digit",
+                })}
+              </Typography>
+            </DialogContent>
+            <DialogActions>
+              <Button
+                onClick={() => setOpenEventDetailsDialog(false)}
+                color="primary"
+              >
+                Đóng
+              </Button>
+            </DialogActions>
+          </>
+        )}
+      </Dialog>
     </Box>
   );
 };

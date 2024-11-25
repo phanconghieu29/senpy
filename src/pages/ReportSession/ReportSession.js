@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './ReportSession.css';
 
 const ReportSession = () => {
-
     const [formData, setFormData] = useState({
         schedule_id: '',
         mentor_id: '',
@@ -14,10 +14,27 @@ const ReportSession = () => {
         mentorGuidance: '',
         nextActions: '',
         image: ''
-      });
+    });
 
     const [imagePreview, setImagePreview] = useState(null);
     const [imageFile, setImageFile] = useState(null);
+
+    // Dùng useLocation để lấy query params từ URL
+    const location = useLocation();
+    const navigate = useNavigate(); // Sử dụng useNavigate để chuyển hướng
+
+    // Lấy scheduleId từ query params
+    const queryParams = new URLSearchParams(location.search);
+    const scheduleId = queryParams.get('scheduleId');
+
+    useEffect(() => {
+        if (scheduleId) {
+            setFormData((prevData) => ({
+                ...prevData,
+                schedule_id: scheduleId,
+            }));
+        }
+    }, [scheduleId]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -27,72 +44,21 @@ const ReportSession = () => {
         });
     };
 
-    
     const handleImageChange = (event) => {
         const file = event.target.files[0];
         if (file) {
-            setImageFile(file); // Lưu file để gửi cùng với dữ liệu
-            setImagePreview(URL.createObjectURL(file)); // Hiển thị preview
+            setImageFile(file);
+            setImagePreview(URL.createObjectURL(file));
         }
     };
-    // const handleImageUpload = (e) => {
-    //     const file = e.target.files[0];
-    //     const formData = new FormData();
-    //     formData.append('image', file);  // Thêm file vào formData
-    
-    //     fetch('http://localhost:2903/api/upload', {
-    //         method: 'POST',
-    //         body: formData,  // Gửi formData chứa ảnh
-    //     })
-    //     .then(response => response.json())
-    //     .then(data => {
-    //         console.log('File uploaded successfully:', data);
-    //     })
-    //     .catch(error => {
-    //         console.error('Error uploading file:', error);
-    //     });
-    // };
-    
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    
-    //     const formDataToSubmit = {
-    //         schedule_id: 2, // Cập nhật với ID lịch thực tế
-    //         mentor_id: 1,   // Cập nhật với ID Mentor thực tế
-    //         mentee_id: 1,   // Cập nhật với ID Mentee thực tế
-    //         crossMentor: formData.crossMentor,
-    //         meetingNumber: formData.meetingNumber,
-    //         resultsAchieved: formData.resultsAchieved,
-    //         currentIssue: formData.currentIssue,
-    //         mentorGuidance: formData.mentorGuidance,
-    //         nextActions: formData.nextActions,
-    //         image: imagePreview, // Bạn có thể upload ảnh hoặc lưu URL ảnh
-    //     };
-    
-    //     try {
-    //         const response = await fetch('http://localhost:2903/api/report-session/report', {
-    //             method: 'POST',
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //             },
-    //             body: JSON.stringify(formDataToSubmit),
-    //         });
-    
-    //         const data = await response.json();
-    //         console.log(data);
-    //         alert('Form đã được submit thành công.');
-    //     } catch (error) {
-    //         console.error('Error submitting form:', error);
-    //         alert('Có lỗi xảy ra khi gửi báo cáo.');
-    //     }
-    // };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         const formDataToSubmit = new FormData();
-        formDataToSubmit.append('schedule_id', 2);
-        formDataToSubmit.append('mentor_id', 1);
-        formDataToSubmit.append('mentee_id', 1);
+        formDataToSubmit.append('schedule_id', formData.schedule_id);
+        formDataToSubmit.append('mentor_id', 1); // Cập nhật ID Mentor thực tế
+        formDataToSubmit.append('mentee_id', 1); // Cập nhật ID Mentee thực tế
         formDataToSubmit.append('crossMentor', formData.crossMentor);
         formDataToSubmit.append('meetingNumber', formData.meetingNumber);
         formDataToSubmit.append('resultsAchieved', formData.resultsAchieved);
@@ -101,24 +67,30 @@ const ReportSession = () => {
         formDataToSubmit.append('nextActions', formData.nextActions);
 
         if (imageFile) {
-            formDataToSubmit.append("image", imageFile);  // Đảm bảo rằng `imageFile` là file ảnh bạn muốn tải lên
+            formDataToSubmit.append('image', imageFile);
         }
 
         try {
             const response = await fetch('http://localhost:2903/api/reports/create', {
                 method: 'POST',
-                body: formDataToSubmit,  // Gửi formData chứa tất cả dữ liệu, bao gồm ảnh
+                body: formDataToSubmit,
             });
 
             const data = await response.json();
             console.log(data);
-            alert('Form đã được submit thành công.');
+
+            if (response.ok) {
+                alert('Form đã được submit thành công.');
+                navigate('/feed'); // Chuyển hướng về trang /feed sau khi submit thành công
+            } else {
+                throw new Error('Lỗi khi gửi báo cáo');
+            }
         } catch (error) {
             console.error('Error submitting form:', error);
             alert('Có lỗi xảy ra khi gửi báo cáo.');
         }
     };
-    
+
     return (
         <div className="form-container">
             <h2>Báo Cáo Buổi Cố Vấn</h2>
@@ -156,15 +128,11 @@ const ReportSession = () => {
                 </div>
                 <div className="form-group">
                     <label>Hình ảnh:</label>
-                    <div className="image-upload">
-                        {/* <input type="file" accept="image/*" onChange={handleImageChange} /> */}
-                        <input
-                            type="file"
-                            accept="image/*"
-                            onChange={handleImageChange}
-                        />
-                        <button type="button" className="upload-button" onClick={() => document.querySelector('input[type=file]').click()}>Thêm Ảnh</button>
-                    </div>
+                    <input
+                        type="file"
+                        accept="image/*"
+                        onChange={handleImageChange}
+                    />
                     {imagePreview && <img src={imagePreview} alt="Preview" className="image-preview" />}
                 </div>
                 <button type="submit" className="submit-btn">Nộp Báo Cáo</button>

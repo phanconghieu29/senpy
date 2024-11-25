@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import Reply from './Reply';
+import React, { useState } from "react";
+import Reply from "./Reply";
 
 const Comment = ({ comment, index, setComments }) => {
-  const [replyText, setReplyText] = useState('');
+  const [replyText, setReplyText] = useState("");
   const [isReplying, setIsReplying] = useState(false);
 
   // Handle reply text change
@@ -11,22 +11,27 @@ const Comment = ({ comment, index, setComments }) => {
   // Handle adding a reply to the comment
   const handleAddReply = () => {
     if (replyText.trim()) {
-      const updatedComments = [...comment.replies, {
-        text: replyText,
-        user: localStorage.getItem('userName') || 'User',
-        date: new Date().toLocaleString(),
-      }];
+      const updatedComments = [
+        ...comment.replies,
+        {
+          text: replyText,
+          user: localStorage.getItem("userName") || "User",
+          date: new Date().toLocaleString(),
+        },
+      ];
       const newComments = [...comments];
       newComments[index].replies = updatedComments;
       setComments(newComments);
-      setReplyText('');
+      setReplyText("");
       setIsReplying(false);
     }
   };
 
   return (
     <div className="comment">
-      <span><b>{comment.user}</b>: {comment.text}</span>
+      <span>
+        <b>{comment.user}</b>: {comment.text}
+      </span>
       <span className="comment-date">{comment.date}</span>
 
       <button onClick={() => setIsReplying(!isReplying)}>Trả lời</button>
@@ -37,7 +42,7 @@ const Comment = ({ comment, index, setComments }) => {
             type="text"
             value={replyText}
             onChange={handleReplyChange}
-            onKeyDown={(e) => e.key === 'Enter' && handleAddReply()}
+            onKeyDown={(e) => e.key === "Enter" && handleAddReply()}
             placeholder="Nhập câu trả lời..."
           />
         </div>

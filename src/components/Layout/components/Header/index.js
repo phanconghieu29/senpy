@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import classNames from "classnames/bind";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./Header.module.scss";
@@ -16,6 +17,7 @@ const cx = classNames.bind(styles);
 
 function Header({ isAuthenticated, setAuthenticated }) {
   const navigate = useNavigate();
+  const [isMenuOpen, setMenuOpen] = useState(false);
   const role = localStorage.getItem("role"); // Lấy role từ localStorage
 
   const handleLogout = () => {
@@ -25,6 +27,10 @@ function Header({ isAuthenticated, setAuthenticated }) {
     localStorage.removeItem("isAuthenticated");
     setAuthenticated(false);
     navigate("/");
+  };
+
+  const toggleMenu = () => {
+    setMenuOpen(!isMenuOpen);
   };
 
   return (
@@ -51,14 +57,12 @@ function Header({ isAuthenticated, setAuthenticated }) {
                 Cố vấn
               </Link>
               {role === "mentor" ? (
-                <>
-                  <Link to="/mentor-requests" className={cx("nav-item")}>
-                    Kết nối Mentee
-                  </Link>
-                </>
+                <Link to="/mentor-requests" className={cx("nav-item")}>
+                  Mentee của tôi
+                </Link>
               ) : (
                 <Link to="/mentee-requests" className={cx("nav-item")}>
-                  Kết nối Mentee
+                  Mentor của tôi
                 </Link>
               )}
             </>
@@ -91,15 +95,33 @@ function Header({ isAuthenticated, setAuthenticated }) {
               <Link to="/notifications" className={cx("icon")}>
                 <FontAwesomeIcon icon={faBell} />
               </Link>
-              <div className={cx("user")}>
+              <div className={cx("user")} onClick={toggleMenu}>
                 <img src={images.logo} alt="avatar" className={cx("avatar")} />
+                {isMenuOpen && (
+                  <div className={cx("menu")}>
+                    <Link
+                      to={`/user/${localStorage.getItem("userId")}`}
+                      className={cx("menu-item")}
+                    >
+                      Xem hồ sơ cá nhân
+                    </Link>
+                    <Link to="/change-password" className={cx("menu-item")}>
+                      Đổi mật khẩu
+                    </Link>
+                    {/* <button className={cx("menu-item")} onClick={handleLogout}>
+                      Đăng xuất
+                    </button> */}
+                    <div className={cx("divider")}></div>
+                    <Link
+                      to="/"
+                      className={cx("menu-item")}
+                      onClick={handleLogout}
+                    >
+                      Đăng xuất
+                    </Link>
+                  </div>
+                )}
               </div>
-              <Button
-                small
-                leftIcon={<FontAwesomeIcon icon={faRightFromBracket} />}
-                style={{ color: "white", minWidth: "1px" }}
-                onClick={handleLogout}
-              ></Button>
             </>
           ) : (
             <>

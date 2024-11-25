@@ -155,20 +155,20 @@ const Post = ({ data, small, isDetailPage }) => {
     setComments(updatedComments);
   };
   
-  const handleEditReply = (nestedIndex, commentIndex) => {
-    const newReplyText = prompt('Sửa nội dung trả lời:', comments[commentIndex].replies[nestedIndex].text);
-    if (newReplyText) {
-      const updatedComments = [...comments];
-      updatedComments[commentIndex].replies[nestedIndex].text = newReplyText;
-      setComments(updatedComments);
-    }
-  };
+  // const handleEditReply = (nestedIndex, commentIndex) => {
+  //   const newReplyText = prompt('Sửa nội dung trả lời:', comments[commentIndex].replies[nestedIndex].text);
+  //   if (newReplyText) {
+  //     const updatedComments = [...comments];
+  //     updatedComments[commentIndex].replies[nestedIndex].text = newReplyText;
+  //     setComments(updatedComments);
+  //   }
+  // };
   
-  const handleDeleteReply = (nestedIndex, commentIndex) => {
-    const updatedComments = [...comments];
-    updatedComments[commentIndex].replies.splice(nestedIndex, 1); // Xóa reply tại nestedIndex
-    setComments(updatedComments);
-  };
+  // const handleDeleteReply = (nestedIndex, commentIndex) => {
+  //   const updatedComments = [...comments];
+  //   updatedComments[commentIndex].replies.splice(nestedIndex, 1); // Xóa reply tại nestedIndex
+  //   setComments(updatedComments);
+  // };
   const handleAddReplyToReply = (e, replyIndex, commentIndex, nestedIndex = null) => {
     const replyText = nestedIndex !== null 
       ? comments[commentIndex].replies[replyIndex].replies[nestedIndex]?.replyText || ''
