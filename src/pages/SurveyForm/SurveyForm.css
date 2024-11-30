@@ -1,108 +1,97 @@
-.body {
+body {
     background-color: #f4f4f4; /* Nền trang nhẹ nhàng */
-    font-family: 'Arial', sans-serif; /* Font chữ đơn giản và dễ đọc */
+    font-family: 'Arial', sans-serif; /* Font chữ dễ đọc */
 }
 
 .survey-form {
-    
     max-width: 600px;
-    margin: 50px auto; /* Căn giữa và thêm khoảng cách trên */
+    margin: 50px auto; /* Căn giữa form */
     padding: 20px;
     border-radius: 10px;
     background-color: #ffffff; /* Nền trắng cho form */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Bóng đổ nhẹ */
-    transition: box-shadow 0.3s ease; /* Hiệu ứng cho bóng đổ */
+    transition: box-shadow 0.3s ease; /* Hiệu ứng bóng */
 }
 
 .survey-form:hover {
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Bóng đổ rõ hơn khi hover */
-}
-
-.tieude {
-   
-    color: #414141; 
-    font-size: 20px;
-    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Tăng bóng khi hover */
 }
 
 .survey-title {
     text-align: center;
-    color: rgb(0, 17, 172); 
+    color: rgb(0, 17, 172); /* Màu tiêu đề chính */
     margin-bottom: 20px;
-    font-size: 40px;
+    font-size: 30px; /* Kích thước tiêu đề */
+    font-weight: bold;
 }
-
-
 
 .survey-form h2 {
     color: #2c68d8;
-    margin: 30px 0 0px; /* Cách lề cho tiêu đề phụ */
+    margin: 20px 0 10px; /* Khoảng cách cho tiêu đề phụ */
+    font-size: 20px;
 }
+
 .survey-form h3 {
-    color: #1a1a1a;
-  
-    margin-left: 15px;
-    font-size: 17px;
+    color: #333; /* Màu chữ cho nhãn */
+    margin-left: 5px;
+    font-size: 16px; /* Kích thước chữ nhỏ hơn tiêu đề phụ */
 }
 
 .survey-form label {
     display: block;
     margin: 15px 0 5px; /* Khoảng cách giữa nhãn và trường nhập */
-    font-weight: 600;
-    color: #414141; /* Màu chữ cho nhãn */
+    font-weight: bold;
+    color: #414141;
 }
 
-.survey-form input[type="text"],
-.survey-form input[type="email"],
+.survey-form input[type="number"],
+.survey-form select,
 .survey-form textarea {
-    width: 100%;
+    width: 100%; /* Kích thước full-width */
     padding: 10px;
     margin-top: 5px;
-    border: 1px solid #ccc; /* Đường viền sáng */
-    border-radius: 5px; /* Bo góc nhẹ cho input */
-    box-sizing: border-box;
-    font-size: 14px; /* Kích thước chữ trong input */
-    transition: border 0.3s; /* Hiệu ứng chuyển tiếp cho đường viền */
+    border: 1px solid #ccc; /* Đường viền nhẹ */
+    border-radius: 5px; /* Bo góc */
+    box-sizing: border-box; /* Gộp padding và border */
+    font-size: 14px; /* Kích thước chữ */
+    transition: border 0.3s ease; /* Hiệu ứng chuyển đổi */
 }
 
-.survey-form input[type="text"]:focus,
-.survey-form input[type="email"]:focus,
+.survey-form input[type="number"]:focus,
+.survey-form select:focus,
 .survey-form textarea:focus {
-    border: 1px solid #007bff; /* Đổi màu viền khi focus */
-    outline: none; /* Ẩn outline mặc định */
-}
-
-.survey-form input[type="radio"] {
-    margin-right: 10px; /* Khoảng cách cho radio button */
+    border-color: #007bff; /* Màu viền khi focus */
+    outline: none; /* Bỏ outline mặc định */
 }
 
 .survey-form textarea {
-    height: 100px; /* Độ cao cho textarea */
+    height: 120px; /* Đặt độ cao cố định */
+    resize: none; /* Không cho phép thay đổi kích thước */
 }
 
 .survey-form button {
     display: block;
-    width: 100%;
+    width: 100%; /* Full-width */
     padding: 12px;
     margin-top: 20px;
-    background-color: #007bff; /* Màu nền cho nút */
-    color: white; /* Màu chữ cho nút */
-    border: none; /* Ẩn đường viền mặc định */
-    border-radius: 5px; /* Bo góc cho nút */
-    cursor: pointer; /* Con trỏ chuột cho nút */
-    font-size: 16px;
-    transition: background-color 0.3s, transform 0.3s; /* Hiệu ứng cho nút */
+    background-color: #007bff; /* Màu nền */
+    color: white; /* Màu chữ */
+    border: none; /* Xóa viền */
+    border-radius: 5px; /* Bo góc nhẹ */
+    cursor: pointer; /* Biểu tượng con trỏ */
+    font-size: 16px; /* Kích thước chữ */
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s ease; /* Hiệu ứng hover */
 }
 
 .survey-form button:hover {
-    background-color: #0056b3; /* Đổi màu nền khi hover */
-    transform: translateY(-2px); /* Nâng nút lên khi hover */
+    background-color: #0056b3; /* Màu nền hover */
+    transform: translateY(-2px); /* Hiệu ứng hover */
 }
 
-/* Responsive design */
+/* Responsive Design */
 @media (max-width: 768px) {
     .survey-form {
-        margin: 20px; /* Giảm khoảng cách trên cho thiết bị nhỏ */
+        margin: 20px; /* Giảm khoảng cách */
     }
 }
-

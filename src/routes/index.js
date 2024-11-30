@@ -37,6 +37,7 @@ import FAQ from "../pages/Admin/scenes/faq";
 import Calendar from "../pages/Admin/scenes/calendar/calendar";
 import Geography from "../pages/Admin/scenes/geography";
 import Report from "../pages/Admin/scenes/reports/ReportAdmin";
+import SurveyAdmin from "../pages/Admin/scenes/surveys/SurveyAdmin";
 
 import ProfileLayout from "../components/Layout/ProfileLayout";
 import AdminLayout from "../pages/Admin/Admin";
@@ -74,6 +75,7 @@ const publicRoutes = [
   { path: "/invoices", component: Invoices, layout: AdminLayout },
   { path: "/form", component: Form, layout: AdminLayout },
   { path: "/admin-reports", component: Report, layout: AdminLayout },
+  { path: "/admin-surveys", component: SurveyAdmin, layout: AdminLayout },
   { path: "/bar", component: Bar, layout: AdminLayout },
   { path: "/line", component: Line, layout: AdminLayout },
   { path: "/pie", component: Pie, layout: AdminLayout },

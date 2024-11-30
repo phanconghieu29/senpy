@@ -67,10 +67,10 @@ const Report = () => {
 
         // Load lại dữ liệu từ server
         await fetchData();
-        alert("Đã duyệt báo cáo thành công!");
+        alert("Đã duyệt bài viết thành công!");
       } catch (error) {
-        console.error("Lỗi khi duyệt báo cáo:", error);
-        alert("Duyệt báo cáo thất bại!");  // Chỉ hiển thị thông báo này nếu có lỗi
+        console.error("Lỗi khi duyệt bài viết:", error);
+        alert("Duyệt bài viết thất bại!");  // Chỉ hiển thị thông báo này nếu có lỗi
       } finally {
         // Đảm bảo chỉ hiển thị một thông báo
         handleCloseMenu();
@@ -107,10 +107,10 @@ const Report = () => {
   
         // Load lại dữ liệu từ server
         await fetchData();
-        alert("Đã ẩn menu thành công!");
+        alert("Đã ẩn bài viết thành công!");
       } catch (error) {
-        console.error("Lỗi khi ẩn menu:", error);
-        alert("Ẩn menu thất bại!");  // Chỉ hiển thị thông báo này nếu có lỗi
+        console.error("Lỗi khi ẩn bài viết:", error);
+        alert("Ẩn bài viết thất bại!");  // Chỉ hiển thị thông báo này nếu có lỗi
       } finally {
         // Đảm bảo chỉ hiển thị một thông báo
         handleCloseMenu();
