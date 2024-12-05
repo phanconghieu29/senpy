@@ -74,6 +74,9 @@ function Header({ isAuthenticated, setAuthenticated }) {
               <Link to="/about" className={cx("nav-item")}>
                 Giới thiệu
               </Link>
+              <Link to="/news" className={cx("nav-item")}>
+                Tin tức
+              </Link>
               <Link to="/contact" className={cx("nav-item")}>
                 Liên hệ
               </Link>
@@ -99,6 +102,9 @@ function Header({ isAuthenticated, setAuthenticated }) {
                 <img src={images.logo} alt="avatar" className={cx("avatar")} />
                 {isMenuOpen && (
                   <div className={cx("menu")}>
+                    <b className={cx("menu-item")}>
+                      Xin chào {localStorage.getItem("userName")}
+                    </b>
                     <Link
                       to={`/user/${localStorage.getItem("userId")}`}
                       className={cx("menu-item")}

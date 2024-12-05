@@ -135,7 +135,7 @@ function MentorRequests() {
 
   return (
     <div className={cx("container")}>
-      <h2 className={cx("title")}>Trạng Thái Kết Nối Của Mentor</h2>
+      {/* <h2 className={cx("title")}>Trạng Thái Kết Nối Của Mentor</h2> */}
       {status === "not_connected" ? (
         <div>
           <h3 className={cx("title")}>Danh Sách Yêu Cầu Kết Nối</h3>
@@ -143,7 +143,10 @@ function MentorRequests() {
             {requests.map((request) => (
               <li key={request.connection_id}>
                 <p>
-                  <strong>Mentor:</strong> {request.mentee_name}
+                  <strong>Mentee:</strong> {request.mentee_name}
+                </p>
+                <p>
+                  <strong>Lời nhắn:</strong> {request.introduction}
                 </p>
                 <p>
                   <strong>Trạng thái:</strong> {request.status}
