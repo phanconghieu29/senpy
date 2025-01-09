@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UserProfile",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Tên đầy đủ của người dùng"
+    },
+    "title": {
+      "type": "string",
+      "description": "Chức danh hoặc vị trí công việc của người dùng"
+    },
+    "avatar": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL của ảnh đại diện"
+    }
+  },
+  "required": ["name", "title", "avatar"]
+}

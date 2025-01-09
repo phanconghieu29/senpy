@@ -1,0 +1,28 @@
+.profile-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Khoảng cách giữa các hàng */
+}
+
+.profile-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Khoảng cách giữa các card trong cùng một hàng */
+}
+
+.profile-card {
+  flex: 1 0 18%; /* Đảm bảo mỗi card chiếm khoảng 1/5 chiều rộng */
+  max-width: 200px; /* Giới hạn chiều rộng tối đa */
+}
+
+@media (max-width: 768px) {
+  .profile-card {
+    flex: 1 0 48%; /* Khi màn hình nhỏ hơn, card chiếm 48% chiều rộng */
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-card {
+    flex: 1 0 100%; /* Trên các màn hình rất nhỏ, mỗi card chiếm toàn bộ chiều rộng */
+  }
+}
