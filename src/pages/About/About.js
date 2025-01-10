@@ -4,7 +4,7 @@ import MentorBoard from "../../components/MentorBoard/MentorBoard";
 import BoardofDirectors from "../../components/BoardofDirectors/BoardofDirectors";
 import styles from "./About.module.scss";
 import images from "../../assets/images";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 

@@ -1,0 +1,107 @@
+/* Admin Survey List */
+.admin-survey-list {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+/* Tiêu đề trang khảo sát */
+.admin-survey-list__title {
+  text-align: center;
+  font-size: 35px;
+  margin-bottom: 20px;
+  color:  #00305cc7;
+}
+
+/* Tìm kiếm và lọc */
+.search-filter {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.search-filter__input,
+.search-filter__select {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.search-filter__input:focus,
+.search-filter__select:focus {
+  border-color: #4CAF50;
+}
+
+/* Bảng khảo sát */
+.survey-table {
+  width: 80%; /* Giới hạn chiều rộng của bảng */
+  max-width: 1200px; /* Giới hạn chiều rộng tối đa */
+  margin: 0 auto; /* Căn giữa bảng */
+  border-collapse: collapse;
+  overflow-x: auto;
+}
+
+.survey-table__thead {
+  background-color: #0074e0;
+  color: white;
+}
+
+.survey-table__th,
+.survey-table__td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  white-space: nowrap;
+}
+
+.survey-table__tbody tr {
+  transition: background-color 0.2s;
+}
+
+.survey-table__tbody tr:hover {
+  background-color:  #0074e059;
+}
+
+/* Tiêu đề cố định khi cuộn xuống */
+.survey-table__th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color:  #0074e0;;
+}
+
+/* Thanh cuộn khi bảng lớn */
+.survey-table__scrollable {
+  display: block;
+  overflow-x: auto;
+  max-height: 500px;
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+/* Thanh cuộn */
+.survey-table__scrollable::-webkit-scrollbar {
+  height: 8px;
+  background: #f1f1f1;
+}
+
+.survey-table__scrollable::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+}
+
+.survey-table__scrollable::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Các thẻ th và td có kích thước hợp lý */
+.survey-table__th,
+.survey-table__td {
+  min-width: 120px;
+}

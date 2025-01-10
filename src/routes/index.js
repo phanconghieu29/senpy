@@ -2,19 +2,31 @@ import Home from "../pages/Home/Home";
 import About from "../pages/About/About";
 import Contact from "../pages/Contact/Contact";
 import Login from "../pages/Login";
+import RoleSelection from "../pages/SignUp/RoleSelection/RoleSelection";
+import MentorRegister from "../pages/SignUp/MentorRegistration/MentorRegistration";
+import MenteeRegister from "../pages/SignUp/MenteeRegistration/MenteeRegistration";
 import Feed from "../pages/Feed/Feed";
 import Message from "../pages/Message/Message";
 import Schedule from "../pages/Schedule/Schedule";
-import Blog from "../pages/Blog/Blog";
-import CreateBlog from "../pages/Blog/components/create/Create";
+import News from "../pages/Blog/News";
+import { DetailsPages } from "../pages/Blog/details/DetailsPages";
 import Mentors from "../pages/Mentors/Mentors";
 import ConnectMentor from "../pages/ConnectMentor/ConnectMentor";
+import ReportSession from "../pages/ReportSession/ReportSession";
+import ChangePassword from "../pages/ChangePassword/ChangePassword";
+import AdminSurveyList from "../pages/AdminSurveyList/AdminSurveyList";
+import SurveyForm from "../pages/SurveyForm/SurveyForm";
+import MenteeRequests from "../pages/ConnectionRequests/MenteeRequests/MenteeRequests";
+import MentorRequests from "../pages/ConnectionRequests/MentorRequests/MentorRequests";
+import Profile from "../pages/Profile/Profile";
 // import Admin from "../pages/Admin/Admin";
 
 import Dashboard from "../pages/Admin/scenes/dashboard";
 import Team from "../pages/Admin/scenes/team";
 import Mentor from "../pages/Admin/scenes/mentors";
 import Mentee from "../pages/Admin/scenes/mentees";
+import TorTees from "../pages/Admin/scenes/tor_tees";
+import AdminNews from "../pages/Admin/scenes/news";
 import Invoices from "../pages/Admin/scenes/invoices";
 import Form from "../pages/Admin/scenes/form";
 import Bar from "../pages/Admin/scenes/bar";
@@ -24,37 +36,53 @@ import ManageForms from "../pages/Admin/scenes/manage_form";
 import FAQ from "../pages/Admin/scenes/faq";
 import Calendar from "../pages/Admin/scenes/calendar/calendar";
 import Geography from "../pages/Admin/scenes/geography";
+import Report from "../pages/Admin/scenes/reports/ReportAdmin";
+import SurveyAdmin from "../pages/Admin/scenes/surveys/SurveyAdmin";
 
 import ProfileLayout from "../components/Layout/ProfileLayout";
 import AdminLayout from "../pages/Admin/Admin";
 
 const publicRoutes = [
-    { path: "/", component: Home },
-    { path: "/about", component: About },
-    { path: "/contact", component: Contact },
-    { path: "/dang-nhap", component: Login },
-    { path: "/feed", component: Feed, layout: ProfileLayout },
-    { path: "/messages", component: Message, layout: ProfileLayout },
-    { path: "/schedule", component: Schedule },
-    { path: "/blog", component: Blog },
-    { path: "/create-blog", component: CreateBlog },
-    { path: "/mentor", component: Mentors },
-    { path: "/connect-mentor", component: ConnectMentor },
+  { path: "/", component: Home },
+  { path: "/about", component: About },
+  { path: "/contact", component: Contact },
+  { path: "/dang-nhap", component: Login },
+  { path: "/feed", component: Feed, layout: ProfileLayout },
+  { path: "/messages", component: Message, layout: ProfileLayout },
+  { path: "/schedule", component: Schedule },
+  { path: "/news", component: News },
+  { path: "/news/:id", component: DetailsPages },
+  { path: "/mentor", component: Mentors },
+  { path: "/connect-mentor", component: ConnectMentor },
+  { path: "/dang-ky", component: RoleSelection },
+  { path: "/dang-ky/mentor", component: MentorRegister },
+  { path: "/dang-ky/mentee", component: MenteeRegister },
+  { path: "/report-session", component: ReportSession },
+  { path: "/survey-form", component: SurveyForm },
+  { path: "/change-password", component: ChangePassword },
+  { path: "/admin-survey-list", component: AdminSurveyList },
+  { path: "/mentee-requests", component: MenteeRequests },
+  { path: "/mentor-requests", component: MentorRequests },
+  { path: "/user/:id", component: Profile },
 
-    // { path: "/admin", component: Admin, layout: AdminLayout },
-    { path: "/dashboard", component: Dashboard, layout: AdminLayout },
-    { path: "/team", component: Team, layout: AdminLayout },
-    { path: "/mentors", component: Mentor, layout: AdminLayout },
-    { path: "/mentees", component: Mentee, layout: AdminLayout },
-    { path: "/invoices", component: Invoices, layout: AdminLayout },
-    { path: "/form", component: Form, layout: AdminLayout },
-    { path: "/bar", component: Bar, layout: AdminLayout },
-    { path: "/line", component: Line, layout: AdminLayout },
-    { path: "/pie", component: Pie, layout: AdminLayout },
-    { path: "/manage-form", component: ManageForms, layout: AdminLayout },
-    { path: "/faq", component: FAQ, layout: AdminLayout },
-    { path: "/calendar", component: Calendar, layout: AdminLayout },
-    { path: "/geography", component: Geography, layout: AdminLayout },
+  //Các đường dẫn cho admin
+  { path: "/dashboard", component: Dashboard, layout: AdminLayout },
+  { path: "/team", component: Team, layout: AdminLayout },
+  { path: "/mentors", component: Mentor, layout: AdminLayout },
+  { path: "/mentees", component: Mentee, layout: AdminLayout },
+  { path: "/tor-tees", component: TorTees, layout: AdminLayout },
+  { path: "/admin-news", component: AdminNews, layout: AdminLayout },
+  { path: "/invoices", component: Invoices, layout: AdminLayout },
+  { path: "/form", component: Form, layout: AdminLayout },
+  { path: "/admin-reports", component: Report, layout: AdminLayout },
+  { path: "/admin-surveys", component: SurveyAdmin, layout: AdminLayout },
+  { path: "/bar", component: Bar, layout: AdminLayout },
+  { path: "/line", component: Line, layout: AdminLayout },
+  { path: "/pie", component: Pie, layout: AdminLayout },
+  { path: "/manage-form", component: ManageForms, layout: AdminLayout },
+  { path: "/faq", component: FAQ, layout: AdminLayout },
+  { path: "/calendar", component: Calendar, layout: AdminLayout },
+  { path: "/geography", component: Geography, layout: AdminLayout },
 ];
 
 const privateRoutes = [];

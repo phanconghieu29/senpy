@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
@@ -11,75 +11,110 @@ import {
   ListItem,
   ListItemText,
   Typography,
-  useTheme,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  Button,
 } from "@mui/material";
-import Header from "../../components/Header";
-import { tokens } from "../../theme";
+import axios from "axios";
 
 const Calendar = () => {
-  const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
   const [currentEvents, setCurrentEvents] = useState([]);
+  const [selectedEvent, setSelectedEvent] = useState(null);
+  const [openEventDetailsDialog, setOpenEventDetailsDialog] = useState(false);
 
-  const handleDateClick = (selected) => {
-    const title = prompt("Please enter a new title for your event");
-    const calendarApi = selected.view.calendar;
-    calendarApi.unselect();
+  const fetchEvents = useCallback(async () => {
+    try {
+      const response = await axios.get(
+        "http://localhost:2903/api/schedules/get-schedules",
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
 
-    if (title) {
-      calendarApi.addEvent({
-        id: `${selected.dateStr}-${title}`,
-        title,
-        start: selected.startStr,
-        end: selected.endStr,
-        allDay: selected.allDay,
-      });
+      const events = response.data.filter(
+        (event) => event.status === "scheduled"
+      );
+
+      const calendarEvents = events.map((event) => ({
+        id: event.schedule_id,
+        title: event.title,
+        start: event.scheduled_time,
+        status: event.status,
+        location: event.location,
+        allDay: false,
+        mentor_name: event.mentor_name, // Include mentor name
+        mentee_name: event.mentee_name, // Include mentee name
+      }));
+
+      setCurrentEvents(calendarEvents);
+    } catch (error) {
+      console.error("Error loading schedules:", error);
+      alert(`Lỗi tải lịch hẹn: ${error.message}`);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    fetchEvents();
+  }, [fetchEvents]);
 
   const handleEventClick = (selected) => {
-    if (
-      window.confirm(
-        `Are you sure you want to delete the event '${selected.event.title}'`
-      )
-    ) {
-      selected.event.remove();
-    }
+    setSelectedEvent(selected.event);
+    setOpenEventDetailsDialog(true);
   };
 
   return (
     <Box m="20px">
-      <Header title="Calendar" subtitle="Full Calendar Interactive Page" />
-
       <Box display="flex" justifyContent="space-between">
-        {/* CALENDAR SIDEBAR */}
         <Box
           flex="1 1 20%"
-          backgroundColor={colors.primary[400]}
+          backgroundColor="gray"
+          color="white"
           p="15px"
           borderRadius="4px"
         >
-          <Typography variant="h5">Events</Typography>
+          <Typography variant="h4">Lịch hẹn</Typography>
           <List>
             {currentEvents.map((event) => (
               <ListItem
                 key={event.id}
                 sx={{
-                  backgroundColor: colors.greenAccent[500],
+                  backgroundColor: "#3d1ca1",
                   margin: "10px 0",
                   borderRadius: "2px",
                 }}
               >
                 <ListItemText
-                  primary={event.title}
-                  secondary={
-                    <Typography>
-                      {formatDate(event.start, {
-                        year: "numeric",
-                        month: "short",
-                        day: "numeric",
-                      })}
+                  primary={
+                    <Typography sx={{ fontSize: "1.4rem", fontWeight: "bold" }}>
+                      {event.title}
                     </Typography>
+                  }
+                  secondary={
+                    <>
+                      <Typography variant="body2" sx={{ color: "white" }}>
+                        Mentor:{" "}
+                        {event.mentor_name ||
+                          "Không có thông tin"}
+                      </Typography>
+                      <Typography variant="body2" sx={{ color: "white" }}>
+                        Mentee:{" "}
+                        {event.mentee_name ||
+                          "Không có thông tin"}
+                      </Typography>
+                      <Typography variant="body2" sx={{ color: "white" }}>
+                        Thời gian:{" "}
+                        {formatDate(event.start, {
+                          year: "numeric",
+                          month: "short",
+                          day: "numeric",
+                        })}
+                      </Typography>
+                    </>
                   }
                 />
               </ListItem>
@@ -87,7 +122,6 @@ const Calendar = () => {
           </List>
         </Box>
 
-        {/* CALENDAR */}
         <Box flex="1 1 100%" ml="15px">
           <FullCalendar
             height="75vh"
@@ -105,26 +139,53 @@ const Calendar = () => {
             initialView="dayGridMonth"
             editable={true}
             selectable={true}
-            selectMirror={true}
-            dayMaxEvents={true}
-            select={handleDateClick}
+            // dayMaxEvents={true}
+            events={currentEvents}
             eventClick={handleEventClick}
-            eventsSet={(events) => setCurrentEvents(events)}
-            initialEvents={[
-              {
-                id: "12315",
-                title: "All-day event",
-                date: "2022-09-14",
-              },
-              {
-                id: "5123",
-                title: "Timed event",
-                date: "2022-09-28",
-              },
-            ]}
           />
         </Box>
       </Box>
+
+      <Dialog
+        open={openEventDetailsDialog}
+        onClose={() => setOpenEventDetailsDialog(false)}
+      >
+        {selectedEvent && (
+          <>
+            <DialogTitle>Thông tin lịch hẹn</DialogTitle>
+            <DialogContent>
+              <Typography variant="body1">
+                Mentor: {selectedEvent.extendedProps.mentor_name}
+              </Typography>
+              <Typography variant="body1">
+                Mentee: {selectedEvent.extendedProps.mentee_name}
+              </Typography>
+              <Typography variant="body1">
+                Địa điểm:{" "}
+                {selectedEvent.extendedProps.location || "Không có thông tin"}
+              </Typography>
+              <Typography variant="body1">
+                Thời gian:{" "}
+                {formatDate(selectedEvent.start, {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                  hour: "2-digit",
+                  minute: "2-digit",
+                })}
+              </Typography>
+            </DialogContent>
+            <DialogActions>
+              <Button
+                onClick={() => setOpenEventDetailsDialog(false)}
+                color="primary"
+              >
+                Đóng
+              </Button>
+            </DialogActions>
+          </>
+        )}
+      </Dialog>
     </Box>
   );
 };

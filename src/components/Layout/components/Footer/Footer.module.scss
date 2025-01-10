@@ -1,56 +1,82 @@
+
 .wrapper {
     width: 100%;
-    height: auto;
-    padding: 40px 0px;
-    background-color: #162069;
+    color: white; // White text for better readability
+    padding: 40px 0; // Adequate padding for spacing
+    flex-direction: column;
+    background: linear-gradient(135deg, #0c0f69, #020d22); // Gradient background
+    box-shadow: 0px 40px 300px rgba(0, 0, 0, 0.2); // Shadow for depth
+}
+.inner {
     display: flex;
-    justify-content: center;
+    justify-content: space-between; // Evenly distribute columns
+    max-width: 1200px; // Limit the width of the footer
+    margin: 0 auto; // Center the footer
+    padding: 0 20px; // Inner padding
 }
 
-.inner {
-    height: 100%;
-    width: var(--default-layout-width);
-    display: flex;
-    justify-content: space-between;
-    color: var(--white);
-    align-items: center;
+.column {
+    flex: 1; // Each column takes equal space
+    margin: 0 37px; // Spacing between columns
 }
 
 .logo {
     display: flex;
     align-items: center;
-
-    img{
-        width: 45px;
+    margin-left: 100px;
+    img {
+        width: 100px;
         height: auto;
-        border-radius: 90%;
+        border-radius: 50%; // Circular logo
     }
 }
 
-.title {
-    font-size: 2rem;
-    font-weight: 600;
-    margin-bottom: 20px;
+.description {
+    font-size: 14px; // Smaller font size for description
+    line-height: 1.5; // Increase line height for readability
 }
 
-.contact-item {
-    display: flex;
-    margin-bottom: 12px;
-    gap: 12px;
-    align-items: center;
+.title {
+    font-size: 18px; // Larger title font size
+    font-weight: bold; // Bold titles
+    margin-bottom: 10px; // Spacing below titles
+    border-bottom: 2px solid #007bff; // Bottom border for emphasis
+    padding-bottom: 5px; // Spacing below the border
 }
 
 .nav {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; // Stack links vertically
 }
 
 .nav-item {
-    text-decoration: none;
-    color: var(--white);
-    margin-bottom: 12px;
-    
-    &:hover {
-        color: var(--primary);
-    }
+    margin: 8px 0; // Spacing between links
+    color: #ffffff; // Link color
+    text-decoration: none; // Remove underline
+    transition: color 0.3s; // Transition for hover effect
+}
+
+.nav-item:hover {
+    color: #ffffff; // Darker color on hover
+    font-weight: 700;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px; // Spacing between contact items
+    font-size: 14px; // Font size for contact details
+}
+
+.icon {
+    margin-right: 10px; // Spacing between icon and text
+    color: #007bff; // Icon color
+    font-size: 16px; // Slightly larger icon
+}
+
+.footer-bottom {
+    text-align: center; // Center the copyright text
+    margin-top: 30px; // Spacing above
+    font-size: 14px; // Font size for footer text
+    color: #ccc; // Lighter color for copyright text
 }

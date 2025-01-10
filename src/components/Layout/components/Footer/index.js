@@ -1,6 +1,5 @@
 import classNames from "classnames/bind";
 import { Link } from "react-router-dom";
-
 import images from "../../../../assets/images";
 import styles from "./Footer.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -14,52 +13,55 @@ const cx = classNames.bind(styles);
 
 function Footer() {
     return (
-        <footer className={cx("wrapper")}>
-            <div className={cx("inner")}>
-                <div className={cx("about")}>
-                    <div className={cx("title")}>
-                        <div className={cx("logo")}>
-                            <img src={images.logo} alt="Senpy" />
-                        </div>
-                    </div>
-                    <div>
-                        <p>Giới thiệu ngắn gọn về dự án</p>
-                    </div>
-                </div>
-                <div className={cx("contact")}>
-                    <div className={cx("title")}>Liên hệ</div>
-                    <div className={cx("contact-item")}>
-                        <FontAwesomeIcon icon={faLocationDot} />
-                        <p>
-                            140 Lê Trọng Tấn, Phường Tây Thạnh, Quận Tân Phú,
-                            TP.HCM
-                        </p>
-                    </div>
-                    <div className={cx("contact-item")}>
-                        <FontAwesomeIcon icon={faPhone} />
-                        <p>0123.456.789</p>
-                    </div>
-                    <div className={cx("contact-item")}>
-                        <FontAwesomeIcon icon={faEnvelope} />
-                        <p>senpy@gmail.com</p>
-                    </div>
-                </div>
-                <div className={cx("links")}>
-                    <div className={cx("title")}>Liên kết</div>
-                    <nav className={cx("nav")}>
-                        <Link to="/" className={cx("nav-item")}>
-                            Trang chủ
-                        </Link>
-                        <Link to="/About" className={cx("nav-item")}>
-                            Giới thiệu
-                        </Link>
-                        <Link to="/contact" className={cx("nav-item")}>
-                            Liên hệ
-                        </Link>
-                    </nav>
-                </div>
+      <footer className={cx("wrapper")}>
+        <div className={cx("inner")}>
+          <div className={cx("column")}>
+            <div className={cx("logo")}>
+              <Link to="/">
+                <img src={images.logo} alt="Senpy" />
+              </Link>
             </div>
-        </footer>
+          </div>
+          <div className={cx("column")}>
+            <h2 className={cx("title")}>SENPY - FIND YOUR MENTOR</h2>
+            <nav className={cx("nav")}>
+              <Link to="/" className={cx("nav-item")}>
+                Trang chủ
+              </Link>
+              <Link to="/about" className={cx("nav-item")}>
+                Giới thiệu
+              </Link>
+              <Link to="/blog" className={cx("nav-item")}>
+                Tin tức
+              </Link>
+              <Link to="/contact" className={cx("nav-item")}>
+                Liên hệ
+              </Link>
+            </nav>
+          </div>
+          <div className={cx("column")}>
+            <h2 className={cx("title")}>LIÊN HỆ</h2>
+            <div className={cx("contact-item")}>
+              <FontAwesomeIcon icon={faLocationDot} className={cx("icon")} />
+              <p>
+                Tầng trệt nhà B (B105), 140 Lê Trọng Tấn, Phường Tây Thạnh, Quận
+                Tân Phú, TP.HCM
+              </p>
+            </div>
+            <div className={cx("contact-item")}>
+              <FontAwesomeIcon icon={faPhone} className={cx("icon")} />
+              <p>0963 621 124 </p>
+            </div>
+            <div className={cx("contact-item")}>
+              <FontAwesomeIcon icon={faEnvelope} className={cx("icon")} />
+              <p>hotrosinhvien@hufi.edu.vn</p>
+            </div>
+          </div>
+        </div>
+        <div className={cx("footer-bottom")}>
+          <p>&copy; {new Date().getFullYear()} Senpy. Bảo lưu mọi quyền.</p>
+        </div>
+      </footer>
     );
 }
 
