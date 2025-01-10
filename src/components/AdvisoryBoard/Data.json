@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Nguyễn Văn An",
+    "title": "Giám đốc điều hành",
+    "avatar": "https://example.com/avatar/nguyenvanan.jpg"
+  },
+  {
+    "name": "Trần Thị Bích",
+    "title": "Trưởng phòng nhân sự",
+    "avatar": "https://example.com/avatar/tranthibich.jpg"
+  },
+  {
+    "name": "Lê Hoàng Minh",
+    "title": "Kỹ sư phần mềm",
+    "avatar": "https://example.com/avatar/lehoangminh.jpg"
+  },
+  {
+    "name": "Phạm Đức Hùng",
+    "title": "Chuyên viên Marketing",
+    "avatar": "https://example.com/avatar/phamduchung.jpg"
+  },
+  {
+    "name": "Hoàng Thị Lan",
+    "title": "Nhân viên kế toán",
+    "avatar": "https://example.com/avatar/hoangthilan.jpg"
+  }
+]
