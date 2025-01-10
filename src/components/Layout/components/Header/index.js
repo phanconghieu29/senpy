@@ -95,7 +95,7 @@ function Header({ isAuthenticated, setAuthenticated }) {
               <Link to="/change-password" className={cx("icon")}>
                 <FontAwesomeIcon icon={faEnvelope} />
               </Link>
-              <Link to="/notifications" className={cx("icon")}>
+              <Link to="/survey-form" className={cx("icon")}>
                 <FontAwesomeIcon icon={faBell} />
               </Link>
               <div className={cx("user")} onClick={toggleMenu}>

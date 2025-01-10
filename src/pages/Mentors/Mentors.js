@@ -173,6 +173,7 @@ function Mentors() {
               <MentorCard
                 key={mentor.id}
                 id={mentor.id}
+                avatar={mentor.avatar}
                 name={mentor.name}
                 expertise={mentor.expertise}
                 onConnect={() => handleOpenConnectPage(mentor)}

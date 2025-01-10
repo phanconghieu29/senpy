@@ -170,6 +170,7 @@ const MenteeRegister = () => {
             <option disabled value="">
               Chọn ngành học của bạn
             </option>
+            <option>Công nghệ thực phẩm</option>
             <option>Đảm bảo chất lượng và an toàn thực phẩm</option>
             <option>Công nghệ chế biến thuỷ sản</option>
             <option>Kế toán</option>

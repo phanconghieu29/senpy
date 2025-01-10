@@ -118,55 +118,55 @@
 }
 
 .user {
-    position: relative; /* Quan trọng để định vị menu dựa vào avatar */
-    display: inline-block;
-    cursor: pointer;
-  
-    .avatar {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-  
-    .menu {
-      position: absolute;
-      top: 110%; /* Đặt menu ngay bên dưới avatar */
-      right: 0; /* Canh phải */
-      background: white;
-      border: 1px solid #ddd;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      border-radius: 6px;
-      z-index: 10;
-      padding: 8px 0;
-      width: 200px;
-  
-      .menu-item {
-        display: block;
-        padding: 8px 16px;
-        color: #333;
-        text-decoration: none;
-        font-size: 14px;
-        transition: background 0.2s;
-  
-        &:hover {
-          background: #f4f4f4;
-        }
-      }
-  
-      button.menu-item {
-        width: 100%;
-        text-align: left;
-        background: none;
-        border: none;
-        cursor: pointer;
-      }
-    }
+  position: relative; /* Quan trọng để định vị menu dựa vào avatar */
+  display: inline-block;
+  cursor: pointer;
+
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
   }
 
-  .divider {
-    height: 1px;
-    background-color: #ddd; /* Màu xám nhạt */
-    margin: 8px 0; /* Khoảng cách trên dưới */
-    width: 100%;
+  .menu {
+    position: absolute;
+    top: 110%; /* Đặt menu ngay bên dưới avatar */
+    right: 0; /* Canh phải */
+    background: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    z-index: 10;
+    padding: 8px 0;
+    width: 200px;
+
+    .menu-item {
+      display: block;
+      padding: 8px 16px;
+      color: #333;
+      text-decoration: none;
+      font-size: 14px;
+      transition: background 0.2s;
+
+      &:hover {
+        background: #f4f4f4;
+      }
+    }
+
+    button.menu-item {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
   }
+}
+
+.divider {
+  height: 1px;
+  background-color: #ddd; /* Màu xám nhạt */
+  margin: 8px 0; /* Khoảng cách trên dưới */
+  width: 100%;
+}
