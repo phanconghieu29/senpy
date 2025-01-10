@@ -8,8 +8,13 @@ const ProfileCard = ({ name, title, avatar }) => {
     <div
       className="profile-card"
       onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}>
-      <img src={avatar} alt={name} className="profile-image" />
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <img
+        src={`${process.env.PUBLIC_URL}/images/BCV/${avatar}`}
+        alt={name}
+        className="profile-image"
+      />
       <div className={`profile-info ${isHovered ? "visible" : ""}`}>
         <h3>{name}</h3>
         <p>{title}</p>

@@ -4,61 +4,59 @@ import MentorBoard from "../../components/MentorBoard/MentorBoard";
 import BoardofDirectors from "../../components/BoardofDirectors/BoardofDirectors";
 import styles from "./About.module.scss";
 import images from "../../assets/images";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 
 function About() {
   const profiles = [
     {
-      name: "Alice",
-      title: "Software Engineer",
-      avatar:
-        "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/73c61ed6-7677-42e3-b668-b9f09f3c6ca3/dgoq7km-2e4742a1-b49d-4629-9722-c323c6f41803.jpg/v1/fit/w_828,h_1104,q_70,strp/asian_beauty_10_by_ladyaly_dgoq7km-414w-2x.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTcwNyIsInBhdGgiOiJcL2ZcLzczYzYxZWQ2LTc2NzctNDJlMy1iNjY4LWI5ZjA5ZjNjNmNhM1wvZGdvcTdrbS0yZTQ3NDJhMS1iNDlkLTQ2MjktOTcyMi1jMzIzYzZmNDE4MDMuanBnIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.T_hLC8b7JMKz_TKPQkvUOy7KRoCFR84bDSvf-sk9_N4",
+      name: "TS.Thái Doãn Thanh",
+      title: "Phó Hiệu trưởng Nhà trường",
+      avatar: "z6212253112188_cf63f35f7c4c3516c5f8dfea84a158a8.jpg",
       pos: "Ban cố vấn",
     },
 
     {
-      name: "Bob",
-      title: "Product Manager",
-      avatar:
-        "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/73c61ed6-7677-42e3-b668-b9f09f3c6ca3/dgoq7ld-5b241b53-cbde-4571-a5e0-5d67864c5ff4.jpg/v1/fill/w_894,h_894,q_70,strp/asian_beauty_8_by_ladyaly_dgoq7ld-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcLzczYzYxZWQ2LTc2NzctNDJlMy1iNjY4LWI5ZjA5ZjNjNmNhM1wvZGdvcTdsZC01YjI0MWI1My1jYmRlLTQ1NzEtYTVlMC01ZDY3ODY0YzVmZjQuanBnIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.CN2H52H7mS2X56BKJMKPMK3-Ae2G--effFNnKQ32GKs",
+      name: "ThS.Hoàng Thị Thoa",
+      title: "Giám đốc TT ĐMST&KN",
+      avatar: "z6212253112189_5dc56e2bd490f0b035709e51758bf2c1.jpg",
+      pos: "Ban cố vấn",
+    },
+
+    {
+      name: "ThS. Trần Đức Thảo",
+      title: "Giảng viên khoa Sinh học & Môi trường HUIT",
+      avatar: "z6212367809897_af6a5eff6d8d677d9a5b9af2c42cde7f.jpg",
       pos: "Ban chủ nhiệm",
     },
+
     {
-      name: "Charlie",
-      title: "Designer",
-      avatar:
-        "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/b5916d86-e468-4ec9-bc38-be17b1422503/diq7trh-fc8fde61-ee4c-4aff-9e8e-e2337f68c4dc.png/v1/fill/w_1192,h_670,q_70,strp/winter_mood_by_d0esh_diq7trh-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MjE2MCIsInBhdGgiOiJcL2ZcL2I1OTE2ZDg2LWU0NjgtNGVjOS1iYzM4LWJlMTdiMTQyMjUwM1wvZGlxN3RyaC1mYzhmZGU2MS1lZTRjLTRhZmYtOWU4ZS1lMjMzN2Y2OGM0ZGMucG5nIiwid2lkdGgiOiI8PTM4NDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.4rO31zzLGPX-w_4JHq0njttde4-5lXvYlNzCDxDpH3E",
-      pos: "Ban mentor",
+      name: "Bà Bùi Hồng Ngọc",
+      title: "Chuyên viên TT ĐMST&KN",
+      avatar: "z6212367809898_1e93722baf2641fa9c8750c7abdda842.jpg",
+      pos: "Ban chủ nhiệm",
     },
+
     {
-      name: "David",
-      title: "QA Engineer",
-      avatar:
-        "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f37e2b0c-f783-4f25-9e79-0d06eae9ad5b/difqbaq-3ebea9c3-fc6e-4b19-9dc0-c7ba4d4fd805.jpg/v1/fill/w_1054,h_758,q_70,strp/the_hoard_by_sfamag_difqbaq-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTgwMCIsInBhdGgiOiJcL2ZcL2YzN2UyYjBjLWY3ODMtNGYyNS05ZTc5LTBkMDZlYWU5YWQ1YlwvZGlmcWJhcS0zZWJlYTljMy1mYzZlLTRiMTktOWRjMC1jN2JhNGQ0ZmQ4MDUuanBnIiwid2lkdGgiOiI8PTI1MDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.yDR0OrG74hpiG8u-UYexSpJ7qPBRaQnJP4ZdeOumz8w",
-      pos: "Ban mentor",
+      name: "Ông Đặng Xuân Dương",
+      title: "Chuyên viên TT TS&TT",
+      avatar: "z6212367809899_27beb3fa5d50479aaa4978df1e892158.jpg",
+      pos: "Ban chủ nhiệm",
     },
+
     {
-      name: "Eve",
-      title: "DevOps",
-      avatar:
-        "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f37e2b0c-f783-4f25-9e79-0d06eae9ad5b/di8wbtk-09fda961-924d-4914-9f37-dcb38f504b39.jpg/v1/fit/w_828,h_1248,q_70,strp/ediots_by_sfamag_di8wbtk-414w-2x.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MzczNyIsInBhdGgiOiJcL2ZcL2YzN2UyYjBjLWY3ODMtNGYyNS05ZTc5LTBkMDZlYWU5YWQ1YlwvZGk4d2J0ay0wOWZkYTk2MS05MjRkLTQ5MTQtOWYzNy1kY2IzOGY1MDRiMzkuanBnIiwid2lkdGgiOiI8PTI0NzkifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.gIQ4Kc2vi75lkIhOEl9CVynbjqJG4XTMkqD8k16xgMM",
-      pos: "Ban mentor",
+      name: "Bà Nguyễn Thanh Phương",
+      title: "Chuyên viên TT TS&TT",
+      avatar: "z6212367842372_4aca3f7bf9ec6652247a712568df4583.jpg",
+      pos: "Ban chủ nhiệm",
     },
+
     {
-      name: "Frank",
-      title: "UI/UX Designer",
-      avatar:
-        "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/73c61ed6-7677-42e3-b668-b9f09f3c6ca3/dgoq7mg-f814ef70-e11b-4d25-ab22-7a460e1d2cbe.jpg/v1/fill/w_894,h_894,q_70,strp/asian_beauty_4_by_ladyaly_dgoq7mg-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTAyNCIsInBhdGgiOiJcL2ZcLzczYzYxZWQ2LTc2NzctNDJlMy1iNjY4LWI5ZjA5ZjNjNmNhM1wvZGdvcTdtZy1mODE0ZWY3MC1lMTFiLTRkMjUtYWIyMi03YTQ2MGUxZDJjYmUuanBnIiwid2lkdGgiOiI8PTEwMjQifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.7g9qpAI7CRyLrvuaIY-pxam7-9PZgb22NJCY5GeGZQE",
-      pos: "Ban mentor",
-    },
-    {
-      name: "Grace",
-      title: "Product Designer",
-      avatar:
-        "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/73c61ed6-7677-42e3-b668-b9f09f3c6ca3/dgoq7lo-cc17f7ee-74b3-4f8a-8d6a-f2e44414043a.jpg/v1/fill/w_894,h_894,q_70,strp/asian_beauty_7_by_ladyaly_dgoq7lo-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTAyNCIsInBhdGgiOiJcL2ZcLzczYzYxZWQ2LTc2NzctNDJlMy1iNjY4LWI5ZjA5ZjNjNmNhM1wvZGdvcTdsby1jYzE3ZjdlZS03NGIzLTRmOGEtOGQ2YS1mMmU0NDQxNDA0M2EuanBnIiwid2lkdGgiOiI8PTEwMjQifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.7ydxCNUpdj42D5IwXUcFlP3zQEt5Wr3xzSUf5iZezw4",
-      pos: "Ban mentor",
+      name: "Ông Nguyễn Anh Tuấn",
+      title: "Chuyên viên TT TS&TT",
+      avatar: "z6212367842373_b99040d65b84f919935fd4ad17cea469.jpg",
+      pos: "Ban chủ nhiệm",
     },
   ];
   return (
@@ -177,8 +175,8 @@ function About() {
           <div className={cx("inner")}>
             <div className={cx("card-wrapper")}>
               {/* Hiển thị ProfileList */}
-              <div className="profiles-page">
-                <h1>Danh sách cố vấn</h1>
+              <div className={cx("profiles-page")}>
+                <h1>BAN CỐ VẤN</h1>
                 <AdvisoryBoard profiles={profiles} />
               </div>
             </div>
@@ -188,20 +186,9 @@ function About() {
           <div className={cx("inner")}>
             <div className={cx("card-wrapper")}>
               {/* Hiển thị ProfileList */}
-              <div className="profiles-page">
-                <h1>Danh sách ban chủ nhiệm</h1>
+              <div className={cx("profiles-page")}>
+                <h1>BAN CHỦ NHIỆM</h1>
                 <BoardofDirectors profiles={profiles} />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className={cx("wrapper")}>
-          <div className={cx("inner")}>
-            <div className={cx("card-wrapper")}>
-              {/* Hiển thị ProfileList */}
-              <div className="profiles-page">
-                <h1>Danh sách cố vấn</h1>
-                <MentorBoard profiles={profiles} />
               </div>
             </div>
           </div>
