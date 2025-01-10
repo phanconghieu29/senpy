@@ -1,3 +1,26 @@
+$primary-gradient: linear-gradient(135deg, #667eea, #764ba2);
+$form-gradient: linear-gradient(135deg, #48e5c2, #5be7a9);
+$button-hover: linear-gradient(135deg, #a18cd1, #fbc2eb);
+$background-color: #f3f4f6;
+$text-color: #333;
+$glass-bg: rgba(255, 255, 255, 0.2);
+$border-glass: rgba(255, 255, 255, 0.3);
+$shadow-glass: rgba(0, 0, 0, 0.1);
+$input-border: rgba(255, 255, 255, 0.4);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+.wrapper {
+  // display: flex;
+  align-items: center;
+  justify-content: center;
+  // height: 100vh;
+  width: 100vw;
+  background: $primary-gradient;
+}
 .form-wrapper {
   max-width: 600px;
   margin: 0 auto;

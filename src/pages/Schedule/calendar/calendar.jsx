@@ -224,8 +224,7 @@ const Calendar = () => {
           backgroundColor="gray"
           color="white"
           p="15px"
-          borderRadius="4px"
-        >
+          borderRadius="4px">
           <Typography variant="h4">Lịch gặp</Typography>
           <List>
             {currentEvents.map((event) => (
@@ -235,8 +234,7 @@ const Calendar = () => {
                   backgroundColor: "#3d1ca1",
                   margin: "10px 0",
                   borderRadius: "2px",
-                }}
-              >
+                }}>
                 <ListItemText
                   primary={event.title}
                   secondary={formatDate(event.start, {
@@ -280,8 +278,7 @@ const Calendar = () => {
       {/* Dialog for creating new schedule */}
       <Dialog
         open={openNewScheduleDialog}
-        onClose={handleNewScheduleDialogClose}
-      >
+        onClose={handleNewScheduleDialogClose}>
         <DialogTitle>Đặt lịch hẹn</DialogTitle>
         <DialogContent>
           <Typography variant="h6">
@@ -332,8 +329,7 @@ const Calendar = () => {
       {selectedEvent && (
         <Dialog
           open={openEventDetailsDialog}
-          onClose={handleEventDetailsDialogClose}
-        >
+          onClose={handleEventDetailsDialogClose}>
           <DialogTitle>{selectedEvent.title}</DialogTitle>
           <DialogContent>
             <Typography variant="body1">
@@ -369,8 +365,7 @@ const Calendar = () => {
                 <Button
                   component={Link}
                   to={`/report-session?scheduleId=${selectedEvent.id}`}
-                  color="primary"
-                >
+                  color="primary">
                   Viết báo cáo
                 </Button>
               )}
